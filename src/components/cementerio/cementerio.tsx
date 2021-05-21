@@ -1,7 +1,6 @@
 import React from 'react';
 import './cementerio.scss';
 
-import { Header } from '../header/header';
 
 export const App = () => {
     return (
