@@ -1,6 +1,7 @@
 import React from 'react';
-import './rodado.scss';
+import { Link } from 'react-router-dom'
 
+import './rodado.scss'
 
 export const App = () => {
     return (
@@ -18,17 +19,16 @@ export const App = () => {
                 <input type="text" id="patente" className="form-control font-weight-bold text-center input-rodados" />
                 <p>Autos: XXX999 / XX999XX<br />
                     Motos: 999XXX /X999XXX</p>
-                    <a href="tributos-rel-doc.html" type="button" className="btn btn-primary active mb-1 pull-left">
-                        <i className="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Volver
+                <a href="tributos-rel-doc.html" type="button" className="btn btn-primary active mb-1 pull-left">
+                    <i className="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Volver
                     </a>
-                    <a href="cuotas-a-pagar.html" type="button" className="btn btn-primary active mb-1 pull-right">
-                        <i className="fa fa-arrow-circle-o-right" aria-hidden="true"></i> Siguiente
-                    </a>
-        
+                <Link to={{ pathname: "/apps/totems/pagar/", state: { tipo: 'ROD' } }} className="btn btn-primary active mb-1 pull-right"><i className="fa fa-arrow-circle-o-right" aria-hidden="true"></i> Siguiente</Link>
+
+
             </div>
-                <div className="col"></div>
+            <div className="col"></div>
         </div>
-        
+
     );
 };
 
