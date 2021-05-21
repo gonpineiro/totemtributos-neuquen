@@ -15,7 +15,7 @@ export const App = () => {
                     Cementerio
                 </a>
                 <h2 className="text-primary mb-3 text-center">Ingrese su número de contrato</h2>
-                <label className="float-left" htmlFor="nomenclatura">Contrato</label>
+                <label className="float-left label" htmlFor="nomenclatura">Contrato</label>
                 <input type="text" id="nomenclatura" className="form-control font-weight-bold text-center input-contrato-cementerio" />
                 <p>999999999</p>
                 <a href="tributos-rel-doc.html" type="button" className="btn btn-primary active mb-1 pull-left">
