@@ -3,7 +3,7 @@ import React from 'react';
 import './header.scss';
 import logo from './logo.png';
 
-export const Header = () => {
+const Header = () => {
  return (
   <header>
    <div className="row test">
@@ -15,3 +15,5 @@ export const Header = () => {
   </header>
  );
 };
+
+export default Header;
