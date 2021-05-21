@@ -1,8 +1,9 @@
 import React from 'react';
 import './cuotas-a-pagar.scss';
 
-export const App = ({ location: { state: { tipo } } }) => {
+export const App = ({ location: { state: { tipo, patente } } }) => {
     console.log(tipo);
+    console.log(patente);
 
     return (
         <div className="row mt-4">
