@@ -2,7 +2,7 @@ import './css/bootstrap.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './routes/App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
