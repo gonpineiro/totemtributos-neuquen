@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Layout from '../components/Layout';
 
-import Main from '../components/Main/index';
+import Main from '../components/main';
 import Tributo from '../components/busqueda-tributo';
 
 const App = () => {
