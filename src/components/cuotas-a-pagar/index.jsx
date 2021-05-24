@@ -1,9 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+import { imponible } from './ctaCtoAxios';
+
 import './cuotas-a-pagar.scss';
 
-export const App = ({ location: { state: { tipo, data } } }) => {
+export const App = ({
+    location: {
+        state: { tipo, data },
+    },
+}) => {
+    const [datos, setDatos] = useState(null);
+
     console.log(tipo);
     console.log(data);
+
+    useEffect(() => {
+        imponible(tipo, data).then((response) => {
+            setDatos(response);
+        });
+    }, []);
+
+    console.log(datos);
+
+    if (datos == null) return 'Cargando';
+    if (datos.error) return 'Error';
+
+    const Row = (id, estado_d) => (
+        <tr>
+            <td>
+                <input type="checkbox" className="form-check-input chksel" value={id} />
+            </td>
+            <td>01/2021</td>
+            <td>28/01/2021</td>
+            <td>1200</td>
+            <td>{estado_d}</td>
+            <td className="total">1247</td>
+        </tr>
+    );
 
     return (
         <div className="row mt-4">
@@ -11,8 +44,8 @@ export const App = ({ location: { state: { tipo, data } } }) => {
             <div className="col-md-8 p-3 text-center background-main-div">
                 <h2 className="text-primary mb-3 text-center">Seleccionar las cuotas que desea pagar</h2>
                 <div className="col-md-12 linea"></div>
-                <p className="titulo">Dominio : AC-740-US</p>
-                <p className="subtitulo">Marca-Modelo-Año : VOLKSWAGEN - POLO COMFORTLINE 1.6 MSI 110 CV-2018</p>
+                <p className="titulo">Dominio : {datos.imp_identificacion}</p>
+                <p className="subtitulo">Marca-Modelo-Año : {datos.imp_nombre}</p>
                 <table className="table">
                     <thead>
                         <tr>
@@ -25,66 +58,25 @@ export const App = ({ location: { state: { tipo, data } } }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><input type="checkbox" className="form-check-input chksel" value="1" /></td>
-                            <td>01/2021</td>
-                            <td>28/01/2021</td>
-                            <td>1200</td>
-                            <td>47</td>
-                            <td className="total">1247</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" className="form-check-input chksel" value="1" /></td>
-                            <td>02/2021</td>
-                            <td>10/02/2021</td>
-                            <td>1200</td>
-                            <td>41</td>
-                            <td className="total">1241</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" className="form-check-input chksel" value="1" /></td>
-                            <td>03/2021</td>
-                            <td>09/03/2021</td>
-                            <td>1200</td>
-                            <td>35</td>
-                            <td className="total">1235</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" className="form-check-input chksel" value="1" /></td>
-                            <td>04/2021</td>
-                            <td>12/04/2021</td>
-                            <td>1200</td>
-                            <td>29</td>
-                            <td className="total">1229</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" className="form-check-input chksel" value="1" /></td>
-                            <td>05/2021</td>
-                            <td>11/05/2021</td>
-                            <td>1200</td>
-                            <td>21</td>
-                            <td className="total">1221</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" className="form-check-input chksel" value="1" /></td>
-                            <td>06/2021</td>
-                            <td>10/06/2021</td>
-                            <td>1200</td>
-                            <td>12</td>
-                            <td className="total">1212</td>
-                        </tr>
-
+                        {datos.impuestos.map((key, elem) => (
+                            <Row key={key} id={elem.tr1a102_id} estado_d={elem.estado_d} />
+                        ))}
                     </tbody>
-
                 </table>
                 <div className="row mb-4">
-                    <div className="col"></div><div className="col-md-3 text-info font-weight-bold">Total a pagar $ <span id="totalpagar">0.00</span></div><div className="col-md-2 col-md-3 text-primary font-weight-bold"><a href="qr.html">Generar QR</a></div>
+                    <div className="col"></div>
+                    <div className="col-md-3 text-info font-weight-bold">
+                        Total a pagar $ <span id="totalpagar">0.00</span>
+                    </div>
+                    <div className="col-md-2 col-md-3 text-primary font-weight-bold">
+                        <a href="qr.html">Generar QR</a>
+                    </div>
                 </div>
 
                 <div className="row">
                     <div className="col"></div>
                     <div className="col-md-7">
-                        <a href="rodados.html" type="button" className="btn btn-primary active mb-1 pull-left col-md-5" >
+                        <a href="rodados.html" type="button" className="btn btn-primary active mb-1 pull-left col-md-5">
                             <i className="fa fa-arrow-circle-o-left" aria-hidden="true"></i> VOLVER
                         </a>
                         <a href="imprimir.html" type="button" className="btn btn-info active mb-1 pull-right col-md-5">
