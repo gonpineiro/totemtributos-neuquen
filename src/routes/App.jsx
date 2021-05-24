@@ -9,7 +9,6 @@ import CuotaPagar from '../components/cuotas-a-pagar';
 import { Rodado, Cementerio, Inmuebles, Natatorio, ResiduosPatogenos, RecuperoPlanFederal } from '../components/components';
 
 const App = () => {
-    const NotFound = () => <h1>NotFound</h1>;
     return (
         <BrowserRouter>
             <Layout>
@@ -23,7 +22,7 @@ const App = () => {
                     <Route exact path="/apps/totems/recupero-plan-federal" component={RecuperoPlanFederal} />
                     <Route exact path="/apps/totems/tributo" component={Tributo} />
                     <Route exact path="/apps/totems/pagar/" component={CuotaPagar} />
-                    <Route component={NotFound} />
+                    <Route component={Main} />
                 </Switch>
             </Layout>
         </BrowserRouter>
