@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import './styles.scss';
 
 export const Form = ({ name, h2, label, inputName, tipo, nodesHtml }) => {
     const [datos, setDatos] = useState({});
