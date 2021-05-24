@@ -1,10 +1,15 @@
 .test {
-    background:#1299D6; 
-    height:120px; 
-    margin-top:30px;
-    padding:0px;
+  background: #1299d6;
+  // height:120px;
+  // margin-top:30px;
+  // padding:0px;
+  align-items: center;
+  justify-content: center;
 }
 
+
 .header-logo {
-    height:80%;
+    // height:80%;
+    width:20%;
+    padding: 50px;
 }
