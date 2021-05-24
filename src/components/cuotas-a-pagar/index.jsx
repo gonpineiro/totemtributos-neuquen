@@ -1,9 +1,9 @@
 import React from 'react';
 import './cuotas-a-pagar.scss';
 
-export const App = ({ location: { state: { tipo, patente } } }) => {
+export const App = ({ location: { state: { tipo, data } } }) => {
     console.log(tipo);
-    console.log(patente);
+    console.log(data);
 
     return (
         <div className="row mt-4">
@@ -78,7 +78,7 @@ export const App = ({ location: { state: { tipo, patente } } }) => {
 
                 </table>
                 <div className="row mb-4">
-                    <div className="col"></div><div className="col-md-3 text-info font-weight-bold">Total a pagar $ <span id="totalpagar">0.00</span></div><div className="col-md-2 col-md-3 text-primary font-weight-bold"><a href="#">Generar QR</a></div>
+                    <div className="col"></div><div className="col-md-3 text-info font-weight-bold">Total a pagar $ <span id="totalpagar">0.00</span></div><div className="col-md-2 col-md-3 text-primary font-weight-bold"><a href="qr.html">Generar QR</a></div>
                 </div>
 
                 <div className="row">
@@ -99,7 +99,7 @@ export const App = ({ location: { state: { tipo, patente } } }) => {
                         <a href="enviar.html" type="button" id="enviar" className="btn btn-md btn-success active mb-1 pull-left col-md-5">
                             <i className="fa fa-envelope-o" aria-hidden="true"></i> ENVIAR POR MAIL
                         </a>
-                        <a href="#" type="button" className="btn btn-danger active mb-1 pull-right col-md-5">
+                        <a href="pagar.html" type="button" className="btn btn-danger active mb-1 pull-right col-md-5">
                             <i className="fa fa-calculator" aria-hidden="true"></i> PAGAR EN LINEA
                         </a>
                     </div>
