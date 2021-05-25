@@ -1,10 +1,11 @@
 import axios from 'axios';
 import qs from 'qs';
+import { URL_DEV, NOW } from '../utils/const';
 
 export const imponible = async (tipo, id) => {
     const responseOne = await axios({
         method: 'post',
-        url: 'https://sigemi.muninqn.gov.ar/apex/prueba/rfws/apiweb/consulta_imponible',
+        url: URL_DEV + 'consulta_imponible',
         data: qs.stringify({
             IMPONIBLE_TIPO: tipo,
             IMPONIBLE_IDENTIFICACION: id,
@@ -18,17 +19,17 @@ export const imponible = async (tipo, id) => {
 
     const responseTwo = await axios({
         method: 'post',
-        url: 'https://sigemi.muninqn.gov.ar/apex/prueba/rfws/apiweb/cuenta_corriente',
+        url: URL_DEV + 'cuenta_corriente',
         data: qs.stringify({
             IMPONIBLE_ID: responseOne.data.items[0].tr02100_id,
-            FECHA_ACTUALIZACION: '2021-05-24',
+            FECHA_ACTUALIZACION: NOW,
         }),
         headers: {
             'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
         },
     });
 
-    const impuestos = responseTwo.data.items.filter(function (el) {
+    const impuestos = responseTwo.data.items.filter((el) => {
         return el.es_deuda === 'S' && el.es_transac === 'S';
     });
 
@@ -40,6 +41,4 @@ export const imponible = async (tipo, id) => {
     };
 
     return obj;
-
-    //console.log(response.data.items[0].imp_nombre);
 };
