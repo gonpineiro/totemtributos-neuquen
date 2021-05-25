@@ -20,6 +20,7 @@ export const Recibo = ({
             };
 
         });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     if (pdf === null || undefined) return 'Cargando';
@@ -30,7 +31,7 @@ export const Recibo = ({
                 <div className="row">
                     <div className="col-md-7 text-white font-weight-bold d-flex align-items-center justify-content-center">
                         <div>RECIBO</div>
-                        <iframe src={pdf} height="600px" width="100%"></iframe>
+                        <iframe src={pdf} height="600px" width="100%" title={' '}></iframe>
                     </div>
                     <div className="col-md-5 pull-right d-flex align-items-center justify-content-center">
                         <div className="row">
@@ -62,7 +63,7 @@ export const Recibo = ({
                         SI
                     </a>
 
-                    <a href="#" type="button" className="btn btn-primary active" id="no-pudo-imprimir">
+                    <a href="index.html" type="button" className="btn btn-primary active" id="no-pudo-imprimir">
                         NO
                     </a>
                 </div>

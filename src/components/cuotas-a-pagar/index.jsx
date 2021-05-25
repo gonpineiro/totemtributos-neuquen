@@ -17,6 +17,7 @@ export const CuotasPagar = ({
         imponible(tipo, data).then((response) => {
             setDatos(response);
         });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const [impApagar, setImpApagar] = useState([]);
