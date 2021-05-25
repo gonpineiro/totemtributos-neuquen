@@ -4,6 +4,7 @@ import './cuotas-a-pagar.scss';
 import { imponible } from './ctaCtoAxios';
 import { Row } from './Row';
 import { Error } from './Error';
+import { Link } from 'react-router-dom';
 
 export const CuotasPagar = ({
     location: {
@@ -40,8 +41,7 @@ export const CuotasPagar = ({
     if (datos == null) return 'Cargando';
 
     if (datos.error) return <Error error={datos.error} />;
-    console.log('impApagar', impApagar);
-    console.log('sum', sum);
+    
     return (
         <div className="row mt-4">
             <div className="col"></div>
@@ -79,7 +79,7 @@ export const CuotasPagar = ({
                 <div className="row mb-4">
                     <div className="col"></div>
                     <div className="col-md-3 text-info font-weight-bold">
-                        Total a pagar $ <span id="totalpagar">{0}</span>
+                        Total a pagar $ <span id="totalpagar">{sum}</span>
                     </div>
                     {/* <div className="col-md-2 col-md-3 text-primary font-weight-bold">
                         <a href="qr.html">Generar QR</a>
@@ -92,9 +92,13 @@ export const CuotasPagar = ({
                         <a href="rodados.html" type="button" className="btn btn-primary active mb-1 pull-left col-md-5">
                             <i className="fa fa-arrow-circle-o-left" aria-hidden="true"></i> VOLVER
                         </a>
-                        <a href="imprimir.html" type="button" className="btn btn-info active mb-1 pull-right col-md-5">
+                        <Link
+                            to={{ pathname: '/apps/totems/recibo/', state: { impApagar, datos } }}
+                            type="button"
+                            className="btn btn-info active mb-1 pull-right col-md-5"
+                        >
                             <i className="fa fa-print" aria-hidden="true"></i> IMPRIMIR
-                        </a>
+                        </Link>
                     </div>
                     <div className="col"></div>
                 </div>

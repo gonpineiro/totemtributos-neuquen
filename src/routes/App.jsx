@@ -8,6 +8,8 @@ import CuotasPagar from '../components/cuotas-a-pagar';
 
 import { Rodado, Cementerio, Inmuebles, Natatorio, ResiduosPatogenos, RecuperoPlanFederal } from '../components/components';
 
+import {Recibo} from '../components/Recibo'
+
 const App = () => {
     return (
         <BrowserRouter>
@@ -22,6 +24,7 @@ const App = () => {
                     <Route exact path="/apps/totems/recupero-plan-federal" component={RecuperoPlanFederal} />
                     <Route exact path="/apps/totems/tributo" component={Tributo} />
                     <Route exact path="/apps/totems/pagar/" component={CuotasPagar} />
+                    <Route exact path="/apps/totems/recibo/" component={Recibo} />
                     <Route component={Main} />
                 </Switch>
             </Layout>
