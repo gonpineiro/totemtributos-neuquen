@@ -1,6 +1,14 @@
 .background-main-div {
     background: #f0f9fc;
 }
+.float-left {
+    float: left;
+}
+.input-inmueble {
+    border-color: #1299d6;
+    background: white;
+    color: #1299d6;
+}
 .form-control::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #1299d6;
@@ -45,6 +53,13 @@
 /* .btn {
           margin-bottom: 10px;
         } */
+
+label {
+    color: #066ab1;
+    font-size: 24px;
+    margin-left: 20px;
+    float: left;
+}
 
 .btn-salir {
     background: #c449b2;
