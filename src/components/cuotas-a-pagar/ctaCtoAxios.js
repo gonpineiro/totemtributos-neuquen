@@ -28,13 +28,15 @@ export const imponible = async (tipo, id) => {
         },
     });
 
-    console.log(responseTwo);
+    const impuestos = responseTwo.data.items.filter(function (el) {
+        return el.es_deuda === 'S' && el.es_transac === 'S';
+    });
 
     const obj = {
         imp_nombre: responseOne.data.items[0].imp_nombre,
         imp_identificacion: responseOne.data.items[0].imp_identificacion,
         tr02100_id: responseOne.data.items[0].tr02100_id,
-        impuestos: responseTwo.data.items,
+        impuestos,
     };
 
     return obj;
