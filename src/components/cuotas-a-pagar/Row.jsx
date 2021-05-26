@@ -1,14 +1,13 @@
 export const Row = ({ id, saldo, total, reg_id, fecha, handlerCheckboxChance }) => {
     return (
-        <tr>
-            <td>{id}</td>
+        <tr>            
             <td>
                 <input type="checkbox" className="form-check-input chksel" onChange={(e) => handlerCheckboxChance(e, total)} value={id} />
             </td>
             <td>{reg_id}</td>
-            <td>{fecha}</td>
+            <td>{fecha.substring(0,10)}</td>
             <td>$ {saldo}</td>
-            <td>$ {total - saldo}</td>
+            <td>$ {(total - saldo).toFixed(2)}</td>
             <td className="total">$ {total}</td>
         </tr>
     );

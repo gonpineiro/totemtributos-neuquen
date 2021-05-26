@@ -17,11 +17,10 @@ export const CuotasPagar = ({
         imponible(tipo, data).then((response) => {
             setDatos(response);
         });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const [impApagar, setImpApagar] = useState([]);
-    const [sum, setSum] = useState();
 
     const handlerCheckboxChance = (event, total) => {
         const value = event.target.value;
@@ -30,19 +29,29 @@ export const CuotasPagar = ({
         if (isChecked) setImpApagar([...impApagar, { value, total }]);
 
         if (!isChecked) {
-            const array = impApagar;
-            impApagar.splice(array.indexOf(value));
+            const array = [...impApagar];
+            array.splice(array.indexOf(value));
             setImpApagar(array);
         }
-
-        //setImpApagar([...impApagar, impApagar.reduce((acc, curr) => acc + curr.total, 0)]);
-        setSum(impApagar.reduce((acc, curr) => acc + curr.total, 0));
     };
+
+    const BtnPrint = () => {
+        if (impApagar.length > 0) {
+            return (
+                <Link
+                    to={{ pathname: '/apps/totems/recibo/', state: { impApagar, datos } }}
+                    type="button"
+                    className="btn btn-info active mb-1 pull-right col-md-5"
+                >
+                    <i className="fa fa-print" aria-hidden="true"></i> IMPRIMIR
+                </Link>
+            )
+        }
+    }
 
     if (datos == null) return 'Cargando';
 
     if (datos.error) return <Error error={datos.error} />;
-    
     return (
         <div className="row mt-4">
             <div className="col"></div>
@@ -54,7 +63,6 @@ export const CuotasPagar = ({
                 <table className="table">
                     <thead>
                         <tr>
-                            <th>#</th>
                             <th>Pagar</th>
                             <th>Cuota</th>
                             <th>Vencimiento</th>
@@ -80,7 +88,7 @@ export const CuotasPagar = ({
                 <div className="row mb-4">
                     <div className="col"></div>
                     <div className="col-md-3 text-info font-weight-bold">
-                        Total a pagar $ <span id="totalpagar">{sum}</span>
+                        Total a pagar $ <span id="totalpagar">{impApagar.reduce((acc, curr) => acc + curr.total, 0).toFixed(2)}</span>
                     </div>
                     {/* <div className="col-md-2 col-md-3 text-primary font-weight-bold">
                         <a href="qr.html">Generar QR</a>
@@ -93,13 +101,7 @@ export const CuotasPagar = ({
                         <a href="rodados.html" type="button" className="btn btn-primary active mb-1 pull-left col-md-5">
                             <i className="fa fa-arrow-circle-o-left" aria-hidden="true"></i> VOLVER
                         </a>
-                        <Link
-                            to={{ pathname: '/apps/totems/recibo/', state: { impApagar, datos } }}
-                            type="button"
-                            className="btn btn-info active mb-1 pull-right col-md-5"
-                        >
-                            <i className="fa fa-print" aria-hidden="true"></i> IMPRIMIR
-                        </Link>
+                        {BtnPrint()}
                     </div>
                     <div className="col"></div>
                 </div>
