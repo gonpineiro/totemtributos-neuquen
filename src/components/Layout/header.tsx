@@ -6,12 +6,11 @@ import logo from './logo.png';
 const Header = () => {
  return (
   <header>
-   <div className="row test">
-      <div className="col-lg-12 text-center" >
+   <div className="test">
+      <div className="text-center" >
         <img src={logo} alt='Logo' className="img-responsive header-logo"/>
       </div>
     </div>
-   
   </header>
  );
 };

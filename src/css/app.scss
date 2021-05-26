@@ -1,24 +1,32 @@
-.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #1299D6;
-    opacity: 0.5; /* Firefox */
+.body{
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+.form-control::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #1299d6;
+  opacity: 0.5; /* Firefox */
 }
 
-.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
-            color: #1299D6;
+.form-control:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #1299d6;
 }
 
-.form-control::-ms-input-placeholder { /* Microsoft Edge */
-            color: #1299D6;
+.form-control::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #1299d6;
 }
-.ui-keyboard{
-  top:auto;          
+.ui-keyboard {
+  top: auto;
   bottom: 20px;
   left: 50%; /* position the left edge of the element at the middle of the parent */
-  transform: translate(-50%, 0); 
+  transform: translate(-50%, 0);
 }
 
 .btn-label {
-  float:left;
+  float: left;
   position: relative;
   left: -12px;
   display: inline-block;
@@ -30,22 +38,25 @@
 .btn-labeled {
   padding-top: 0;
   padding-bottom: 0;
-  height:40px;
-  line-height:40px;
-  vertical-align:middle;
-  text-align:left;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+  text-align: left;
 }
 
 /* .btn {
   margin-bottom: 10px;
 } */
 
-.btn-salir{
-  background:#C449B2;
-  color:white;
-  width:140px;
+.btn-salir {
+  background: #c449b2;
+  color: white;
+  width: 140px;
 }
 
 .components-container {
-  height:100%;
+  height: 100%;
+}
+.titulo-componente {
+  background-color: #1299d6;
 }

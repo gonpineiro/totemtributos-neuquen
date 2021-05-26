@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { recibo } from './reciboAxios';
+import { Cargando } from "../cargando/Cargando";
 
 export const Recibo = ({
     location: {
@@ -23,7 +24,7 @@ export const Recibo = ({
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    if (pdf === null || undefined) return 'Cargando';
+    if (pdf === null || undefined) return <Cargando />;
     return (
         <div className="row mt-4">
             <div className="col"></div>
