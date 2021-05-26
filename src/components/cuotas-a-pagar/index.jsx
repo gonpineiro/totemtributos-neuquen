@@ -106,12 +106,12 @@ export const CuotasPagar = ({
                 <div className="row">
                     <div className="col"></div>
                     <div className="col-md-7 mt-3">
-                        <a href="enviar.html" type="button" id="enviar" className="btn btn-md btn-success active mb-1 pull-left col-md-5">
-                            <i className="fa fa-envelope-o" aria-hidden="true"></i> ENVIAR POR MAIL
-                        </a>
-                        {/* <a href="pagar.html" type="button" className="btn btn-danger active mb-1 pull-right col-md-5">
-                            <i className="fa fa-calculator" aria-hidden="true"></i> PAGAR EN LINEA
-                        </a> */}
+                        <Link
+                            to={{ pathname: '/apps/totems/mail/', state: { tipo: tipo, data: data} }}
+                            className="btn btn-primary active mb-1 pull-right"
+                        >
+                            <i className="fa fa-arrow-circle-o-right" aria-hidden="true"></i> ENVIAR POR MAIL
+                        </Link>
                     </div>
                     <div className="col"></div>
                 </div>

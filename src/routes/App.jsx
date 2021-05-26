@@ -5,6 +5,7 @@ import Layout from '../components/Layout';
 import Main from '../components/Main';
 import Tributo from '../components/busqueda-tributo';
 import CuotasPagar from '../components/cuotas-a-pagar';
+import Mail from '../components/Mail';
 
 import { Rodado, Cementerio, Inmuebles, Natatorio, ResiduosPatogenos, RecuperoPlanFederal } from '../components/components';
 
@@ -25,6 +26,7 @@ const App = () => {
                     <Route exact path="/apps/totems/tributo" component={Tributo} />
                     <Route exact path="/apps/totems/pagar/" component={CuotasPagar} />
                     <Route exact path="/apps/totems/recibo/" component={Recibo} />
+                    <Route exact path="/apps/totems/mail/" component={Mail} />
                     <Route component={Main} />
                 </Switch>
             </Layout>
