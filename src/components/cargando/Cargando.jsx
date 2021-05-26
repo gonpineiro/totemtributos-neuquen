@@ -1,4 +1,4 @@
-import "./cuotas-a-pagar.scss";
+import "./cargando.scss";
 export const Cargando = () => {
   return (
     <div className="container">

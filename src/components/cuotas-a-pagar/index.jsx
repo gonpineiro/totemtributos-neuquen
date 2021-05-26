@@ -4,7 +4,7 @@ import './cuotas-a-pagar.scss';
 import { imponible } from './ctaCtoAxios';
 import { Row } from './Row';
 import { Error } from './Error';
-import { Cargando } from "./Cargando";
+import { Cargando } from "../cargando/Cargando";
 import { Link } from 'react-router-dom';
 
 export const CuotasPagar = ({
