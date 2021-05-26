@@ -1,9 +1,9 @@
-import { useState } from 'react';
+/* eslint-disable jsx-a11y/heading-has-content */
 import './mail.scss';
 
 import { Link } from 'react-router-dom';
 
-export const enviarMail = ({
+export const EnviarMail = ({
     location: {
         state: { tipo, data },
     },
@@ -18,7 +18,7 @@ export const enviarMail = ({
                 <input type="text" id="mail" className="form-control font-weight-bold" />
                 <div className="row">
                 <div className="col-md-12">
-                    <a href="#" type="button" id="enviar" className="btn btn-success active pull-right mb-3 mt-4 col-md-3">
+                    <a href="html.html" type="button" id="enviar" className="btn btn-success active pull-right mb-3 mt-4 col-md-3">
                     <i className="fa fa-envelope-o" aria-hidden="true"></i> Enviar
                     </a>
                 </div>
@@ -49,7 +49,7 @@ export const enviarMail = ({
                     SI
                 </a>
                 
-                <a href="#" type="button" className="btn btn-primary active" id="no-pudo-imprimir" >
+                <a href="html.html" type="button" className="btn btn-primary active" id="no-pudo-imprimir" >
                     NO
                 </a>
                 </div>
@@ -58,4 +58,4 @@ export const enviarMail = ({
     );
 };
 
-export default enviarMail;
+export default EnviarMail;
