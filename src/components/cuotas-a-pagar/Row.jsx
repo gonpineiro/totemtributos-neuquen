@@ -6,9 +6,9 @@ export const Row = ({ id, saldo, total, reg_id, fecha, handlerCheckboxChance }) 
             </td>
             <td>{reg_id}</td>
             <td>{fecha.substring(0,10)}</td>
-            <td>$ {saldo}</td>
+            <td>$ {saldo.toFixed(2)}</td>
             <td>$ {(total - saldo).toFixed(2)}</td>
-            <td className="total">$ {total}</td>
+            <td className="total">$ {total.toFixed(2)}</td>
         </tr>
     );
 };
