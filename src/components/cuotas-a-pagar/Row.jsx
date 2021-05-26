@@ -3,7 +3,7 @@ export const Row = ({ id, saldo, total, reg_id, fecha, handlerCheckboxChance }) 
         <tr>
             <td>{id}</td>
             <td>
-                <input type="checkbox" className="form-check-input chksel" onChange={(e) => handlerCheckboxChance(e, total)} value={id} />
+                <input type="checkbox" className="form-check-input chksel" onChange={(e) => handlerCheckboxChance(e, total)} value={id}/>
             </td>
             <td>{reg_id}</td>
             <td>{fecha}</td>

@@ -80,3 +80,18 @@ p.subtitulo {
   color: white;
   width: 140px;
 }
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cargando {
+  min-height: 50vh;
+}
+.alto-tabla {
+  height: 300px;
+  overflow-y: auto;
+}
+.btn{
+  //min-width: 200px;
+}
