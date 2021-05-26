@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Teclado from './Teclado';
+/* import Teclado from './Teclado'; */
+
+import Keyboard from 'react-simple-keyboard';
+import 'react-simple-keyboard/build/css/index.css';
 
 import './styles.scss';
 
@@ -14,6 +17,13 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml }) => {
         });
     };
 
+    const onChange = (input) => {
+        setDatos({
+            ...datos,
+            [inputName]: input,
+        });
+    };
+    
     return (
         <div className="row mt-4">
             <div className="col"></div>
@@ -31,6 +41,7 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml }) => {
                     onChange={handleInputChange}
                     name={inputName}
                     className="form-control font-weight-bold text-center input-rodados"
+                    value={datos[inputName]}
                 />
                 {nodesHtml[0]}
                 <Link to="/apps/totems" className="btn btn-primary active mb-1 pull-left">
@@ -46,7 +57,11 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml }) => {
                 </Link>
             </div>
             <div className="col"></div>
-            <Teclado />
+            <div className="row">
+                <div className="col-6 mx-auto mt-10">
+                    <Keyboard onChange={onChange} /* onKeyPress={onChange} */ />
+                </div>
+            </div>
         </div>
     );
 };
