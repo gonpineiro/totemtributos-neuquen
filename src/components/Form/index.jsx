@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Teclado from './Teclado';
 
 import './styles.scss';
 
@@ -45,9 +46,9 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml }) => {
                 </Link>
             </div>
             <div className="col"></div>
+            <Teclado />
         </div>
     );
 };
-
 
 export default Form;
