@@ -63,12 +63,8 @@ export const CuotasPagar = ({
                   Seleccionar las cuotas que desea pagar
                 </span>
               </div>
-              <p className="titulo">
-                Dominio : {datos.imp_identificacion}
-              </p>
-              <p className="subtitulo">
-                Marca-Modelo-Año : {datos.imp_nombre}
-              </p>
+              <p className="titulo">Dominio : {datos.imp_identificacion}</p>
+              <p className="subtitulo">Marca-Modelo-Año : {datos.imp_nombre}</p>
               <div className="card-body">
                 <div className="table-responsive">
                   <table className="table">
@@ -79,7 +75,9 @@ export const CuotasPagar = ({
                         <th>Vencimiento</th>
                         <th>Valor</th>
                         <th>Intereses</th>
-                        <th>Importe Total</th>
+                        <th>
+                          <span className="pull-right">Importe Total</span>
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
