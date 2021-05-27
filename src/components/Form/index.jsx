@@ -53,7 +53,7 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml }) => {
                 type="text"
                 onChange={handleInputChange}
                 name={inputName}
-                className="form-control font-weight-bold text-center input-rodados"
+                className="form-control font-weight-bold text-center input text-uppercase"
                 value={datos[inputName] ? datos[inputName] : ""}
               />
               {nodesHtml[0]}
@@ -90,7 +90,7 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml }) => {
         </div>
       </div>
       <div className="row">
-        <div className="col-6 col-12 pt-5 mx-auto">{Key()}</div>
+        <div className="col-8 pt-5 mx-auto">{Key()}</div>
       </div>
     </div>
   );

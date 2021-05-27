@@ -30,7 +30,10 @@ export const Recibo = ({
     return (
       <div className="container">
         <div className="row mt-5">
-          <div className="col">
+          <div className="col-md-8">
+            <iframe src={pdf} height="580px" width="100%" title={" "}></iframe>
+          </div>
+          <div className="col-md-4">
             <div className="card background-main-div text-center">
               <div className="card-header titulo-componente text-center">
                 <span className="card-title font-weight-bold text-white">
@@ -38,26 +41,21 @@ export const Recibo = ({
                 </span>
               </div>
               <div className="card-body text-center">
-                <iframe
-                  src={pdf}
-                  height="500px"
-                  width="100%"
-                  title={" "}
-                ></iframe>
+                  Algún texto más acá?
               </div>
               <div className="card-footer">
-                <div className="btn-wrapper d-flex justify-content-between">
+                <div className="btn-wrapper">
                   <button
                     onClick={() => window.print()}
                     type="button"
-                    className="btn btn-info active btn-imprimir"
+                    className="btn btn-info active m-3"
                   >
                     <i className="fa fa-print" aria-hidden="true"></i> IMPRIMIR
                   </button>
                   <a
                     href="cuotas-a-pagar.html"
                     type="button"
-                    className="btn btn-primary active"
+                    className="btn btn-primary active m-3"
                   >
                     <i
                       className="fa fa-arrow-circle-o-left"

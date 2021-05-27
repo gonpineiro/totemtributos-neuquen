@@ -42,7 +42,7 @@ export const CuotasPagar = ({
                 <Link
                     to={{ pathname: '/apps/totems/recibo/', state: { impApagar, datos } }}
                     type="button"
-                    className="btn btn-info active mb-1 pull-right col-md-5"
+                    className="btn btn-info active"
                 >
                     <i className="fa fa-print" aria-hidden="true"></i> IMPRIMIR
                 </Link>
@@ -58,25 +58,29 @@ export const CuotasPagar = ({
         <div className="row mt-5">
           <div className="col col-md-12">
             <div className="card background-main-div">
-              <div className="card-header card-title">
-                <h2 className="text-primary mb-3 text-center">
+              <div className="card-header titulo-componente text-center">
+                <span className="card-title font-weight-bold text-white text-uppercase">
                   Seleccionar las cuotas que desea pagar
-                </h2>{" "}
+                </span>
               </div>
-            <p className="titulo text-center">Dominio : {datos.imp_identificacion}</p>
-            <p className="subtitulo text-center">Marca-Modelo-Año : {datos.imp_nombre}</p>
+              <p className="titulo">
+                Dominio : {datos.imp_identificacion}
+              </p>
+              <p className="subtitulo">
+                Marca-Modelo-Año : {datos.imp_nombre}
+              </p>
               <div className="card-body">
-                <div className="table-responsive alto-tabla">
+                <div className="table-responsive">
                   <table className="table">
                     <thead>
-                        <tr>
-                            <th>Pagar</th>
-                            <th>Cuota</th>
-                            <th>Vencimiento</th>
-                            <th>Valor</th>
-                            <th>Intereses</th>
-                            <th>Importe Total</th>
-                        </tr>
+                      <tr>
+                        <th>Pagar</th>
+                        <th>Cuota</th>
+                        <th>Vencimiento</th>
+                        <th>Valor</th>
+                        <th>Intereses</th>
+                        <th>Importe Total</th>
+                      </tr>
                     </thead>
                     <tbody>
                       {datos.impuestos.map((elem) => (
@@ -95,11 +99,16 @@ export const CuotasPagar = ({
                 </div>
               </div>
               <div className="card-footer">
+                <div className="total">
+                  <h5>Total: $09098</h5>
+                </div>
+              </div>
+              <div className="card-footer">
                 <div className="btn-wrapper text-center d-flex justify-content-between">
                   <a
                     href="rodados.html"
                     type="button"
-                    className="btn btn-primary active mb-1 pull-left"
+                    className="btn btn-primary active"
                   >
                     <i
                       className="fa fa-arrow-circle-o-left"
@@ -111,7 +120,7 @@ export const CuotasPagar = ({
                     href="enviar.html"
                     type="button"
                     id="enviar"
-                    className="btn btn-md btn-success active mb-1 pull-left"
+                    className="btn btn-md btn-success active"
                   >
                     <i className="fa fa-envelope-o" aria-hidden="true"></i>{" "}
                     ENVIAR POR MAIL
@@ -121,7 +130,7 @@ export const CuotasPagar = ({
               </div>
             </div>
           </div>
-{/*           <div className="col-sm-10 offset-sm-1 col-md-8 offset-md-2 p-3 text-center background-main-div card">
+          {/*           <div className="col-sm-10 offset-sm-1 col-md-8 offset-md-2 p-3 text-center background-main-div card">
             <h2 className="text-primary mb-3 text-center">
               Seleccionar las cuotas que desea pagar
             </h2>

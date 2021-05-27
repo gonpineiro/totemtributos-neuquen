@@ -7,8 +7,8 @@ import Logo from './Logo';
 const Header = () => {
  return (
   <header>
-   <div className="test">
-      <div className="text-center" >
+     <div className="test">
+       <div className="header-logo text-center" >
         {/* <img src={logo} alt='Logo' className="img-responsive header-logo"/> */}
         <Logo/>
       </div>
