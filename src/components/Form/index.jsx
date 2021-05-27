@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Keyboard from 'react-simple-keyboard';
 import 'react-simple-keyboard/build/css/index.css';
+import { I, LinkBtn } from '../shared';
 
 import "./styles.scss";
 
@@ -60,17 +61,7 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml }) => {
             </div>
             <div className="card-footer">
               <div className="btn-wrapper d-flex justify-content-between">
-                <Link
-                  to="/apps/totems"
-                  type="button"
-                  className="btn btn-primary active"
-                >
-                  <i
-                    className="fa fa-arrow-circle-o-left"
-                    aria-hidden="true"
-                  ></i>{" "}
-                  Volver
-                </Link>
+                <LinkBtn btnClass="btn btn-primary active" iClass="fa fa-arrow-circle-o-left" url="/apps/totems" desc="Volver"/>               
                 <Link
                   to={{
                     pathname: "/apps/totems/pagar/",
@@ -78,10 +69,7 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml }) => {
                   }}
                   className="btn btn-primary active"
                 >
-                  <i
-                    className="fa fa-arrow-circle-o-right"
-                    aria-hidden="true"
-                  ></i>{" "}
+                  <I classname="fa fa-arrow-circle-o-right" />
                   Siguiente
                 </Link>
               </div>
