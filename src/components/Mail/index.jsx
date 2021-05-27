@@ -34,7 +34,7 @@ export const Mail = ({
     const callSendMail = event => {
         let mail = document.getElementById('mail').value;
         sendMail(mail).then((response) => {
-            console.log('A:',response, 'mail:', mail);
+            console.log('Response:',response);
         });
     };
     
