@@ -55,79 +55,83 @@ export const CuotasPagar = ({
 
     if (datos.error) return <Error error={datos.error} />;
     return (
-        <div className="container">
-            <div className="row mt-5">
-                <div className="col col-md-12">
-                    <div className="card background-main-div">
-                        <div className="card-header titulo-componente text-center">
-                            <span className="card-title font-weight-bold text-white text-uppercase">
-                                Seleccionar las cuotas que desea pagar
-                            </span>
-                        </div>
-                        <p className="titulo">
-                            Dominio : {datos.imp_identificacion}
-                        </p>
-                        <p className="subtitulo">
-                            Marca-Modelo-Año : {datos.imp_nombre}
-                        </p>
-                        <div className="card-body">
-                            <div className="table-responsive">
-                                <table className="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Pagar</th>
-                                            <th>Cuota</th>
-                                            <th>Vencimiento</th>
-                                            <th>Valor</th>
-                                            <th>Intereses</th>
-                                            <th>Importe Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {datos.impuestos.map((elem) => (
-                                            <Row
-                                                key={elem.tr1a102_id}
-                                                id={elem.tr1a102_id}
-                                                saldo={elem.saldo}
-                                                total={elem.actualizado}
-                                                reg_id={elem.reg_id}
-                                                fecha={elem.fecha}
-                                                handlerCheckboxChance={handlerCheckboxChance}
-                                            />
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div className="card-footer">
-                            <div className="total">
-                                <h5>Total: $ {impApagar.reduce((acc, curr) => acc + curr.total, 0)}</h5>
-                            </div>
-                        </div>
-                        <div className="card-footer">
-                            <div className="btn-wrapper text-center d-flex justify-content-between">
-                                <LinkBtn
-                                    btnClass="btn btn-primary active"
-                                    iClass="fa fa-arrow-circle-o-left"
-                                    url="/apps/totems/rodado"
-                                    desc="Volver"
-                                />
-                                <a
-                                    href="enviar.html"
-                                    type="button"
-                                    id="enviar"
-                                    className="btn btn-md btn-success active"
-                                >
-                                    <I classname={'fa fa-envelope-o'} />
-                                    ENVIAR POR MAIL
-                                </a>
-                                {BtnPrint()}
-                            </div>
-                        </div>
-                    </div>
+      <div className="container">
+        <div className="row mt-5">
+          <div className="col col-md-12">
+            <div className="card background-main-div">
+              <div className="card-header titulo-componente text-center">
+                <span className="card-title font-weight-bold text-white text-uppercase">
+                  Seleccionar las cuotas que desea pagar
+                </span>
+              </div>
+              <p className="titulo">Dominio : {datos.imp_identificacion}</p>
+              <p className="subtitulo">Marca-Modelo-Año : {datos.imp_nombre}</p>
+              <div className="card-body">
+                <div className="table-responsive">
+                  <table className="table">
+                    <thead>
+                      <tr>
+                        <th className="col-2 text-center">Pagar</th>
+                        <th className="col-2 text-center">Cuota</th>
+                        <th className="col-2 text-center">Vencimiento</th>
+                        <th className="col-2 text-center">Valor</th>
+                        <th className="col-2 text-center">Intereses</th>
+                        <th className="col-2 text-center">
+                          <span className="">Importe Total</span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {datos.impuestos.map((elem) => (
+                        <Row
+                          key={elem.tr1a102_id}
+                          id={elem.tr1a102_id}
+                          saldo={elem.saldo}
+                          total={elem.actualizado}
+                          reg_id={elem.reg_id}
+                          fecha={elem.fecha}
+                          handlerCheckboxChance={handlerCheckboxChance}
+                        />
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
+              </div>
+              <div
+                className="card-footer"
+                style={{ backgroundColor: "#F0F9FC",borderTop: "none" }}
+              >
+                <div className="total">
+                  <h5>
+                    Total: ${" "}
+                    {impApagar.reduce((acc, curr) => acc + curr.total, 0)}
+                  </h5>
+                </div>
+              </div>
+              <div className="card-footer">
+                <div className="btn-wrapper text-center d-flex justify-content-between">
+                  <LinkBtn
+                    btnClass="btn btn-primary active"
+                    iClass="fa fa-arrow-circle-o-left"
+                    url="/apps/totems/rodado"
+                    desc="Volver"
+                  />
+                  <LinkBtn
+                    href="enviar.html"
+                    type="button"
+                    id="enviar"
+                    className="btn btn-md btn-success active"
+                  >
+                    <I classname={"fa fa-envelope-o"} />
+                    ENVIAR POR MAIL
+                  </LinkBtn>
+                  {BtnPrint()}
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     );
 };
 

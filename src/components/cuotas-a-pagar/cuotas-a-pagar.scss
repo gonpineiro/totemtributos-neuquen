@@ -96,8 +96,9 @@ thead tr th {
 }
 
 .table-responsive {
-  height: 300px;
+  max-height: 300px;
   overflow: scroll;
+  overflow-x: hidden;
 }
 .btn {
   min-width: 200px;

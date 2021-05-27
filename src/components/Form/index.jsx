@@ -69,7 +69,7 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml }) => {
                   }}
                   className="btn btn-primary active"
                 >
-                  <I classname="fa fa-arrow-circle-o-right" />
+                  <I classname="fa fa-arrow-circle-o-right" />{" "}
                   Siguiente
                 </Link>
               </div>
