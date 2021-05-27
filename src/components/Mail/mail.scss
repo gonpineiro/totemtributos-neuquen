@@ -4,12 +4,24 @@
     color:#1299D6
 }
 
-.confirmar-mail{
-    display:none !important; 
-    background-color:rgba(255,255,255,0.7);
+.confirmar-mail {
+    display:none; 
+    background-color:rgba(255,255,255,0.9);
     height:80%; 
     width:70%;
     position:fixed;
     top:12%;
     left:15%;
+}
+
+.input-wrapper {
+    background:#F0F9FC;
+}
+
+.btn-si {
+    width:100px; margin:20px 20px 0 0;
+}
+
+.btn-no {
+    width:100px;margin:20px 0 0 0;
 }

@@ -50,10 +50,14 @@ export const CuotasPagar = ({
             )
         }
     }
-
     if (datos == null) return <Cargando />;
 
-    if (datos.error) return <Error error={datos.error} />;
+    if (datos === -1) return <Error msg={'Espere unos minutos e intente nuevamente por favor'} />
+
+    if (datos.error) return <Error msg={datos.error} />;
+
+    if (datos.impuestos.length === 0) return <Error msg={'El tributo no registra items a pagar en el periodo 2021'} />;
+
     return (
       <div className="container">
         <div className="row mt-5">
