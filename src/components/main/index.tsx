@@ -1,6 +1,3 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
-
 import TipoImp from './TipoImp'
 import './main.scss';
 
