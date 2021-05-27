@@ -4,7 +4,7 @@ export const Cargando = () => {
     <div className="container">
       <div className="box d-flex justify-content-center h-100 cargando">
         <div className="spinner-border text-primary" role="status">
-          <span class="sr-only"></span>
+          <span className="sr-only"></span>
         </div>
       </div>
     </div>

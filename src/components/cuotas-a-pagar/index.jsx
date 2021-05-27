@@ -50,7 +50,7 @@ export const CuotasPagar = ({
         }
     }
 
-    if (datos == null) return 'Cargando';
+    if (datos == null) return <Cargando/>;
 
     if (datos.error) return <Error error={datos.error} />;
     return (
