@@ -98,7 +98,35 @@ thead tr th {
 .table-responsive {
   max-height: 300px;
   overflow: scroll;
-  overflow-x: hidden;
+}
+
+
+/* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
+
+.table-responsive::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.table-responsive::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.table-responsive::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.table-responsive::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background-color: #066ab1;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    border-radius: 10px;  
 }
 .btn {
   min-width: 200px;

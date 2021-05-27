@@ -100,9 +100,9 @@ export const CuotasPagar = ({
               <div
                 className="card-footer container"
                 style={{ backgroundColor: "#F0F9FC", borderTop: "none" }}
-              > 
+              >
                 <div className="col-2 offset-10">
-                  <h5 className="text-center">
+                  <h5 className="text-center" style={{ marginRight: "15px" }}>
                     Total: ${" "}
                     {impApagar.reduce((acc, curr) => acc + curr.total, 0)}
                   </h5>
