@@ -50,13 +50,13 @@ export const CuotasPagar = ({
         }
     }
 
-    if (datos == null) return 'Cargando';
+    if (datos == null) return <Cargando />;
 
     if (datos.error) return <Error error={datos.error} />;
     return (
       <div className="container">
-        <div className="row mt-4">
-          <div className="col col-md-10 offset-md-1">
+        <div className="row mt-5">
+          <div className="col col-md-12">
             <div className="card background-main-div">
               <div className="card-header card-title">
                 <h2 className="text-primary mb-3 text-center">
@@ -66,7 +66,6 @@ export const CuotasPagar = ({
             <p className="titulo text-center">Dominio : {datos.imp_identificacion}</p>
             <p className="subtitulo text-center">Marca-Modelo-Año : {datos.imp_nombre}</p>
               <div className="card-body">
-                {" "}
                 <div className="table-responsive alto-tabla">
                   <table className="table">
                     <thead>

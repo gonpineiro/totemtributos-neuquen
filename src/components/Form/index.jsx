@@ -26,8 +26,8 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml }) => {
 
   return (
     <div className="container">
-      <div className="row mt-4">
-        <div className="col col-md-6 offset-md-3">
+      <div className="row mt-5">
+        <div className="col col-md-8 offset-md-2">
           <div className="card background-main-div text-center">
             <div className="card-header titulo-componente text-center">
               <span className="card-title font-weight-bold text-white">
@@ -115,7 +115,7 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml }) => {
 
       </div>
       <div className="row">
-        <div className="col-6 mx-auto mt-10">
+        <div className="col-12 pt-5 mx-auto">
           <Keyboard onChange={onChange} /* onKeyPress={onChange} */ />
         </div>
       </div>

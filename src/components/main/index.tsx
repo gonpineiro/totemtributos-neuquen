@@ -11,7 +11,7 @@ const Main = () => {
                 <h4 className="text-light text-center pt-3 pb-3">LOS TRIBUTOS RELACIONADOS A SU DNI / CUIT SON</h4>
             </div>
             <div className="container">
-                <div className="row mt-4">
+                <div className="row mt-5">
                     <div className="col col-md-10 offset-md-1">
                         <div className="card background-main-div">
                             <div className="card-header titulo-componente text-white text-center"><h5>LOS TRIBUTOS RELACIONADOS A SU DNI / CUIT SON</h5></div>
