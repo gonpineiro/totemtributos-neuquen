@@ -48,7 +48,7 @@ export const Recibo = ({
                   type="button"
                   className="btn btn-info active m-3"
                 >
-                  <I classname="fa fa-print" />
+                  <I classname="fa fa-print" /> {" "}
                   IMPRIMIR
                   </button>
 

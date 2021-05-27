@@ -35,13 +35,13 @@ const Main = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="card-footer">
+                            {/* <div className="card-footer">
                                 <div className="btn-wrapper text-center d-flex justify-content-between">
                                     <Link to="/apps/totems" type="button" className="btn btn-primary active">
                                         <i className="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Volver
                                     </Link>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

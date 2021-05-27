@@ -10,16 +10,16 @@ export const LinkBtn = ({ btnClass, iClass, url, desc }) => (
         to={url}
         className={btnClass}
     >
-        <I classname={iClass} />
-        {desc}
-    </Link>
+    <I classname={iClass} /> {" "}
+        {desc} 
+  </Link>
 )
 
 export const Cargando = () => {
     return (
       <div className="container">
         <div className="box d-flex justify-content-center h-100 cargando">
-          <div className="spinner-border text-primary" role="status">
+          <div className="spinner-border" role="status">
             <span className="sr-only"></span>
           </div>
         </div>
