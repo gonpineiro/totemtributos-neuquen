@@ -50,10 +50,14 @@ export const CuotasPagar = ({
             )
         }
     }
-
     if (datos == null) return <Cargando />;
 
-    if (datos.error) return <Error error={datos.error} />;
+    if (datos === -1) return <Error msg={'Espere unos minutos e intente nuevamente por favor'} />
+
+    if (datos.error) return <Error msg={datos.error} />;
+
+    if (datos.impuestos.length === 0) return <Error msg={'El tributo no registra items a pagar en el periodo 2021'} />;
+
     return (
         <div className="container">
             <div className="row mt-5">
@@ -112,15 +116,15 @@ export const CuotasPagar = ({
                                     url="/apps/totems/rodado"
                                     desc="Volver"
                                 />
-                                <a
-                                    href="enviar.html"
+                                <Link
+                                    to="/apps/totems/mail/"
                                     type="button"
                                     id="enviar"
                                     className="btn btn-md btn-success active"
                                 >
                                     <I classname={'fa fa-envelope-o'} />
                                     ENVIAR POR MAIL
-                                </a>
+                                </Link>
                                 {BtnPrint()}
                             </div>
                         </div>
