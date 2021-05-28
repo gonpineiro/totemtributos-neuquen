@@ -63,7 +63,17 @@ export const Mail = () => {
         } else if (datos == 'esperando') {
             return <Cargando />
         } else if (datos != null && datos.error == null) {
-            return 'Mail Enviado con exito!';
+            return (
+                <>
+                    <h3 className="font-weight-bold text-primary">Mail Enviado con exito!</h3>
+                    <LinkBtn
+                    btnClass="btn btn-primary active"
+                    iClass="fa fa-arrow-circle-o-left"
+                    url="/apps/totems/rodado"
+                    desc="Volver al inicio"
+                    />
+                </>
+            );
         }
     };
 
