@@ -7,6 +7,7 @@ import { Error } from '../shared/Error';
 import { Link } from 'react-router-dom';
 
 import { I, LinkBtn, Cargando } from '../shared'
+import { YEAR_NOW } from "../utils/const";
 
 export const CuotasPagar = ({
     location: {
@@ -56,7 +57,11 @@ export const CuotasPagar = ({
 
     if (datos.error) return <Error msg={datos.error} />;
 
-    if (datos.impuestos.length === 0) return <Error msg={'El tributo no registra items a pagar en el periodo 2021'} />;
+    if (datos.impuestos.length === 0) return (
+      <Error
+        msg={"El tributo no registra items a pagar en el periodo " + YEAR_NOW + "."}
+      />
+    );
 
     return (
       <div className="container">
