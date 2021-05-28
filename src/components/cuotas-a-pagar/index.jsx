@@ -126,14 +126,11 @@ export const CuotasPagar = ({
                     desc="Volver"
                   />
                   <LinkBtn
-                    href="enviar.html"
-                    type="button"
-                    id="enviar"
-                    className="btn btn-md btn-success active"
-                  >
-                    <I classname={"fa fa-envelope-o"} />
-                    ENVIAR POR MAIL
-                  </LinkBtn>
+                    btnClass="btn btn-primary mb-1 float-right"
+                    iClass="fa fa-arrow-circle-o-right"
+                    url="/apps/totems/mail/"
+                    desc="ENVIAR POR MAIL"
+                  />
                   {BtnPrint()}
                 </div>
               </div>
