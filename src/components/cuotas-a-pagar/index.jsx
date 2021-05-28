@@ -6,7 +6,7 @@ import { Row } from "./Row";
 import { Error } from "../shared/Error";
 import { Link } from "react-router-dom";
 
-import { I, LinkBtn, Cargando } from "../shared";
+import { LinkBtn, Cargando } from '../shared'
 import { YEAR_NOW } from "../utils/const";
 
 export const CuotasPagar = ({
