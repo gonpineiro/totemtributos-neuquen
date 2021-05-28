@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { recibo } from './reciboAxios';
 import { I, LinkBtn, Cargando } from '../shared';
+import { Error } from '../shared/Error';
 
 export const Recibo = ({
   location: {
@@ -14,17 +15,24 @@ export const Recibo = ({
 
   useEffect(() => {
     recibo(tr02100_id, impApagar).then((response) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(response);
-      reader.onload = () => {
-        setPdf(reader.result);
-      };
+      if (response !== -1) {
+        const reader = new FileReader();
+        reader.readAsDataURL(response);
+        reader.onload = () => {
+          setPdf(reader.result);
+        };
+      }else{
+        setPdf(response)
+      }
 
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (pdf === null || undefined) return <Cargando />;
+  
+  if (pdf === -1) return <Error msg={'Espere unos minutos e intente nuevamente por favor'}/>;
+  
   return (
     <div className="container">
       <div className="row mt-5">
@@ -55,7 +63,7 @@ export const Recibo = ({
                 <LinkBtn
                   btnClass="btn btn-primary active m-3"
                   iClass="fa fa-arrow-circle-o-left"
-                  url="/apps/totems/rodado"
+                  url="/apps/totems/"
                   desc="VOLVER"
                 />
               </div>
