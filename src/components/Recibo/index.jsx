@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import { recibo } from './reciboAxios';
 import { I, LinkBtn, Cargando } from '../shared';
 import { Error } from '../shared/Error';
@@ -61,12 +62,9 @@ export const Recibo = ({
                 >
                   <I classname="fa fa-print" /> IMPRIMIR
                 </button>
-                <LinkBtn
-                  btnClass="btn btn-primary mb-1 float-right"
-                  iClass="fa fa-envelope-o"
-                  url="/apps/totems/mail/"
-                  desc="ENVIAR POR EMAIL"
-                />
+                <Link to={{ pathname: '/apps/totems/mail/', state: { recibo: pdf.recibo} }} className='btn btn-primary mb-1 float-right'>
+                  <I classname='fa fa-envelope-o' /> ENVIAR POR EMAIL 
+                </Link>
                 <LinkBtn
                   btnClass="btn btn-primary active m-3"
                   iClass="fa fa-arrow-circle-o-left"

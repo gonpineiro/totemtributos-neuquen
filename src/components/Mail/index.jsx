@@ -5,7 +5,13 @@ import { LinkBtn, Cargando } from '../shared';
 import './mail.scss';
 
 
-export const Mail = () => {
+export const Mail = ({
+    location: {
+        state: {
+          recibo,
+        },
+      },
+}) => {
     const [datos, setDatos] = useState(null);
     const [mail, setMail] = useState(null);
   
@@ -33,7 +39,7 @@ export const Mail = () => {
     const callSendMail = event => {
         setDatos('esperando');
         let mail = document.getElementById('mail').value;
-        sendMail(mail).then((response) => {
+        sendMail(mail, recibo).then((response) => {
             setDatos(response);
         });
     };
