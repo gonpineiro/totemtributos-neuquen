@@ -50,7 +50,7 @@ export const Recibo = ({
               </span>
             </div>
             <div className="card-body text-center">
-              {pdf.recibo}
+              Se generó el recibo Nro {pdf.recibo}, ¿Desea enviarlo por email o imprimirlo?
             </div>
             <div className="card-footer">
               <div className="btn-wrapper">
