@@ -1,6 +1,6 @@
 import axios from 'axios';
 import qs from 'qs';
-import { URL_DEV, NOW, YEAR_NOW, TOKEN } from '../utils/const';
+import { URL_DEV, NOW, TOKEN } from '../utils/const';
 
 export const imponible = async (tipo, id) => {
     try {

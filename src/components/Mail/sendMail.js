@@ -1,15 +1,12 @@
 import axios from 'axios';
-import qs from 'qs';
-import https from 'https';
-
 
 export const sendMail = async (mail) => {
-    const data = JSON.stringify({
+    /* const data = JSON.stringify({
         address: mail,
         subject: 'testeru',
         htmlBody: 'test test test',
         reciboAdjunto: '255653044'
-    });
+    }); */
 
     try {
         const resp = await axios({
