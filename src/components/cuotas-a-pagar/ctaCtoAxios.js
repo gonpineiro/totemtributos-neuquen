@@ -1,6 +1,6 @@
 import axios from 'axios';
 import qs from 'qs';
-import { URL_DEV, NOW, YEAR_NOW } from '../utils/const';
+import { URL_DEV, NOW, YEAR_NOW, TOKEN } from '../utils/const';
 
 export const imponible = async (tipo, id) => {
     try {
@@ -8,6 +8,7 @@ export const imponible = async (tipo, id) => {
             method: 'post',
             url: URL_DEV + 'consulta_imponible',
             data: qs.stringify({
+                TOKEN: TOKEN,
                 IMPONIBLE_TIPO: tipo,
                 IMPONIBLE_IDENTIFICACION: id,
             }),
@@ -22,6 +23,7 @@ export const imponible = async (tipo, id) => {
             method: 'post',
             url: URL_DEV + 'cuenta_corriente',
             data: qs.stringify({
+                TOKEN: TOKEN,
                 IMPONIBLE_ID: responseOne.data.items[0].tr02100_id,
                 FECHA_ACTUALIZACION: NOW,
             }),
