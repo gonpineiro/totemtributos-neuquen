@@ -1,12 +1,15 @@
-/* eslint-disable jsx-a11y/heading-has-content */
+import { useEffect, useState } from "react";
 import { sendMail } from './sendMail';
+import { LinkBtn, Cargando } from '../shared';
+
 import './mail.scss';
 
-import { LinkBtn } from '../shared';
 
 export const Mail = () => {
+    const [datos, setDatos] = useState(null);
+    const [mail, setMail] = useState(null);
+  
     function isEmail(email) {
-        // eslint-disable-next-line no-useless-escape
         var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         return regex.test(email);
     }
@@ -14,11 +17,10 @@ export const Mail = () => {
     const checkMail = event => {
         let mail = document.getElementById("mail").value;
         let modalPrint = document.getElementById("modal-print");
-        let sumail = document.getElementById("sumail");
         if (!isEmail(mail)) {
             alert('Ingrese un mail valido');
         } else {
-            sumail.innerHTML = mail;
+            setMail(mail);
             modalPrint.style.display = 'flex';
         }
     };
@@ -29,15 +31,41 @@ export const Mail = () => {
     };
 
     const callSendMail = event => {
+        setDatos('esperando');
         let mail = document.getElementById('mail').value;
         sendMail(mail).then((response) => {
-            console.log('Response:',response);
-            if (response.error == null) {
-                console.log('Mail enviado con Exito!');
-            }
+            setDatos(response);
         });
     };
+    
+    // pregunta si estas seguro de enviar el mail, muestra gif cargando o mensaje mail enviado con exito 
+    const divCheckMail = (mail) => {
+        if (datos == null) {
+            return (
+                <>
+                    <div>
+                        <h3 className="font-weight-bold text-primary">Su mail es</h3>
+                    </div>
+                    <div>
+                        <h4 className="font-weight-bold text-primary" id="sumail">{mail}</h4>
+                    </div>
+                    <div>
+                        <button onClick={callSendMail} type="button" className="btn btn-info btn-si">
+                            SI
+                        </button>
 
+                        <button onClick={mailEquivocado} type="button" className="btn btn-primary btn-no">
+                            NO
+                        </button>
+                    </div>
+                </>
+            )
+        } else if (datos == 'esperando') {
+            return <Cargando />
+        } else if (datos != null && datos.error == null) {
+            return 'Mail Enviado con exito!';
+        }
+    };
 
     return (
         <div className="row mt-4">
@@ -67,21 +95,7 @@ export const Mail = () => {
             </div>
             <div className="col"></div>
             <div className=" flex-column align-items-center justify-content-center confirmar-mail" id="modal-print" >
-                <div>
-                    <h3 className="font-weight-bold text-primary">Su mail es</h3>
-                </div>
-                <div>
-                    <h4 className="font-weight-bold text-primary" id="sumail"></h4>
-                </div>
-                <div>
-                    <button onClick={callSendMail} type="button" className="btn btn-info btn-si">
-                        SI
-                    </button>
-
-                    <button onClick={mailEquivocado} type="button" className="btn btn-primary btn-no">
-                        NO
-                    </button>
-                </div>
+                {divCheckMail(mail)}
             </div>
         </div>
     );
