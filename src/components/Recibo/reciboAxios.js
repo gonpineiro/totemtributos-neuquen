@@ -35,7 +35,13 @@ export const recibo = async (tr02100_id, impApagar) => {
             },
             responseType: 'blob',
         });
-        return responseTwo.data;
+
+        if (responseTwo.data.error) return responseTwo.data;
+
+        return {
+            blob: responseTwo.data,
+            recibo: responseOne.data[0].recibo
+        };
     } catch (error) {
         return -1
     }

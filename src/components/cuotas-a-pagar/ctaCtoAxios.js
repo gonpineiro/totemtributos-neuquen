@@ -32,6 +32,8 @@ export const imponible = async (tipo, id) => {
             },
         });
 
+        if (responseTwo.data.error) return responseTwo.data;
+
         const impuestos = responseTwo.data.items.filter((el) => {
             return el.es_deuda === 'S' && el.es_transac === 'S' && el.reg_id.includes("2017") ;
         });
