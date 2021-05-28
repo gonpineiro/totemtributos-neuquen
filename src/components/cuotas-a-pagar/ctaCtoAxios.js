@@ -1,6 +1,6 @@
 import axios from 'axios';
 import qs from 'qs';
-import { URL_DEV, NOW, YEAR_NOW, TOKEN } from '../utils/const';
+import { URL_DEV, NOW, TOKEN } from '../utils/const';
 
 export const imponible = async (tipo, id) => {
     try {
@@ -32,8 +32,10 @@ export const imponible = async (tipo, id) => {
             },
         });
 
+        if (responseTwo.data.error) return responseTwo.data;
+
         const impuestos = responseTwo.data.items.filter((el) => {
-            return el.es_deuda === 'S' && el.es_transac === 'S' && el.reg_id.includes(YEAR_NOW);
+            return el.es_deuda === 'S' && el.es_transac === 'S' && el.reg_id.includes("2017") ;
         });
 
         const obj = {

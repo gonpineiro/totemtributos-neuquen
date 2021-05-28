@@ -17,11 +17,14 @@ export const Recibo = ({
     recibo(tr02100_id, impApagar).then((response) => {
       if (response !== -1) {
         const reader = new FileReader();
-        reader.readAsDataURL(response);
+        reader.readAsDataURL(response.blob);
         reader.onload = () => {
-          setPdf(reader.result);
+          setPdf({
+            pdf: reader.result,
+            recibo: response.recibo
+          });
         };
-      }else{
+      } else {
         setPdf(response)
       }
 
@@ -30,25 +33,25 @@ export const Recibo = ({
   }, []);
 
   if (pdf === null || undefined) return <Cargando />;
-  
-  if (pdf === -1) return <Error msg={'Espere unos minutos e intente nuevamente por favor'}/>;
-  
+
+  if (pdf === -1) return <Error msg={'Espere unos minutos e intente nuevamente por favor'} />;
+
   return (
     <div className="container">
       <div className="row mt-5">
         <div className="col-md-8">
-          <iframe src={pdf} height="580px" width="100%" title={" "}></iframe>
+          <iframe src={pdf.pdf} height="580px" width="100%" title={" "}></iframe>
         </div>
         <div className="col-md-4">
           <div className="card background-main-div text-center">
             <div className="card-header titulo-componente text-center">
               <span className="card-title font-weight-bold text-white">
                 RECIBO
-                </span>
+              </span>
             </div>
             <div className="card-body text-center">
-              Algún texto más acá?
-              </div>
+              {pdf.recibo}
+            </div>
             <div className="card-footer">
               <div className="btn-wrapper">
                 <button
@@ -56,10 +59,14 @@ export const Recibo = ({
                   type="button"
                   className="btn btn-info active m-3"
                 >
-                  <I classname="fa fa-print" /> {" "}
-                  IMPRIMIR
-                  </button>
-
+                  <I classname="fa fa-print" /> IMPRIMIR
+                </button>
+                <LinkBtn
+                  btnClass="btn btn-primary mb-1 float-right"
+                  iClass="fa fa-envelope-o"
+                  url="/apps/totems/mail/"
+                  desc="ENVIAR POR EMAIL"
+                />
                 <LinkBtn
                   btnClass="btn btn-primary active m-3"
                   iClass="fa fa-arrow-circle-o-left"

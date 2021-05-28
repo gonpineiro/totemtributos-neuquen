@@ -2,7 +2,7 @@
 import { sendMail } from './sendMail';
 import './mail.scss';
 
-import { Link } from 'react-router-dom';
+import { LinkBtn } from '../shared';
 
 export const Mail = () => {
     function isEmail(email) {
@@ -55,13 +55,12 @@ export const Mail = () => {
                 </div>
                 <div className="row">
                     <div className="col-md-12">
-                        <Link
-                            to="/apps/totems/pagar/"
-                            className="btn btn-primary float-right float-right col-md-3"
-                        >
-                            <i className="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
-                        VOLVER
-                    </Link>
+                        <LinkBtn
+                            btnClass="btn btn-primary float-right float-right col-md-3"
+                            iClass="fa fa-arrow-circle-o-right"
+                            url="/apps/totems/"
+                            desc="VOLVER"
+                        />
                     </div>
                 </div>
 
