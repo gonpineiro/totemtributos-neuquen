@@ -1,32 +1,25 @@
 import axios from 'axios';
 
 export const sendMail = async (mail) => {
-    /* const data = JSON.stringify({
-        address: mail,
-        subject: 'testeru',
-        htmlBody: 'test test test',
-        reciboAdjunto: '255653044'
-    }); */
+    const weblogin = 1===1?'http://200.85.183.194:90/':'https://weblogin.muninqn.gov.ar/';
+    
+    //! implementar token un como la gente
+    const token = '123';
+    const subject = `Test a ${weblogin}`;
+    const htmlBody = 'Test desde app totems';
+    const reciboAdjunto = '255653044';
 
+    const url = `${weblogin}apps/Utils/public/sendMailRecibosTributarios.php?token=${token}&address=${mail}&subject=${subject}&htmlBody=${htmlBody}&reciboAdjunto=${reciboAdjunto}`;
+    
     try {
-        const resp = await axios({
-            method: 'POST',
-            url: 'http://muninqn.gov.ar:90/api/TotemMail',
-            data: JSON.stringify({
-                address: mail,
-                subject: 'testeru',
-                htmlBody: 'test test test',
-                reciboAdjunto: '255653044'
-            }),
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            },
-            mode: 'cors',
+        const responseOne = await axios({
+            method: 'get',
+            url: url
         });
-        return resp;
+
+        return responseOne.data;
     } catch (error) {
-        console.log('error', error);
+        return null;
     }
 
 };
