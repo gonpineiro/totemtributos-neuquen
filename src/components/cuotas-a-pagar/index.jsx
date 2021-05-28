@@ -3,7 +3,7 @@ import './cuotas-a-pagar.scss';
 
 import { imponible } from './ctaCtoAxios';
 import { Row } from './Row';
-import { Error } from './Error';
+import { Error } from '../shared/Error';
 import { Link } from 'react-router-dom';
 
 import { I, LinkBtn, Cargando } from '../shared'
@@ -113,7 +113,7 @@ export const CuotasPagar = ({
                 <div className="col-2 offset-10">
                   <h5 className="text-center" style={{ marginRight: "15px" }}>
                     Total: ${" "}
-                    {impApagar.reduce((acc, curr) => acc + curr.total, 0)}
+                    {impApagar.reduce((acc, curr) => acc + curr.total, 0).toFixed(2)}
                   </h5>
                 </div>
               </div>
