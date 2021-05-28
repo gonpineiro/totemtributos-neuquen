@@ -53,7 +53,7 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml }) => {
                 type="text"
                 onChange={handleInputChange}
                 name={inputName}
-                className="form-control font-weight-bold text-center input text-uppercase"
+                className="form-control font-weight-bold text-center input text-uppercase mb-3"
                 value={datos[inputName] ? datos[inputName] : ""}
               />
               {nodesHtml[0]}

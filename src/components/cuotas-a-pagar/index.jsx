@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
-import './cuotas-a-pagar.scss';
+import { useEffect, useState } from "react";
+import "./cuotas-a-pagar.scss";
 
-import { imponible } from './ctaCtoAxios';
-import { Row } from './Row';
-import { Error } from '../shared/Error';
-import { Link } from 'react-router-dom';
+import { imponible } from "./ctaCtoAxios";
+import { Row } from "./Row";
+import { Error } from "../shared/Error";
+import { Link } from "react-router-dom";
 
 import { LinkBtn, Cargando } from '../shared'
 import { YEAR_NOW } from "../utils/const";
@@ -42,26 +42,36 @@ export const CuotasPagar = ({
     if (impApagar.length > 0) {
       return (
         <Link
-          to={{ pathname: '/apps/totems/recibo/', state: { impApagar, datos } }}
+          to={{ pathname: "/apps/totems/recibo/", state: { impApagar, datos } }}
           type="button"
           className="btn btn-info active"
         >
-          <i className="fa fa-print" aria-hidden="true"></i> IMPRIMIR
+          <i className="fa fa-file-o" aria-hidden="true"></i> GENERAR RECIBO
         </Link>
-      )
+      );
+    } else {
+      return (
+        <Link type="button" className="btn bg-info disabled ">
+          <i className="fa fa-file-o" aria-hidden="true"></i> GENERAR RECIBO
+        </Link>
+      );
     }
-  }
+  };
   if (datos == null) return <Cargando />;
 
-  if (datos === -1) return <Error msg={'Espere unos minutos e intente nuevamente por favor'} />
+  if (datos === -1)
+    return <Error msg={"Espere unos minutos e intente nuevamente por favor"} />;
 
   if (datos.error) return <Error msg={datos.error} />;
 
-  if (datos.impuestos.length === 0) return (
-    <Error
-      msg={"El tributo no registra items a pagar en el periodo " + YEAR_NOW + "."}
-    />
-  );
+  if (datos.impuestos.length === 0)
+    return (
+      <Error
+        msg={
+          "El tributo no registra items a pagar en el periodo " + YEAR_NOW + "."
+        }
+      />
+    );
 
   return (
     <div className="container">
@@ -71,7 +81,7 @@ export const CuotasPagar = ({
             <div className="card-header titulo-componente text-center">
               <span className="card-title font-weight-bold text-white text-uppercase">
                 Seleccionar las cuotas que desea pagar
-                </span>
+              </span>
             </div>
             <p className="titulo">Dominio : {datos.imp_identificacion}</p>
             <p className="subtitulo">Marca-Modelo-Año : {datos.imp_nombre}</p>
@@ -124,12 +134,6 @@ export const CuotasPagar = ({
                   iClass="fa fa-arrow-circle-o-left"
                   url="/apps/totems/rodado"
                   desc="Volver"
-                />
-                <LinkBtn
-                  btnClass="btn btn-primary mb-1 float-right"
-                  iClass="fa fa-arrow-circle-o-right"
-                  url="/apps/totems/mail/"
-                  desc="ENVIAR POR MAIL"
                 />
                 {BtnPrint()}
               </div>
