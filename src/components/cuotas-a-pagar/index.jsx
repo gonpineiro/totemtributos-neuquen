@@ -46,13 +46,13 @@ export const CuotasPagar = ({
           type="button"
           className="btn btn-info active"
         >
-          <i className="fa fa-print" aria-hidden="true"></i> GENERAR RECIBO
+          <i className="fa fa-file-o" aria-hidden="true"></i> GENERAR RECIBO
         </Link>
       );
     } else {
       return (
         <Link type="button" className="btn bg-info disabled ">
-          <i className="fa fa-print" aria-hidden="true"></i> GENERAR RECIBO
+          <i className="fa fa-file-o" aria-hidden="true"></i> GENERAR RECIBO
         </Link>
       );
     }

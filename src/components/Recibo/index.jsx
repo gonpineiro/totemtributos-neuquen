@@ -58,15 +58,9 @@ export const Recibo = ({
                 </button>
                 <LinkBtn
                   btnClass="btn btn-primary mb-1 float-right"
-                  iClass="fa fa-arrow-circle-o-right"
+                  iClass="fa fa-envelope-o"
                   url="/apps/totems/mail/"
-                  desc="ENVIAR POR MAIL"
-                />
-                <LinkBtn
-                  btnClass="btn btn-primary active m-3"
-                  iClass="fa fa-arrow-circle-o-left"
-                  url="/apps/totems/mail/"
-                  desc="Enviar por email"
+                  desc="ENVIAR POR EMAIL"
                 />
                 <LinkBtn
                   btnClass="btn btn-primary active m-3"
