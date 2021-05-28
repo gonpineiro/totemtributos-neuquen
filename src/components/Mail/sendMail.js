@@ -1,4 +1,5 @@
 import axios from 'axios';
+import qs from 'qs';
 import https from 'https';
 
 
@@ -15,15 +16,16 @@ export const sendMail = async (mail) => {
             method: 'POST',
             url: 'http://muninqn.gov.ar:90/api/TotemMail',
             data: JSON.stringify({
-                address: 'santiago.lp.cop@gmail.com',
+                address: mail,
                 subject: 'testeru',
                 htmlBody: 'test test test',
-                reciboAdjunto: '0002-55653044'
+                reciboAdjunto: '255653044'
             }),
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
+                'Access-Control-Allow-Origin': '*'
+            },
+            mode: 'cors',
         });
         return resp;
     } catch (error) {
