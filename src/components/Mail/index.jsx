@@ -32,6 +32,9 @@ export const Mail = () => {
         let mail = document.getElementById('mail').value;
         sendMail(mail).then((response) => {
             console.log('Response:',response);
+            if (response.error == null) {
+                console.log('Mail enviado con Exito!');
+            }
         });
     };
 
