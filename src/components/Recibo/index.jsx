@@ -44,11 +44,9 @@ export const Recibo = ({
             <div className="card-header titulo-componente text-center">
               <span className="card-title font-weight-bold text-white">
                 RECIBO
-                </span>
+              </span>
             </div>
-            <div className="card-body text-center">
-              Algún texto más acá?
-              </div>
+            <div className="card-body text-center">Algún texto más acá?</div>
             <div className="card-footer">
               <div className="btn-wrapper">
                 <button
@@ -56,10 +54,14 @@ export const Recibo = ({
                   type="button"
                   className="btn btn-info active m-3"
                 >
-                  <I classname="fa fa-print" /> {" "}
-                  IMPRIMIR
-                  </button>
-
+                  <I classname="fa fa-print" /> IMPRIMIR
+                </button>
+                <LinkBtn
+                  btnClass="btn btn-primary mb-1 float-right"
+                  iClass="fa fa-arrow-circle-o-right"
+                  url="/apps/totems/mail/"
+                  desc="ENVIAR POR MAIL"
+                />
                 <LinkBtn
                   btnClass="btn btn-primary active m-3"
                   iClass="fa fa-arrow-circle-o-left"

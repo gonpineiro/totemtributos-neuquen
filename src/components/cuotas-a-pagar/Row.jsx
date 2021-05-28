@@ -4,7 +4,7 @@ export const Row = ({ id, saldo, total, reg_id, fecha, handlerCheckboxChance }) 
         <td className="text-center">
           <input
             type="checkbox"
-            className="form-check-input chksel"
+            className="form-check-input"
             onChange={(e) => handlerCheckboxChance(e, total)}
             value={id}
           />

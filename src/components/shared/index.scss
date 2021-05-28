@@ -1,8 +1,11 @@
 .cargando {
   min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .spinner-border {
   width: 5rem;
   height: 5rem;
-  color: #1299D6;
+  color: #1299d6;
 }
