@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const sendMail = async (mail) => {
+    // eslint-disable-next-line no-self-compare
     const weblogin = 1===1?'http://200.85.183.194:90/':'https://weblogin.muninqn.gov.ar/';
     
     //! implementar token un como la gente
