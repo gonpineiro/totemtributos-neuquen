@@ -98,55 +98,58 @@ export const Mail = ({
     };
 
     return (
-      <div className="row mt-5">
-        <div className="col-md-6 offset-md-3">
-          <div class="card background-main-div text-center">
-            <div className="card-header titulo-componente">
-              <span className="card-title font-weight-bold text-white">
-                Enviar por email
-              </span>
-            </div>
-            <div className="card-body">
-              <label className="pb-3" htmlFor="patente">
-                Ingrese su email
-              </label>
-              <input
-                type="text"
-                id="mail"
-                name="mail"
-                value={mail["mail"] ? mail["mail"] : ""}
-                className="form-control font-weight-bold"
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="card-footer">
-              <div className="btn-wrapper text-center d-flex justify-content-between">
-                <LinkBtn
-                  btnClass="btn btn-primary"
-                  iClass="fa fa-arrow-circle-o-left"
-                  url="/apps/totems/"
-                  desc="VOLVER"
+      <div className="container">
+        <div className="row mt-5">
+          <div className="col-md-6 offset-md-3">
+            <div class="card background-main-div text-center">
+              <div className="card-header titulo-componente">
+                <span className="card-title font-weight-bold text-white">
+                  Enviar por email
+                </span>
+              </div>
+              <div className="card-body">
+                <label className="pb-3" htmlFor="patente">
+                  Ingrese su email
+                </label>
+                <input
+                  type="text"
+                  id="mail"
+                  name="mail"
+                  value={mail["mail"] ? mail["mail"] : ""}
+                  className="form-control font-weight-bold"
+                  onChange={handleInputChange}
                 />
-                <button
-                  type="button"
-                  id="enviar"
-                  onClick={checkMail}
-                  className="btn btn-success"
-                >
-                  <i className="fa fa-envelope-o" aria-hidden="true"></i> Enviar
-                </button>
+              </div>
+              <div className="card-footer">
+                <div className="btn-wrapper text-center d-flex justify-content-between">
+                  <LinkBtn
+                    btnClass="btn btn-primary"
+                    iClass="fa fa-arrow-circle-o-left"
+                    url="/apps/totems/"
+                    desc="VOLVER"
+                  />
+                  <button
+                    type="button"
+                    id="enviar"
+                    onClick={checkMail}
+                    className="btn btn-success"
+                  >
+                    <i className="fa fa-envelope-o" aria-hidden="true"></i>{" "}
+                    Enviar
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-          <div className="col-6 offset-md-3 pt-5">
+          <div className="col-8 offset-md-2 pt-5">
             <Keyboard onChange={onChange} />
           </div>
-        <div
-          className=" flex-column align-items-center justify-content-center confirmar-mail"
-          id="modal-print"
-        >
-          {divCheckMail(mail)}
+          <div
+            className=" flex-column align-items-center justify-content-center confirmar-mail"
+            id="modal-print"
+          >
+            {divCheckMail(mail)}
+          </div>
         </div>
       </div>
     );
