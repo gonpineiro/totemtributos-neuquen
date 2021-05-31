@@ -33,6 +33,16 @@ export const Recibo = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const printIframe = (id) => {
+    const iframe = document.getElementById(id);
+    const iframeWindow = iframe.contentWindow || iframe;
+
+    iframe.focus();
+    iframeWindow.print();
+
+    return false;
+  };
+
   if (pdf === null || undefined) return <Cargando />;
 
   if (pdf === -1) return <Error msg={'Espere unos minutos e intente nuevamente por favor'} />;
@@ -41,7 +51,7 @@ export const Recibo = ({
     <div className="container">
       <div className="row mt-5">
         <div className="col-md-8">
-          <iframe src={pdf.pdf} height="580px" width="100%" title={" "}></iframe>
+          <iframe src={pdf.pdf} height="580px" width="100%" id='pdf' title={" "}></iframe>
         </div>
         <div className="col-md-4">
           <div className="card background-main-div text-center">
@@ -56,14 +66,14 @@ export const Recibo = ({
             <div className="card-footer">
               <div className="btn-wrapper">
                 <button
-                  onClick={() => window.print()}
+                  onClick={() => printIframe('pdf')}
                   type="button"
                   className="btn btn-info active m-3"
                 >
                   <I classname="fa fa-print" /> IMPRIMIR
                 </button>
-                <Link to={{ pathname: '/apps/totems/mail/', state: { recibo: pdf.recibo} }} className='btn btn-primary mb-1 float-right'>
-                  <I classname='fa fa-envelope-o' /> ENVIAR POR EMAIL 
+                <Link to={{ pathname: '/apps/totems/mail/', state: { recibo: pdf.recibo } }} className='btn btn-primary mb-1 float-right'>
+                  <I classname='fa fa-envelope-o' /> ENVIAR POR EMAIL
                 </Link>
                 <LinkBtn
                   btnClass="btn btn-primary active m-3"
