@@ -1,4 +1,5 @@
 import axios from 'axios';
+import qs from 'qs';
 
 export const sendMail = async (mail, recibo) => {
     // eslint-disable-next-line no-self-compare
@@ -8,15 +9,24 @@ export const sendMail = async (mail, recibo) => {
     const token = '123';
     const subject = `Pago de tributo para recibo nro. ${recibo}`;
     const htmlBody = '<p>Municipalidad de Neuquén</p>';
-    const reciboAdjunto = recibo;
 
-    const url = `${weblogin}apps/Utils/public/sendMailRecibosTributarios.php?token=${token}&address=${mail}&subject=${subject}&htmlBody=${htmlBody}&reciboAdjunto=${reciboAdjunto}`;
+    const url = `${weblogin}apps/Utils/public/sendMailRecibosTributarios.php`;
     
     try {
         const responseOne = await axios({
-            method: 'get',
-            url: url
-        });
+            method: 'post',
+            url: url,
+            data: qs.stringify({
+                token: token,
+                address: mail,
+                subject: subject,
+                htmlBody: htmlBody,
+                reciboAdjunto: recibo,
+            }),
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+            },
+        });       
 
         return responseOne.data;
     } catch (error) {
