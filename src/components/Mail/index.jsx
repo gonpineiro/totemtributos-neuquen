@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { sendMail } from './sendMail';
 import { LinkBtn, Cargando } from '../shared';
 
@@ -16,6 +16,7 @@ export const Mail = ({
     const [mail, setMail] = useState(null);
   
     function isEmail(email) {
+        // eslint-disable-next-line no-useless-escape
         var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         return regex.test(email);
     }
@@ -66,7 +67,7 @@ export const Mail = ({
                     </div>
                 </>
             )
-        } else if (datos == 'esperando') {
+        } else if (datos === 'esperando') {
             return <Cargando />
         } else if (datos != null && datos.error == null) {
             return (
