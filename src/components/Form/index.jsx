@@ -16,6 +16,7 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml }) => {
       [e.target.name]: e.target.value,
     });
   };
+  
   const onChange = (input) => {
     console.log(input);
     setDatos({
