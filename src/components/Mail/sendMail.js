@@ -3,7 +3,7 @@ import axios from 'axios';
 export const sendMail = async (mail, recibo) => {
     // eslint-disable-next-line no-self-compare
     const weblogin = 1===1?'http://200.85.183.194:90/':'https://weblogin.muninqn.gov.ar/';
-    
+    console.log('mail',mail);
     //! implementar token un como la gente
     const token = '123';
     const subject = `Pago de tributo para recibo nro. ${recibo}`;
