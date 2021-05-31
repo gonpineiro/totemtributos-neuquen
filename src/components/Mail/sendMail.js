@@ -6,8 +6,8 @@ export const sendMail = async (mail, recibo) => {
     
     //! implementar token un como la gente
     const token = '123';
-    const subject = `Test a ${weblogin}`;
-    const htmlBody = 'Test desde app totems con recibo no estatico';
+    const subject = `Pago de tributo para recibo nro. ${recibo}`;
+    const htmlBody = '<p>Municipalidad de Neuquén</p>';
     const reciboAdjunto = recibo;
 
     const url = `${weblogin}apps/Utils/public/sendMailRecibosTributarios.php?token=${token}&address=${mail}&subject=${subject}&htmlBody=${htmlBody}&reciboAdjunto=${reciboAdjunto}`;
