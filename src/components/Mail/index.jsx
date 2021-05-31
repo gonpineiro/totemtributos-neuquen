@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { sendMail } from './sendMail';
-import { LinkBtn, Cargando } from '../shared';
-
 import Keyboard from 'react-simple-keyboard';
 import 'react-simple-keyboard/build/css/index.css';
 
-import './mail.scss';
+import { sendMail } from './sendMail';
+import { LinkBtn, Cargando } from '../shared';
 
+import './mail.scss';
 
 export const Mail = ({
     location: {
@@ -18,29 +17,26 @@ export const Mail = ({
     const [datos, setDatos] = useState(null);
     const [mail, setMail] = useState({});
 
-    function isEmail(email) {
-        // eslint-disable-next-line no-useless-escape
-        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        return regex.test(email);
-    }
-
-    const checkMail = event => {
-        /* let mail = document.getElementById("mail").value; */
-        let modalPrint = document.getElementById("modal-print");
-        if (!isEmail(mail.mail)) {
+    const checkMail = () => {
+        const modalPrint = document.getElementById("modal-print");
+        const isEmail = () => {
+            // eslint-disable-next-line no-useless-escape
+            const regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            return regex.test(mail.mail);
+        }
+        if (!isEmail()) {
             alert('Ingrese un mail valido');
         } else {
-            //setMail(mail.mail);
             modalPrint.style.display = 'flex';
         }
     };
 
-    const mailEquivocado = event => {
-        let modalPrint = document.getElementById("modal-print");
+    const mailEquivocado = () => {
+        const modalPrint = document.getElementById("modal-print");
         modalPrint.style.display = 'none';
     };
 
-    const callSendMail = event => {
+    const callSendMail = () => {
         setDatos('esperando');
         /* let mail = document.getElementById('mail').value; */
         sendMail(mail.mail, recibo).then((response) => {
@@ -100,7 +96,6 @@ export const Mail = ({
             );
         }
     };
-    console.log(mail);
 
     return (
         <div className="row mt-4">
