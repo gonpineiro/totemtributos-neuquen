@@ -98,77 +98,69 @@ export const Mail = ({
     };
 
     return (
-      <div className="container">
-        <div className="row mt-5">
-          <div className="col-md-6 offset-md-3">
-            <div class="card background-main-div text-center">
-              <div className="card-header titulo-componente">
-                <span className="card-title font-weight-bold text-white">
-                  Enviar por email
-                </span>
-              </div>
-              <div className="card-body">
-                <label className="pb-3" htmlFor="patente">
-                  Ingrese su email
-                </label>
-                <input
-                  type="text"
-                  id="mail"
-                  name="mail"
-                  value={mail["mail"] ? mail["mail"] : ""}
-                  className="form-control font-weight-bold"
-                  onChange={handleInputChange}
-                />
-                <div className="row">
-                    <div className="col-md-12">
-                        <button type="button" id="enviar" onClick={checkMail} className="btn btn-success float-right mb-3 mt-4 col-md-3">
-                            <i className="fa fa-envelope-o" aria-hidden="true"></i> Enviar
-                    </button>
+        <div className="container">
+            <div className="row mt-5">
+                <div className="col-md-6 offset-md-3">
+                    <div class="card background-main-div text-center">
+                        <div className="card-header titulo-componente">
+                            <span className="card-title font-weight-bold text-white">
+                                Enviar por email
+                            </span>
+                        </div>
+                        <div className="card-body">
+                            <label className="pb-3" htmlFor="patente">
+                                Ingrese su email
+                            </label>
+                            <input
+                                type="text"
+                                id="mail"
+                                name="mail"
+                                value={mail["mail"] ? mail["mail"] : ""}
+                                className="form-control font-weight-bold"
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div className="card-footer">
+                            <div className="btn-wrapper text-center d-flex justify-content-between">
+                                <LinkBtn
+                                    btnClass="btn btn-primary"
+                                    iClass="fa fa-arrow-circle-o-left"
+                                    url="/apps/totems/"
+                                    desc="VOLVER"
+                                />
+                                <button
+                                    type="button"
+                                    id="enviar"
+                                    onClick={checkMail}
+                                    className="btn btn-success"
+                                >
+                                    <i className="fa fa-envelope-o" aria-hidden="true"></i>{" "}
+                                    Enviar
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-md-12">
-                        <LinkBtn
-                            btnClass="btn btn-primary float-right float-right col-md-3"
-                            iClass="fa fa-arrow-circle-o-right"
-                            url="/apps/totems/"
-                            desc="VOLVER"
-                        />
-                    </div>
+                <div className="col-8 offset-md-2 pt-5">
+                    <Keyboard onChange={onChange}
+                        layout={{
+                            'default': [
+                                '.com .ar @ {bksp}',
+                                '1 2 3 4 5 6 7 8 9 0',
+                                'q w e r t y u i o p',
+                                'a s d f g h j k l',
+                                'z x c v b n m . - _'
+                            ],
+                        }} />
                 </div>
-
-            </div>
-            <div className="col"></div>
-            <div className=" flex-column align-items-center justify-content-center confirmar-mail" id="modal-print" >
-                {divCheckMail(mail)}
-            </div>
-            <div className="row">
-                <div className="col-8 pt-5 mx-auto">
-                    <Keyboard onChange={onChange} 
-                    layout={{
-                        'default': [
-                            '.com .ar @ {bksp}',
-                            '1 2 3 4 5 6 7 8 9 0',
-                            'q w e r t y u i o p',
-                            'a s d f g h j k l',
-                            'z x c v b n m . - _'                            
-                        ],
-                    }} />
+                <div
+                    className=" flex-column align-items-center justify-content-center confirmar-mail"
+                    id="modal-print"
+                >
+                    {divCheckMail(mail)}
                 </div>
-              </div>
             </div>
-          </div>
-          <div className="col-8 offset-md-2 pt-5">
-            <Keyboard onChange={onChange} />
-          </div>
-          <div
-            className=" flex-column align-items-center justify-content-center confirmar-mail"
-            id="modal-print"
-          >
-            {divCheckMail(mail)}
-          </div>
         </div>
-      </div>
     );
 };
 
