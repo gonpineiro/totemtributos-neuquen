@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { recibo } from './reciboAxios';
 import { I, LinkBtn, Cargando } from '../shared';
 import { Error } from '../shared/Error';
+import Recycle from './Recycle';
 
 export const Recibo = ({
   location: {
@@ -62,6 +63,9 @@ export const Recibo = ({
             </div>
             <div className="card-body text-center">
               Se generó el recibo Nro {pdf.recibo}, ¿Desea enviarlo por email o imprimirlo?
+            </div>
+            <div className="card-body text-center">
+              {/* <Recycle />  */}Para pagar online imprimí el código QR
             </div>
             <div className="card-footer">
               <div className="btn-wrapper">

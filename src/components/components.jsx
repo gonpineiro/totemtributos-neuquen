@@ -36,7 +36,7 @@ export const Inmuebles = () => (
         label="Partida o Nomenclatura"
         inputName="inmueble"
         nodesHtml={InmueblesNodeHtml}
-        tipo="ROD"
+        tipo="INM"
     />
 );
 

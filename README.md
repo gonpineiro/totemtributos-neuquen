@@ -14,7 +14,7 @@ const printIframe = (id) => {
   };
 ```
 
-Esta funcion no se puede utilizar en un navagador con la configuracion estandar porque es bloqueado porque arroja el siguente error
+Esta funcion no se puede utilizar en un navagador con la configuracion estandar porque es bloqueado, arroja el siguente error:
 
 `SecurityError: Blocked a frame with origin "web-site" from accessing a cross-origin frame.`
 

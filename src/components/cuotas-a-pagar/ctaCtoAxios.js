@@ -18,7 +18,7 @@ export const imponible = async (tipo, id) => {
         });
 
         if (responseOne.data.error) return responseOne.data;
-
+        
         const responseTwo = await axios({
             method: 'post',
             url: URL_DEV + 'cuenta_corriente',

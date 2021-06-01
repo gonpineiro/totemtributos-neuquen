@@ -12,8 +12,8 @@ const Main = () => {
                                 <div className="row pb-3">
                                     <div className="col d-flex flex-column justify-content-center">
                                         <TipoImp name={'Rodados'} url={'/apps/totems/rodado'} />
-                                        {/* <TipoImp name={'Inmuebles'} url={'/apps/totems/inmuebles'} />
-                                        <a href="comercio.html" type="button" className="btn btn-primary btn-labeled text-left mb-1">
+                                        <TipoImp name={'Inmuebles'} url={'/apps/totems/inmuebles'} />
+                                        {/* <a href="comercio.html" type="button" className="btn btn-primary btn-labeled text-left mb-1">
                                             <span className="btn-label"><i className="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>Comercio
                                         </a>
                                         <a href="planes-pago.html" type="button" className="btn btn-primary btn-labeled text-left mb-1">

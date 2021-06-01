@@ -4,7 +4,7 @@ import qs from 'qs';
 import { TOKEN, URL_DEV, NOW } from '../utils/const';
 
 export const recibo = async (tr02100_id, impApagar) => {
-    const array = impApagar.map((obj) => Number(obj['value'])).toString();
+    const list = impApagar.map((obj) => Number(obj['value'])).toString();
 
     try {
         const responseOne = await axios({
@@ -13,7 +13,7 @@ export const recibo = async (tr02100_id, impApagar) => {
             data: qs.stringify({
                 TOKEN: TOKEN,
                 IMPONIBLE_ID: tr02100_id,
-                LISTA_TR1A102_ID: '[' + array + ']',
+                LISTA_TR1A102_ID: '[' + list + ']',
                 FECHA_ACTUALIZACION: NOW,
             }),
             headers: {
