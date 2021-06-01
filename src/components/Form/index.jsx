@@ -7,16 +7,16 @@ import { I, LinkBtn } from '../shared';
 
 import "./styles.scss";
 
-export const Form = ({ name, h2, label, inputName, tipo, nodesHtml }) => {
+export const Form = ({ name, h2, label, inputName, tipo, nodesHtml, keyboardLayout, titles }) => {
   const [datos, setDatos] = useState({});
-
+  
   const handleInputChange = (e) => {
     setDatos({
       ...datos,
       [e.target.name]: e.target.value,
     });
   };
-  
+
   const onChange = (input) => {
     console.log(input);
     setDatos({
@@ -27,14 +27,7 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml }) => {
 
   const Key = () => (
     <Keyboard onChange={onChange}
-      layout={{
-        'default': [
-          '1 2 3 4 5 6 7 8 9 0',
-          'Q W E R T Y U I O P',
-          'A S D F G H J K L -',
-          'Z X C V B N M {bksp}',
-        ],
-      }} />
+      layout={keyboardLayout} />
   )
 
   return (
@@ -61,11 +54,11 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml }) => {
             </div>
             <div className="card-footer">
               <div className="btn-wrapper d-flex justify-content-between">
-                <LinkBtn btnClass="btn btn-primary active" iClass="fa fa-arrow-circle-o-left" url="/apps/totems" desc="Volver"/>               
+                <LinkBtn btnClass="btn btn-primary active" iClass="fa fa-arrow-circle-o-left" url="/apps/totems" desc="Volver" />
                 <Link
                   to={{
                     pathname: "/apps/totems/pagar/",
-                    state: { tipo: tipo, data: datos[inputName] },
+                    state: { tipo, data: datos[inputName], titles },
                   }}
                   className="btn btn-primary active"
                 >

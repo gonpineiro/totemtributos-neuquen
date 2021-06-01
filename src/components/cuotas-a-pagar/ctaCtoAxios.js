@@ -18,7 +18,7 @@ export const imponible = async (tipo, id) => {
         });
 
         if (responseOne.data.error) return responseOne.data;
-        
+
         const responseTwo = await axios({
             method: 'post',
             url: URL_DEV + 'cuenta_corriente',
@@ -31,7 +31,7 @@ export const imponible = async (tipo, id) => {
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
             },
         });
-
+        
         if (responseTwo.data.error) return responseTwo.data;
 
         const impuestos = responseTwo.data.items.filter((el) => {

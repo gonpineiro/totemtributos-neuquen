@@ -11,17 +11,15 @@ import { YEAR_NOW } from "../utils/const";
 
 export const CuotasPagar = ({
   location: {
-    state: { tipo, data },
+    state: { tipo, data, titles: { titulo, subtitulo } },
   },
 }) => {
   const [datos, setDatos] = useState(null);
-
   useEffect(() => {
     imponible(tipo, data).then((response) => {
       setDatos(response);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [data, tipo]);
 
   const [impApagar, setImpApagar] = useState([]);
 
@@ -51,13 +49,13 @@ export const CuotasPagar = ({
       );
     } else {
       return (
-        <Link type="button" className="btn bg-info disabled ">
+        <button type="button" className="btn bg-info disabled ">
           <i className="fa fa-file-o" aria-hidden="true"></i> GENERAR RECIBO
-        </Link>
+        </button>
       );
     }
   };
-  if (datos == null) return <Cargando />;
+  if (datos === null) return <Cargando />;
 
   if (datos === -1)
     return <Error msg={"Espere unos minutos e intente nuevamente por favor"} />;
@@ -83,8 +81,8 @@ export const CuotasPagar = ({
                 Seleccionar las cuotas que desea pagar
               </span>
             </div>
-            <p className="titulo">Dominio : {datos.imp_identificacion}</p>
-            <p className="subtitulo">Marca-Modelo-Año : {datos.imp_nombre}</p>
+            <p className="titulo">{titulo} {datos.imp_identificacion}</p>
+            <p className="subtitulo">{subtitulo} {datos.imp_nombre}</p>
             <div className="card-body">
               <div className="table-responsive">
                 <table className="table">

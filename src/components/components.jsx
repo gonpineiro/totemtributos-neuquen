@@ -3,7 +3,23 @@ import Form from './Form';
 
 /* Rodados */
 export const Rodado = () => (
-    <Form name="Rodados" h2="INGRESE SU PATENTE" label="Patente" inputName="patente" nodesHtml={RodadoNodeHtml} tipo="ROD" />
+    <Form
+        name="Rodados"
+        h2="INGRESE SU PATENTE"
+        label="Patente"
+        inputName="patente"
+        nodesHtml={RodadoNodeHtml}
+        tipo="ROD"
+        titles={{ titulo: 'Dominio :', subtitulo: 'Marca-Modelo-Año :' }}
+        keyboardLayout={{
+            'default': [
+                '1 2 3 4 5 6 7 8 9 0',
+                'Q W E R T Y U I O P',
+                'A S D F G H J K L -',
+                'Z X C V B N M {bksp}',
+            ],
+        }}
+    />
 );
 
 const RodadoNodeHtml = [
@@ -22,7 +38,16 @@ export const Cementerio = () => (
         label="Contrato"
         inputName="cementerio"
         nodesHtml={CementerioNodeHtml}
-        tipo="ROD"
+        tipo="CEC"
+        titles={['']}
+        keyboardLayout={{
+            'default': [
+                '1 2 3 4 5 6 7 8 9 0',
+                'Q W E R T Y U I O P',
+                'A S D F G H J K L -',
+                'Z X C V B N M {bksp}',
+            ],
+        }}
     />
 );
 
@@ -36,7 +61,16 @@ export const Inmuebles = () => (
         label="Partida o Nomenclatura"
         inputName="inmueble"
         nodesHtml={InmueblesNodeHtml}
-        tipo="INM"
+        tipo="INM"        
+        titles={{ titulo: 'Partida :', subtitulo: 'Nomenclatura :' }}
+        keyboardLayout={{
+            'default': [
+                '1 2 3',
+                '4 5 6',
+                '7 8 9',
+                '0 {bksp}',
+            ],
+        }}
     />
 );
 

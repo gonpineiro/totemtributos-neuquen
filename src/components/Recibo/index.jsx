@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { recibo } from './reciboAxios';
 import { I, LinkBtn, Cargando } from '../shared';
 import { Error } from '../shared/Error';
-import Recycle from './Recycle';
+/* import Recycle from './Recycle'; */
 
 export const Recibo = ({
   location: {
@@ -31,8 +31,7 @@ export const Recibo = ({
       }
 
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [impApagar, tr02100_id]);
 
   const printIframe = (id) => {
     const iframe = document.getElementById(id);

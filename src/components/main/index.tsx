@@ -24,8 +24,8 @@ const Main = () => {
                                         </a> */}
                                     </div>
                                     <div className="col d-flex flex-column justify-content-center">
-                                        {/* <TipoImp name={'Cementerio'} url={'/apps/totems/cementerio'} />
-                                        <TipoImp name={'Recupero Plan Federal'} url={'/apps/totems/recupero-plan-federal'} />
+                                        <TipoImp name={'Cementerio'} url={'/apps/totems/cementerio'} />
+                                        {/* <TipoImp name={'Recupero Plan Federal'} url={'/apps/totems/recupero-plan-federal'} />
                                         <TipoImp name={'Residuos Patógenos'} url={'/apps/totems/cementerio'} />
                                         <TipoImp name={'Natatorios '} url={'/apps/totems/natatorio'} /> */}
 
