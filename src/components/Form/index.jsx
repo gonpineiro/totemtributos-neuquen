@@ -9,7 +9,7 @@ import "./styles.scss";
 
 export const Form = ({ name, h2, label, inputName, tipo, nodesHtml, keyboardLayout, titles }) => {
   const [datos, setDatos] = useState({});
-  
+
   const handleInputChange = (e) => {
     setDatos({
       ...datos,
@@ -23,11 +23,6 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml, keyboardLayo
       [inputName]: input,
     });
   };
-
-  const Key = () => (
-    <Keyboard onChange={onChange}
-      layout={keyboardLayout} />
-  )
 
   return (
     <div className="container">
@@ -70,7 +65,9 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml, keyboardLayo
         </div>
       </div>
       <div className="row">
-        <div className="col-8 pt-5 mx-auto">{Key()}</div>
+        <div className="col-8 pt-5 mx-auto">
+          <Keyboard onChange={onChange} layout={keyboardLayout} />
+        </div>
       </div>
     </div>
   );

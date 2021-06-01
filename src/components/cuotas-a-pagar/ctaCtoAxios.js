@@ -31,11 +31,11 @@ export const imponible = async (tipo, id) => {
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
             },
         });
-        
+
         if (responseTwo.data.error) return responseTwo.data;
 
         const impuestos = responseTwo.data.items.filter((el) => {
-            return el.es_deuda === 'S' && el.es_transac === 'S' /* && el.reg_id.includes("2017") */ ;
+            return el.es_deuda === 'S' && el.es_transac === 'S' /* && el.reg_id.includes("2017") */;
         });
 
         const obj = {

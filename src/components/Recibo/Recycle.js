@@ -1,4 +1,4 @@
-const Recycle = (props) => {
+const Recycle = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,7 +9,6 @@ const Recycle = (props) => {
       stroke="#000"
       strokeLinecap="round"
       strokeLinejoin="round"
-      {...props}
     >
       <use xlinkHref="#prefix__a" x={0.075} y={0.075} />
       <symbol id="prefix__a" overflow="visible">
