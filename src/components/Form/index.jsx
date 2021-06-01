@@ -18,7 +18,6 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml, keyboardLayo
   };
 
   const onChange = (input) => {
-    console.log(input);
     setDatos({
       ...datos,
       [inputName]: input,

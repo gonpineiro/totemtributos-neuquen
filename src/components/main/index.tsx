@@ -13,6 +13,9 @@ const Main = () => {
                                     <div className="col d-flex flex-column justify-content-center">
                                         <TipoImp name={'Rodados'} url={'/apps/totems/rodado'} />
                                         <TipoImp name={'Inmuebles'} url={'/apps/totems/inmuebles'} />
+                                        <TipoImp name={'Comercio'} url={'/apps/totems/comercio'} />
+                                        <TipoImp name={'Planes de pago'} url={'/apps/totems/plan-de-pago'} />
+                                        <TipoImp name={'Cementerio'} url={'/apps/totems/cementerio'} />
                                         {/* <a href="comercio.html" type="button" className="btn btn-primary btn-labeled text-left mb-1">
                                             <span className="btn-label"><i className="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>Comercio
                                         </a>
@@ -24,7 +27,7 @@ const Main = () => {
                                         </a> */}
                                     </div>
                                     <div className="col d-flex flex-column justify-content-center">
-                                        <TipoImp name={'Cementerio'} url={'/apps/totems/cementerio'} />
+                                        {/* <TipoImp name={'Cementerio'} url={'/apps/totems/cementerio'} /> */}
                                         {/* <TipoImp name={'Recupero Plan Federal'} url={'/apps/totems/recupero-plan-federal'} />
                                         <TipoImp name={'Residuos Patógenos'} url={'/apps/totems/cementerio'} />
                                         <TipoImp name={'Natatorios '} url={'/apps/totems/natatorio'} /> */}

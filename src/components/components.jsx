@@ -1,4 +1,3 @@
-import React from 'react';
 import Form from './Form';
 
 /* Rodados */
@@ -37,21 +36,19 @@ export const Cementerio = () => (
         h2="Ingrese su número de contrato"
         label="Contrato"
         inputName="cementerio"
-        nodesHtml={CementerioNodeHtml}
+        nodesHtml={[<p>999999999</p>]}
         tipo="CEC"
-        titles={['']}
+        titles={{ titulo: 'Ubicación :', subtitulo: 'Contrato :' }}
         keyboardLayout={{
             'default': [
-                '1 2 3 4 5 6 7 8 9 0',
-                'Q W E R T Y U I O P',
-                'A S D F G H J K L -',
-                'Z X C V B N M {bksp}',
+                '1 2 3',
+                '4 5 6',
+                '7 8 9',
+                '0 {bksp}',
             ],
         }}
     />
 );
-
-const CementerioNodeHtml = [<p>999999999</p>];
 
 /* Inmuebles */
 export const Inmuebles = () => (
@@ -60,8 +57,8 @@ export const Inmuebles = () => (
         h2="Ingrese su partida ó nomenclatura catastral - sin guiones"
         label="Partida o Nomenclatura"
         inputName="inmueble"
-        nodesHtml={InmueblesNodeHtml}
-        tipo="INM"        
+        nodesHtml={[<p>9999999 / 99XX99999999999</p>]}
+        tipo="INM"
         titles={{ titulo: 'Partida :', subtitulo: 'Nomenclatura :' }}
         keyboardLayout={{
             'default': [
@@ -74,14 +71,17 @@ export const Inmuebles = () => (
     />
 );
 
-const InmueblesNodeHtml = [<p>9999999 / 99XX99999999999</p>];
-
 /* Natatorio */
 export const Natatorio = () => (
-    <Form name="Natatorios" h2="Ingrese su número" label="Número" inputName="natatorio" nodesHtml={NatatorioNodeHtml} tipo="ROD" />
+    <Form
+        name="Natatorios"
+        h2="Ingrese su número"
+        label="Número"
+        inputName="natatorio"
+        nodesHtml={[<p>9999999 / 99XX99999999999</p>]}
+        tipo="ROD"
+    />
 );
-
-const NatatorioNodeHtml = [<p>9999999 / 99XX99999999999</p>];
 
 /* Residuo Patógenos */
 export const ResiduosPatogenos = () => (
@@ -90,12 +90,10 @@ export const ResiduosPatogenos = () => (
         h2="Ingrese su número"
         label="Número"
         inputName="residuos"
-        nodesHtml={ResiduosPatogenosNodeHtml}
+        nodesHtml={[<p>9999999 / 99XX99999999999</p>]}
         tipo="ROD"
     />
 );
-
-const ResiduosPatogenosNodeHtml = [<p>9999999 / 99XX99999999999</p>];
 
 /* Recupero Plan Federal */
 export const RecuperoPlanFederal = () => (
@@ -104,9 +102,49 @@ export const RecuperoPlanFederal = () => (
         h2="Ingrese su número"
         label="Número"
         inputName="recuperoPlanFederal"
-        nodesHtml={RecuperoPlanFederalNodeHtml}
+        nodesHtml={[<p>999999999999</p>]}
         tipo="ROD"
     />
 );
 
-const RecuperoPlanFederalNodeHtml = [<p>999999999999</p>];
+/* Comercio */
+export const Comercio = () => (
+    <Form
+        name="Comercio"
+        h2="Ingrese su número de licencia comercial"
+        label="Lic. comercial"
+        inputName="comercio"
+        nodesHtml={[<p>zz999999</p>]}
+        tipo="COM"
+        titles={{ titulo: 'Nombre :', subtitulo: 'Licencia Comercial :' }}
+        keyboardLayout={{
+            'default': [
+                '1 2 3 4 5 6 7 8 9 0',
+                'Q W E R T Y U I O P',
+                'A S D F G H J K L -',
+                'Z X C V B N M {bksp}',
+            ],
+        }}
+    />
+);
+
+/* Planes de pago */
+export const PlanPago = () => (
+    <Form
+        name="Planes de pago"
+        h2="Ingrese su número"
+        label="Plan de pago"
+        inputName="planPago"
+        nodesHtml={[<p>999999999</p>]}
+        tipo="PPG"
+        titles={{ titulo: 'Identificación :', subtitulo: 'Plan de pago :' }}
+        keyboardLayout={{
+            'default': [
+                '1 2 3',
+                '4 5 6',
+                '7 8 9',
+                '0 {bksp}',
+            ],
+        }}
+    />
+);

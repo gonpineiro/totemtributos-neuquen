@@ -130,7 +130,7 @@ export const CuotasPagar = ({
                 <LinkBtn
                   btnClass="btn btn-primary active"
                   iClass="fa fa-arrow-circle-o-left"
-                  url="/apps/totems/rodado"
+                  url="/apps/totems/"
                   desc="Volver"
                 />
                 {BtnPrint()}

@@ -7,7 +7,7 @@ import Tributo from '../components/busqueda-tributo';
 import CuotasPagar from '../components/cuotas-a-pagar';
 import Mail from '../components/Mail';
 
-import { Rodado, Cementerio, Inmuebles, Natatorio, ResiduosPatogenos, RecuperoPlanFederal } from '../components/components';
+import { Rodado, Cementerio, Inmuebles,Comercio, PlanPago, Natatorio, ResiduosPatogenos, RecuperoPlanFederal } from '../components/components';
 
 import {Recibo} from '../components/Recibo'
 
@@ -20,6 +20,8 @@ const App = () => {
                     <Route exact path="/apps/totems/rodado" component={Rodado} />
                     <Route exact path="/apps/totems/cementerio" component={Cementerio} />
                     <Route exact path="/apps/totems/inmuebles" component={Inmuebles} />
+                    <Route exact path="/apps/totems/comercio" component={Comercio} />
+                    <Route exact path="/apps/totems/plan-de-pago" component={PlanPago} />
                     <Route exact path="/apps/totems/natatorio" component={Natatorio} />
                     <Route exact path="/apps/totems/residuos-patogenos" component={ResiduosPatogenos} />
                     <Route exact path="/apps/totems/recupero-plan-federal" component={RecuperoPlanFederal} />
