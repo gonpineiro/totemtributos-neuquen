@@ -44,14 +44,13 @@ export const imponible = async (tipo, id) => {
             return el.es_deuda === 'S' && el.es_transac === 'S' && fecha >= YEAR;
         });
 
-        const obj = {
+        return {
             imp_nombre: responseOne.data.items[0].imp_nombre,
             imp_identificacion: responseOne.data.items[0].imp_identificacion,
             tr02100_id: responseOne.data.items[0].tr02100_id,
             impuestos,
         };
 
-        return obj;
     } catch (error) {
         return -1
     }
