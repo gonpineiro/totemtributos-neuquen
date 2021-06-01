@@ -11,7 +11,7 @@ import { Rodado, Cementerio, Inmuebles,Comercio, PlanPago, Natatorio, ResiduosPa
 
 import {Recibo} from '../components/Recibo'
 
-const App = () => {
+const Router = () => {
     return (
         <BrowserRouter>
             <Layout>
@@ -36,4 +36,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default Router;
