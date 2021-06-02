@@ -36,7 +36,7 @@ export const Cementerio = () => (
         h2="Ingrese su número de contrato"
         label="Contrato"
         inputName="cementerio"
-        nodesHtml={[<p>999999999</p>]}
+        nodesHtml={[<p>99999999-9</p>]}
         tipo="CEC"
         titles={{ titulo: 'Ubicación :', subtitulo: 'Contrato :' }}
         keyboardLayout={{
@@ -44,7 +44,7 @@ export const Cementerio = () => (
                 '1 2 3',
                 '4 5 6',
                 '7 8 9',
-                '0 {bksp}',
+                '0 - {bksp}',
             ],
         }}
     />

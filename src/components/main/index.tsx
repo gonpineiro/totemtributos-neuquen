@@ -14,8 +14,8 @@ const Main = () => {
                                     <TipoImp name={'Rodados'} url={'/apps/totems/rodado'} />
                                     <TipoImp name={'Inmuebles'} url={'/apps/totems/inmuebles'} />
                                     <TipoImp name={'Comercio'} url={'/apps/totems/comercio'} />
-                                    <TipoImp name={'Planes de pago'} url={'/apps/totems/plan-de-pago'} />
                                     <TipoImp name={'Cementerio'} url={'/apps/totems/cementerio'} />
+                                    <TipoImp name={'Planes de pago'} url={'/apps/totems/plan-de-pago'} />
                                     {/* <a href="comercio.html" type="button" className="btn btn-primary btn-labeled text-left mb-1">
                                             <span className="btn-label"><i className="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>Comercio
                                         </a>
