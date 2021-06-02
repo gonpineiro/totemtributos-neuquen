@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { recibo } from './reciboAxios';
 import { I, LinkBtn, Cargando } from '../shared';
 import { Error } from '../shared/Error';
-/* import Recycle from './Recycle'; */
+import Recycle from './Recycle';
 
 export const Recibo = ({
   location: {
@@ -51,7 +51,13 @@ export const Recibo = ({
     <div className="container">
       <div className="row mt-5">
         <div className="col-md-8">
-          <iframe src={pdf.pdf} height="580px" width="100%" id='pdf' title={" "}></iframe>
+          <iframe
+            src={pdf.pdf}
+            height="580px"
+            width="100%"
+            id="pdf"
+            title={" "}
+          ></iframe>
         </div>
         <div className="col-md-4">
           <div className="card background-main-div text-center">
@@ -61,22 +67,31 @@ export const Recibo = ({
               </span>
             </div>
             <div className="card-body text-center">
-              Se generó el recibo Nro {pdf.recibo}, ¿Desea enviarlo por email o imprimirlo?
+              Se generó el recibo Nro {pdf.recibo}, ¿Desea enviarlo por email o
+              imprimirlo?
             </div>
             <div className="card-body text-center">
-              {/* <Recycle />  */}Para pagar online escanea el código QR
+              <div className="d-inline-flex">
+                <Recycle /> <span>Para pagar online escanea el código QR</span>
+              </div>
             </div>
             <div className="card-footer">
               <div className="btn-wrapper">
                 <button
-                  onClick={() => printIframe('pdf')}
+                  onClick={() => printIframe("pdf")}
                   type="button"
                   className="btn btn-info active m-3"
                 >
                   <I classname="fa fa-print" /> IMPRIMIR
                 </button>
-                <Link to={{ pathname: '/apps/totems/mail/', state: { recibo: pdf.recibo } }} className='btn btn-primary mb-1 float-right'>
-                  <I classname='fa fa-envelope-o' /> ENVIAR POR EMAIL
+                <Link
+                  to={{
+                    pathname: "/apps/totems/mail/",
+                    state: { recibo: pdf.recibo },
+                  }}
+                  className="btn btn-primary mb-1 float-right"
+                >
+                  <I classname="fa fa-envelope-o" /> ENVIAR POR EMAIL
                 </Link>
                 <LinkBtn
                   btnClass="btn btn-primary active m-3"
