@@ -1,12 +1,12 @@
 import axios from 'axios';
 import qs from 'qs';
-import { URL_PROD, NOW, TOKEN } from '../utils/const';
+import { URL_DEV, NOW, TOKEN } from '../utils/const';
 
 export const imponible = async (tipo, id) => {
     try {
         const responseOne = await axios({
             method: 'post',
-            url: URL_PROD + 'consulta_imponible',
+            url: URL_DEV + 'consulta_imponible',
             data: qs.stringify({
                 TOKEN: TOKEN,
                 IMPONIBLE_TIPO: tipo,
@@ -21,7 +21,7 @@ export const imponible = async (tipo, id) => {
 
         const responseTwo = await axios({
             method: 'post',
-            url: URL_PROD + 'cuenta_corriente',
+            url: URL_DEV + 'cuenta_corriente',
             data: qs.stringify({
                 TOKEN: TOKEN,
                 IMPONIBLE_ID: responseOne.data.items[0].tr02100_id,
