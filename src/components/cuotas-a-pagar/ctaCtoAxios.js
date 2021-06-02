@@ -35,7 +35,7 @@ export const imponible = async (tipo, id) => {
         if (responseTwo.data.error) return responseTwo.data;
 
         const impuestos = responseTwo.data.items.filter((el) => {
-            const YEAR = 2020
+            const YEAR = 2017
             if (el.reg_id.includes(':')) {
                 const fecha = parseInt(el.reg_id.split(':', 4)[1]);
                 return el.es_deuda === 'S' && el.es_transac === 'S' && fecha >= YEAR;
