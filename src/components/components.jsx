@@ -114,15 +114,15 @@ export const Comercio = () => (
         h2="Ingrese su número de licencia comercial"
         label="Lic. comercial"
         inputName="comercio"
-        nodesHtml={[<p>zz999999</p>]}
+        nodesHtml={[<p>999999</p>]}
         tipo="COM"
         titles={{ titulo: 'Nombre :', subtitulo: 'Licencia Comercial :' }}
         keyboardLayout={{
-            'default': [
-                '1 2 3 4 5 6 7 8 9 0',
-                'Q W E R T Y U I O P',
-                'A S D F G H J K L -',
-                'Z X C V B N M {bksp}',
+            default: [
+                '1 2 3', 
+                '4 5 6', 
+                '7 8 9', 
+                '0 {bksp}'
             ],
         }}
     />
