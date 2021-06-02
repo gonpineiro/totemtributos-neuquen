@@ -64,7 +64,7 @@ export const Recibo = ({
               Se generó el recibo Nro {pdf.recibo}, ¿Desea enviarlo por email o imprimirlo?
             </div>
             <div className="card-body text-center">
-              {/* <Recycle />  */}Para pagar online imprimí el código QR
+              {/* <Recycle />  */}Para pagar online escanea el código QR
             </div>
             <div className="card-footer">
               <div className="btn-wrapper">

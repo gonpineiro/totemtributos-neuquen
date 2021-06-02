@@ -54,10 +54,10 @@ export const Cementerio = () => (
 export const Inmuebles = () => (
     <Form
         name="Inmuebles"
-        h2="Ingrese su partida ó nomenclatura catastral - sin guiones"
-        label="Partida o Nomenclatura"
+        h2="Ingrese su partida"
+        label="Partida"
         inputName="inmueble"
-        nodesHtml={[<p>9999999 / 99XX99999999999</p>]}
+        nodesHtml={[<p>9999999</p>]}
         tipo="INM"
         titles={{ titulo: 'Partida :', subtitulo: 'Nomenclatura :' }}
         keyboardLayout={{
