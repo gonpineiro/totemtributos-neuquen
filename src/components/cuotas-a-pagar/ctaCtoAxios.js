@@ -1,30 +1,46 @@
 import axios from 'axios';
 import qs from 'qs';
-import { URL_DEV, NOW, TOKEN } from '../utils/const';
+import { URL, NOW, TOKEN } from '../utils/const';
 
-export const imponible = async (tipo, id) => {
+export const ctaCorriente = async  (imposibleId) => {
     try {
-        const responseOne = await axios({
+        const ctaCorriente = await axios({
             method: 'post',
-            url: URL_DEV + 'consulta_imponible',
+            url: URL + 'cuenta_corriente',
             data: qs.stringify({
                 TOKEN: TOKEN,
-                IMPONIBLE_TIPO: tipo,
-                IMPONIBLE_IDENTIFICACION: id,
+                IMPONIBLE_ID: imposibleId,
+                FECHA_ACTUALIZACION: NOW,
             }),
             headers: {
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
             },
+        }); 
+
+        if (ctaCorriente.data.error) return ctaCorriente.data;
+
+        const impuestos = ctaCorriente.data.items.filter((el) => {
+            const YEAR = 2017;
+            if (el.reg_id.includes(':')) {
+                const fecha = parseInt(el.reg_id.split(':', 4)[1]);
+                return el.es_deuda === 'S' && el.es_transac === 'S' && fecha >= YEAR;
+            }
+            const fecha = parseInt(el.reg_id.substring(0, 4));
+            return el.es_deuda === 'S' && el.es_transac === 'S' && fecha >= YEAR;
         });
+        return impuestos;
+    } catch (error) {
+        return error;
+    }
+};
 
-        if (responseOne.data.error) return responseOne.data;
-
-        const responseTwo = await axios({
+        /* Consulta de emisiones - Requiere Imponible_id, obtenido de imponible */
+        /* const emisiones = await axios({
             method: 'post',
-            url: URL_DEV + 'cuenta_corriente',
+            url: URL + 'emisiones',
             data: qs.stringify({
                 TOKEN: TOKEN,
-                IMPONIBLE_ID: responseOne.data.items[0].tr02100_id,
+                IMPONIBLE_ID: imponible.data.items[0].tr02100_id,
                 FECHA_ACTUALIZACION: NOW,
             }),
             headers: {
@@ -32,10 +48,27 @@ export const imponible = async (tipo, id) => {
             },
         });
 
-        if (responseTwo.data.error) return responseTwo.data;
+        if (emisiones.data.error) return emisiones.data; */
 
-        const impuestos = responseTwo.data.items.filter((el) => {
-            const YEAR = 2017
+        
+        /* Consulta de cuenta corriente - Requiere Imponible_id, obtenido de imponible */
+       /*  const ctaCorriente = await axios({
+            method: 'post',
+            url: URL + 'cuenta_corriente',
+            data: qs.stringify({
+                TOKEN: TOKEN,
+                IMPONIBLE_ID: imponible.data.items[0].tr02100_id,
+                FECHA_ACTUALIZACION: NOW,
+            }),
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+            },
+        }); */
+
+        /* if (ctaCorriente.data.error) return ctaCorriente.data;
+
+        const impuestos = ctaCorriente.data.items.filter((el) => {
+            const YEAR = 2017;
             if (el.reg_id.includes(':')) {
                 const fecha = parseInt(el.reg_id.split(':', 4)[1]);
                 return el.es_deuda === 'S' && el.es_transac === 'S' && fecha >= YEAR;
@@ -45,9 +78,9 @@ export const imponible = async (tipo, id) => {
         });
 
         return {
-            imp_nombre: responseOne.data.items[0].imp_nombre,
-            imp_identificacion: responseOne.data.items[0].imp_identificacion,
-            tr02100_id: responseOne.data.items[0].tr02100_id,
+            imp_nombre: imponible.data.items[0].imp_nombre,
+            imp_identificacion: imponible.data.items[0].imp_identificacion,
+            tr02100_id: imponible.data.items[0].tr02100_id,
             impuestos,
         };
 
@@ -55,4 +88,4 @@ export const imponible = async (tipo, id) => {
         return -1
     }
 
-};
+}; */

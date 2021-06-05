@@ -51,7 +51,7 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml, keyboardLayo
                 <LinkBtn btnClass="btn btn-primary active" iClass="fa fa-arrow-circle-o-left" url="/apps/totems" desc="Volver" />
                 <Link
                   to={{
-                    pathname: "/apps/totems/pagar/",
+                    pathname: "/apps/totems/opciones-pago/",
                     state: { tipo, data: datos[inputName], titles },
                   }}
                   className="btn btn-primary active"
