@@ -2,13 +2,23 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Layout from '../components/Layout';
 
 import Main from '../components/Main';
-import CuotasPagar from '../components/PagarMensual';
+import PagarMensual from '../components/PagarMensual';
+import PagarSemestral from '../components/PagarSemestral';
 import Mail from '../components/Mail';
 import OptionPayment from '../components/OptionPayment';
 
-import { Rodado, Cementerio, Inmuebles, Comercio, PlanPago, Natatorio, ResiduosPatogenos, RecuperoPlanFederal } from '../components/components';
+import {
+    Rodado,
+    Cementerio,
+    Inmuebles,
+    Comercio,
+    PlanPago,
+    Natatorio,
+    ResiduosPatogenos,
+    RecuperoPlanFederal,
+} from '../components/components';
 
-import { Recibo } from '../components/Recibo'
+import { Recibo } from '../components/Recibo';
 
 const Router = () => {
     return (
@@ -24,7 +34,8 @@ const Router = () => {
                     <Route exact path="/apps/totems/natatorio" component={Natatorio} />
                     <Route exact path="/apps/totems/residuos-patogenos" component={ResiduosPatogenos} />
                     <Route exact path="/apps/totems/recupero-plan-federal" component={RecuperoPlanFederal} />
-                    <Route exact path="/apps/totems/pagar/" component={CuotasPagar} />
+                    <Route exact path="/apps/totems/pagar-mensual/" component={PagarMensual} />
+                    <Route exact path="/apps/totems/pagar-semestral/" component={PagarSemestral} />
                     <Route exact path="/apps/totems/opciones-pago/" component={OptionPayment} />
                     <Route exact path="/apps/totems/recibo/" component={Recibo} />
                     <Route exact path="/apps/totems/mail/" component={Mail} />

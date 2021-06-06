@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
-import './cuotas-a-pagar.scss';
-
-import { ctaCorriente } from './ctaCtoAxios';
-import { Row } from './Row';
-import { Error } from '../shared/Error';
 import { Link } from 'react-router-dom';
+import './index.scss';
 
-import { LinkBtn, Cargando } from '../shared';
+import { LinkBtn, Cargando, Error } from '../shared';
 import { YEAR_NOW } from '../utils/const';
 
-export const CuotasPagar = ({
+import { ctaCorriente } from './ctaCorriente';
+import { Row } from './Row';
+
+export const PagarMensual = ({
     location: {
         state: {
             imponible: { tr02100_id, imp_identificacion, imp_nombre },
@@ -138,4 +137,4 @@ export const CuotasPagar = ({
     );
 };
 
-export default CuotasPagar;
+export default PagarMensual;

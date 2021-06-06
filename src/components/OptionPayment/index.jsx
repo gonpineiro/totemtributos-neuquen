@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-/* import './cuotas-a-pagar.scss'; */
+import { Link } from 'react-router-dom';
+
+import { Cargando, I, LinkBtn } from '../shared';
 
 import { getImponible } from './ctaCtoAxios';
-import { Cargando, I, LinkBtn } from '../shared';
-import { Link } from 'react-router-dom';
 
 export const CuotasPagar = ({
     location: {
@@ -26,9 +26,7 @@ export const CuotasPagar = ({
                     <div className="col col-md-12">
                         <div className="col col-md-8 offset-md-2">
                             <div className="card background-main-div text-center">
-                                <div className="card-body text-center">
-                                    Debe ingrsar información
-                                </div>
+                                <div className="card-body text-center">Debe ingrsar información</div>
                                 <div className="card-footer">
                                     <div className="btn-wrapper d-flex justify-content-between">
                                         <LinkBtn
@@ -53,8 +51,8 @@ export const CuotasPagar = ({
                 <div className="col col-md-12">
                     <Link
                         to={{
-                            pathname: '/apps/totems/pagar/',
-                            state: { tipo: 'mensual', imponible, titles },
+                            pathname: '/apps/totems/pagar-mensual/',
+                            state: { imponible, titles },
                         }}
                         className="btn btn-primary active"
                     >
@@ -62,8 +60,8 @@ export const CuotasPagar = ({
                     </Link>
                     <Link
                         to={{
-                            pathname: '/apps/totems/opciones-pago/',
-                            state: { tipo: 'semestral', imponible, titles },
+                            pathname: '/apps/totems/pagar-semestral/',
+                            state: { imponible },
                         }}
                         className="btn btn-primary active"
                     >
