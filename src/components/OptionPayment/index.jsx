@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 /* import './cuotas-a-pagar.scss'; */
 
 import { getImponible } from './ctaCtoAxios';
-import { Cargando, I } from '../shared';
+import { Cargando, I, LinkBtn } from '../shared';
 import { Link } from 'react-router-dom';
 
 export const CuotasPagar = ({
@@ -11,7 +11,6 @@ export const CuotasPagar = ({
     },
 }) => {
     const [imponible, setImponible] = useState(null);
-
     useEffect(() => {
         getImponible(tipo, data).then((response) => {
             setImponible(response);
@@ -19,6 +18,35 @@ export const CuotasPagar = ({
     }, [data, tipo]);
 
     if (imponible === null) return <Cargando />;
+
+    if (imponible.error) {
+        return (
+            <div className="container">
+                <div className="row mt-5">
+                    <div className="col col-md-12">
+                        <div className="col col-md-8 offset-md-2">
+                            <div className="card background-main-div text-center">
+                                <div className="card-body text-center">
+                                    Debe ingrsar información
+                                </div>
+                                <div className="card-footer">
+                                    <div className="btn-wrapper d-flex justify-content-between">
+                                        <LinkBtn
+                                            btnClass="btn btn-primary active"
+                                            iClass="fa fa-arrow-circle-o-left"
+                                            url="/apps/totems"
+                                            desc="Volver"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="container">
             <div className="row mt-5">

@@ -2,7 +2,7 @@ import axios from 'axios';
 import qs from 'qs';
 import { URL, NOW, TOKEN } from '../utils/const';
 
-export const ctaCorriente = async  (imposibleId) => {
+export const ctaCorriente = async (imposibleId) => {
     try {
         const ctaCorriente = await axios({
             method: 'post',
@@ -15,11 +15,11 @@ export const ctaCorriente = async  (imposibleId) => {
             headers: {
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
             },
-        }); 
+        });
 
         if (ctaCorriente.data.error) return ctaCorriente.data;
 
-        const impuestos = ctaCorriente.data.items.filter((el) => {
+        return ctaCorriente.data.items.filter((el) => {
             const YEAR = 2017;
             if (el.reg_id.includes(':')) {
                 const fecha = parseInt(el.reg_id.split(':', 4)[1]);
@@ -28,14 +28,13 @@ export const ctaCorriente = async  (imposibleId) => {
             const fecha = parseInt(el.reg_id.substring(0, 4));
             return el.es_deuda === 'S' && el.es_transac === 'S' && fecha >= YEAR;
         });
-        return impuestos;
     } catch (error) {
         return error;
     }
 };
 
-        /* Consulta de emisiones - Requiere Imponible_id, obtenido de imponible */
-        /* const emisiones = await axios({
+/* Consulta de emisiones - Requiere Imponible_id, obtenido de imponible */
+/* const emisiones = await axios({
             method: 'post',
             url: URL + 'emisiones',
             data: qs.stringify({
@@ -50,9 +49,8 @@ export const ctaCorriente = async  (imposibleId) => {
 
         if (emisiones.data.error) return emisiones.data; */
 
-        
-        /* Consulta de cuenta corriente - Requiere Imponible_id, obtenido de imponible */
-       /*  const ctaCorriente = await axios({
+/* Consulta de cuenta corriente - Requiere Imponible_id, obtenido de imponible */
+/*  const ctaCorriente = await axios({
             method: 'post',
             url: URL + 'cuenta_corriente',
             data: qs.stringify({
@@ -65,7 +63,7 @@ export const ctaCorriente = async  (imposibleId) => {
             },
         }); */
 
-        /* if (ctaCorriente.data.error) return ctaCorriente.data;
+/* if (ctaCorriente.data.error) return ctaCorriente.data;
 
         const impuestos = ctaCorriente.data.items.filter((el) => {
             const YEAR = 2017;

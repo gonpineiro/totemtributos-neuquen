@@ -2,7 +2,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Layout from '../components/Layout';
 
 import Main from '../components/Main';
-import CuotasPagar from '../components/cuotas-a-pagar';
+import CuotasPagar from '../components/PagarMensual';
 import Mail from '../components/Mail';
 import OptionPayment from '../components/OptionPayment';
 
