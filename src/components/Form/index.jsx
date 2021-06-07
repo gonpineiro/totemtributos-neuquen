@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../Layout/header.tsx";
-import TipoImp from "../../components/Main/TipoImp.tsx";
+import TipoImp from "../Main/TipoImp.jsx";
 
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import { I, LinkBtn } from "../shared";
+import { IconoCuotasPagar } from "../Main/iconos/iconos.js";
+
 
 import "./styles.scss";
 
@@ -39,7 +41,7 @@ export const Form = ({
     <div>
       <Header />
       <div className="text-center btn-titulo">
-        <TipoImp name={name} url={name} />
+        <TipoImp name={name} url={name} icono={[<IconoCuotasPagar />]} />
       </div>
       <div className="container">
         <div className="row mt-1">
@@ -52,7 +54,7 @@ export const Form = ({
               </div>
               <div className="card-body">
                 <div className="form-container">
-                  <h5 className="">{label}</h5>
+                  <span className="label-title">{label}</span>
                   <input
                     type="text"
                     onChange={handleInputChange}
@@ -70,14 +72,14 @@ export const Form = ({
                     Siguiente
                   </Link>
                 </div>
-                <div className="label" >{nodesHtml[0]}</div>
+                <div className="label">{nodesHtml[0]}</div>
               </div>
               <div className="text-center pb-3">
-                  <LinkBtn
-                    btnClass="btn btn-form active"
-                    url="/apps/totems"
-                    desc="Volver"
-                  />
+                <LinkBtn
+                  btnClass="btn btn-form active"
+                  url="/apps/totems"
+                  desc="Volver"
+                />
               </div>
             </div>
           </div>

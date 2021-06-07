@@ -49,14 +49,17 @@
   position: relative;
   left: -12px;
   display: inline-block;
-  padding: 0 28px !important;
+  padding: 0 20px !important;
   background: #b8ddf0 !important;
 }
 .btn-totem {
   color: #fbfdfe !important;
   background-color: #5fb0db;
   border: none !important;
-  min-width: 250px;
+  min-width: 300px;
   font-weight: bolder;
   font-size: 1.5rem;
+}
+.btn-icono{
+  width: 60px;
 }

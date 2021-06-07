@@ -5,6 +5,9 @@ import { Cargando, I, LinkBtn } from '../shared';
 
 import { getImponible } from './ctaCtoAxios';
 
+import Header from "../Layout/header.tsx";
+
+
 export const CuotasPagar = ({
     location: {
         state: { tipo, data, titles },
@@ -46,30 +49,33 @@ export const CuotasPagar = ({
     }
 
     return (
+      <div>
+        <Header />
         <div className="container">
-            <div className="row mt-5">
-                <div className="col col-md-12">
-                    <Link
-                        to={{
-                            pathname: '/apps/totems/pagar-mensual/',
-                            state: { imponible, titles },
-                        }}
-                        className="btn btn-primary active"
-                    >
-                        <I classname="fa fa-arrow-circle-o-right" /> Mensual
-                    </Link>
-                    <Link
-                        to={{
-                            pathname: '/apps/totems/pagar-semestral/',
-                            state: { imponible },
-                        }}
-                        className="btn btn-primary active"
-                    >
-                        <I classname="fa fa-arrow-circle-o-right" /> Semestral
-                    </Link>
-                </div>
+          <div className="row mt-5">
+            <div className="col col-md-12">
+              <Link
+                to={{
+                  pathname: "/apps/totems/pagar-mensual/",
+                  state: { imponible, titles },
+                }}
+                className="btn btn-primary active"
+              >
+                <I classname="fa fa-arrow-circle-o-right" /> Mensual
+              </Link>
+              <Link
+                to={{
+                  pathname: "/apps/totems/pagar-semestral/",
+                  state: { imponible },
+                }}
+                className="btn btn-primary active"
+              >
+                <I classname="fa fa-arrow-circle-o-right" /> Semestral
+              </Link>
             </div>
+          </div>
         </div>
+      </div>
     );
 };
 
