@@ -61,7 +61,7 @@ export const Recibo = ({
                                 <Link
                                     to={{
                                         pathname: '/apps/totems/mail/',
-                                        state: { recibo: pdf.recibo },
+                                        state: { recibo: pdf.recibo, tipo: 'recibo' },
                                     }}
                                     className="btn btn-primary mb-1 float-right"
                                 >

@@ -23,6 +23,7 @@ export const PagarSemestral = ({
                 reader.onload = () => {
                     setEmision({
                         pdf: reader.result,
+                        data: response.data
                     });
                 };
             } else {
@@ -60,6 +61,7 @@ export const PagarSemestral = ({
                                 <Link
                                     to={{
                                         pathname: '/apps/totems/mail/',
+                                        state: { data: emision.data, tipo: 'semestral' }
                                     }}
                                     className="btn btn-primary mb-1 float-right"
                                 >

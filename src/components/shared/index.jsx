@@ -19,6 +19,7 @@ export const Error = ({ msg }) => {
     );
 };
 
+
 export const LinkBtn = ({ btnClass, iClass, url, desc }) => (
     <Link to={url} className={btnClass}>
         <I classname={iClass} /> {desc}

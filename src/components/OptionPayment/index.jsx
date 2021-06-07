@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Cargando, I, LinkBtn } from '../shared';
+import { Cargando, Error, I } from '../shared';
 
 import { getImponible } from './ctaCtoAxios';
 
@@ -19,31 +19,9 @@ export const CuotasPagar = ({
 
     if (imponible === null) return <Cargando />;
 
-    if (imponible.error) {
-        return (
-            <div className="container">
-                <div className="row mt-5">
-                    <div className="col col-md-12">
-                        <div className="col col-md-8 offset-md-2">
-                            <div className="card background-main-div text-center">
-                                <div className="card-body text-center">Debe ingrsar información</div>
-                                <div className="card-footer">
-                                    <div className="btn-wrapper d-flex justify-content-between">
-                                        <LinkBtn
-                                            btnClass="btn btn-primary active"
-                                            iClass="fa fa-arrow-circle-o-left"
-                                            url="/apps/totems"
-                                            desc="Volver"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+    if (imponible.error) return <Error msg={'Debe ingrsar información'} />;
+
+    if (imponible.estado_complementario === 'Caducado') return <Error msg={'Caducado'} />;
 
     return (
         <div className="container">
@@ -58,15 +36,17 @@ export const CuotasPagar = ({
                     >
                         <I classname="fa fa-arrow-circle-o-right" /> Mensual
                     </Link>
-                    <Link
-                        to={{
-                            pathname: '/apps/totems/pagar-semestral/',
-                            state: { imponible },
-                        }}
-                        className="btn btn-primary active"
-                    >
-                        <I classname="fa fa-arrow-circle-o-right" /> Semestral
-                    </Link>
+                    {tipo !== 'PPG' && (
+                        <Link
+                            to={{
+                                pathname: '/apps/totems/pagar-semestral/',
+                                state: { imponible },
+                            }}
+                            className="btn btn-primary active"
+                        >
+                            <I classname="fa fa-arrow-circle-o-right" /> Semestral
+                        </Link>
+                    )}
                 </div>
             </div>
         </div>

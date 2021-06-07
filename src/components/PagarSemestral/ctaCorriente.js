@@ -19,6 +19,8 @@ export const ctaCorriente = async (imponibleId) => {
 
         if (emisiones.data.error) return emisiones.data;
 
+        if (emisiones.data.items.length === 0) return -1;
+
         const emisionesPdf = await axios({
             method: 'post',
             url: URL + 'emisiones_pdf',
@@ -35,9 +37,9 @@ export const ctaCorriente = async (imponibleId) => {
         });
 
         if (emisionesPdf.data.error) return emisiones.data;
-        console.log(emisionesPdf);
         return {
             blob: emisionesPdf.data,
+            data: { IMPONIBLE_ID: imponibleId, TR1E200_ID: emisiones.data.items[0].tr1e200_id },
         };
     } catch (error) {
         return error;
