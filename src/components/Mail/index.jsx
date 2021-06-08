@@ -126,9 +126,9 @@ export const Mail = ({
                         </div>
                         <div className="card-footer">
                             <div className="btn-wrapper text-center d-flex justify-content-between">
-                                <LinkBtn btnClass="btn btn-primary" iClass="fa fa-arrow-circle-o-left" url="/apps/totems/" desc="VOLVER" />
+                                <LinkBtn btnClass="btn btn-primary" url="/apps/totems/" desc="VOLVER" />
                                 <button type="button" id="enviar" onClick={checkMail} className="btn btn-success">
-                                    <i className="fa fa-envelope-o" aria-hidden="true"></i> Enviar
+                                 ENVIAR
                                 </button>
                             </div>
                         </div>

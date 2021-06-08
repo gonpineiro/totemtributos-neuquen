@@ -38,7 +38,7 @@ export const PagarSemestral = ({
 
     return (
         <div className="container">
-            <div className="row mt-5">
+            <div className="row mt-3">
                 <div className="col-md-8">
                     <iframe src={emision.pdf} height="580px" width="100%" id="pdf" title={' '}></iframe>
                 </div>

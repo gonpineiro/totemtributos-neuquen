@@ -62,8 +62,13 @@ export const PagarMensual = ({
         }
     };
     if (impuestos === null) return <Cargando />;
-
-    if (impuestos === -1) return <Error msg={'Espere unos minutos e intente nuevamente por favor'} />;
+    if (impuestos === -1) return (
+      <Error
+        msg={
+          "En estos momentos no pudimos procesar su consulta, intendente nuevamente. Espere unos minutos e intente nuevamente por favor."
+        }
+      />
+    );
 
     if (impuestos.error) return <Error msg={impuestos.error} />;
 
@@ -71,8 +76,8 @@ export const PagarMensual = ({
 
     return (
         <div className="container">
-            <div className="row mt-5">
-                <div className="col col-md-12 mt-5">
+            <div className="row mt-3">
+                <div className="col col-md-12">
                     <div className="card background-main-div">
                         <div className="card-header text-center bg-blue">
                             <span className="card-title  text-white text-uppercase">Seleccionar las cuotas que desea pagar</span>

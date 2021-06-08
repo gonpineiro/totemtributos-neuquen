@@ -21,7 +21,7 @@ export const CuotasPagar = ({
 
     if (imponible === null) return <Cargando />;
 
-    if (imponible.error) return <Error msg={'Debe ingresar información'} />;
+    if (imponible.error) return <Error msg={'Por favor, verifique los datos ingresados.'} />;
 
     if (imponible.estado_complementario === 'Caducado') return <Error msg={'Caducado'} />;
     return (
@@ -39,7 +39,6 @@ export const CuotasPagar = ({
                     </Link>
                 </div>
                 <div className="col col-md-12 text-center">
-                    {' '}
                     {tipo !== 'PPG' && (
                         <Link
                             to={{
@@ -54,7 +53,7 @@ export const CuotasPagar = ({
                 </div>
                 <div className="col-12 text-center mt-5">
                     <Link to="/apps/totems" className="btn btn-form active mb-1 text-center">
-                        Volver
+                        VOLVER
                     </Link>
                 </div>
             </div>

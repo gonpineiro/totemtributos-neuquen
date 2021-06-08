@@ -7,7 +7,7 @@ import { LinkBtn } from '../shared';
 
 import './styles.scss';
 
-export const Form = ({ name, h2, label, inputName, tipo, nodesHtml, keyboardLayout, titles }) => {
+export const Form = ({ name, label, inputName, tipo, nodesHtml, keyboardLayout, titles }) => {
     const [datos, setDatos] = useState({});
 
     const handleInputChange = (e) => {
@@ -26,9 +26,8 @@ export const Form = ({ name, h2, label, inputName, tipo, nodesHtml, keyboardLayo
 
     return (
         <>
-            <div className="text-center btn-titulo">{nodesHtml[0]}</div>
             <div className="container">
-                <div className="row mt-1">
+                <div className="row mt-5">
                     <div className="col col-md-8 offset-md-2">
                         <div className="card">
                             <div className="card-header bg-header-card ">

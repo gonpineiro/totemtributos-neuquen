@@ -62,17 +62,19 @@ label {
 }
 p.titulo {
   color: #42b2df;
-  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 0px;
+  margin-top: 10px;
   margin-left: 20px;
-  margin-bottom: 5px;
   float: left;
 }
 
 p.subtitulo {
-  color: #066ab1;
-  font-size: 20px;
-  margin-left: 20px;
-  float: left;
+    color: #066ab1;
+    font-size: 18px;
+    margin-left: 20px;
+    float: left;
+    font-weight: 700;
 }
 
 .btn-salir {
@@ -135,11 +137,16 @@ thead tr th {
 .card-header .bg-blue {
   background-color: #42b2df !important;
 }
-.btn-oap {
-  color: #fbfdfe !important;
-  background-color: #5fb0db;
-  border: none !important;
-  font-weight:normal;
-  font-size: 1.1rem;
-  min-width: 150px;
+.btn-oap{
+    color: #fbfdfe!important;
+    font-weight: 400;
+    font-size: 1.1rem;
+    min-width: 150px;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 3px solid #D9EFFD!important;
+    background: #1299D6;
 }

@@ -1,5 +1,4 @@
 import Header from "./header";
-
 interface Props {
 }
 
