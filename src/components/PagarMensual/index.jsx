@@ -40,8 +40,6 @@ export const PagarMensual = ({
     };
 
     const BtnPrint = () => {
-        if (tipo === 'PPG') return '';
-
         if (impApagar.length > 0) {
             return (
                 <Link
@@ -63,17 +61,6 @@ export const PagarMensual = ({
             );
         }
     };
-
-    const Total = () => {
-        if (tipo !== 'PPG') {
-            return (
-                <h5 className="text-center" style={{ marginRight: '15px' }}>
-                    Total: $ {impApagar.reduce((acc, curr) => acc + curr.total, 0).toFixed(2)}
-                </h5>
-            );
-        }
-    };
-
     if (impuestos === null) return <Cargando />;
 
     if (impuestos === -1) return <Error msg={'Espere unos minutos e intente nuevamente por favor'} />;
@@ -121,8 +108,6 @@ export const PagarMensual = ({
                                                 reg_id={elem.reg_id}
                                                 fecha={elem.fecha}
                                                 handlerCheckboxChance={handlerCheckboxChance}
-                                                tipo={tipo}
-                                                tr02100_id={tr02100_id}
                                             />
                                         ))}
                                     </tbody>
@@ -130,7 +115,11 @@ export const PagarMensual = ({
                             </div>
                         </div>
                         <div className="card-footer container" style={{ backgroundColor: '#F0F9FC', borderTop: 'none' }}>
-                            <div className="col-2 offset-10">{Total()}</div>
+                            <div className="col-2 offset-10">
+                                <h5 className="text-center" style={{ marginRight: '15px' }}>
+                                    Total: $ {impApagar.reduce((acc, curr) => acc + curr.total, 0).toFixed(2)}
+                                </h5>
+                            </div>
                         </div>
                         <div className="card-footer">
                             <div className="btn-wrapper text-center d-flex justify-content-between">

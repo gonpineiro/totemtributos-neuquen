@@ -30,7 +30,7 @@ export const ctaCorriente = async (imponibleId, tipo) => {
                 return el.es_deuda === 'S' && el.es_transac === 'S' && fecha >= YEAR;
             }
             const fecha = parseInt(el.fecha.substring(0, 4));
-            return el.es_deuda === 'S' && el.es_transac === 'S' && fecha >= YEAR;
+            return el.es_deuda === 'S' && el.actualizado !== el.saldo && fecha >= YEAR;
         });
     } catch (error) {
         return error;

@@ -8,13 +8,13 @@ import { recibo } from './reciboAxios';
 
 export const Recibo = ({
     location: {
-        state: { impApagar, tr02100_id, id },
+        state: { impApagar, tr02100_id },
     },
 }) => {
     const [pdf, setPdf] = useState(null);
 
     useEffect(() => {
-        recibo(tr02100_id, impApagar, id).then((response) => {
+        recibo(tr02100_id, impApagar).then((response) => {
             if (response !== -1) {
                 const reader = new FileReader();
                 reader.readAsDataURL(response.blob);
