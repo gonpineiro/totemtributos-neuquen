@@ -1,5 +1,5 @@
 .cargando {
-  min-height: 600px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,4 +8,13 @@
   width: 5rem;
   height: 5rem;
   color: #1299d6;
+}
+.mensaje {
+  color: #42b2df;
+  font-weight: 700;
+}
+.titulo-mensaje {
+  color: #066ab1;
+  font-size: 28px;
+  font-weight: 700;
 }

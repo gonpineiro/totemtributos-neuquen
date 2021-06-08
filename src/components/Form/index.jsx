@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Header from "../Layout/header.tsx";
-import TipoImp from "../Main/TipoImp.jsx";
+import Header from '../Layout/header';
 
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
@@ -40,11 +39,8 @@ export const Form = ({
   return (
     <div>
       <Header />
-      <div className="text-center btn-titulo">
-        <TipoImp name={name} url={name} icono={[<IconoCuotasPagar />]} />
-      </div>
       <div className="container">
-        <div className="row mt-1">
+        <div className="row mt-5">
           <div className="col col-md-8 offset-md-2">
             <div className="card">
               <div className="card-header bg-header-card ">

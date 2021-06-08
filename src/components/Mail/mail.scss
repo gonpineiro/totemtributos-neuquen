@@ -17,7 +17,48 @@
 .input-wrapper {
     background:#F0F9FC;
 }
-
+.btn.btn-primary, .btn-success {
+    color: #fbfdfe!important;
+    font-weight: 400;
+    font-size: 1.1rem;
+    min-width: 150px;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 3px solid #D9EFFD!important;
+    background: #8ABB6A;
+}
+.btn.btn-primary{
+    background: #1299D6;
+}
+.btn-check:active+.btn-info, .btn-check:checked+.btn-info, .btn-info.active, .btn-info:active, .show>.btn-info.dropdown-toggle{
+	color: #fbfdfe!important;
+    font-weight: 400;
+    font-size: 1.1rem;
+    min-width: 150px;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 3px solid #D9EFFD!important;
+    background: #1299D6;
+}
+.btn.btn-primary.mb-1.float-right{
+	color: #fbfdfe!important;
+    font-weight: 400;
+    font-size: 1.1rem;
+    min-width: 150px;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 3px solid #D9EFFD!important;
+    background: #1299D6;
+}
 .btn-si {
     width:100px; margin:20px 20px 0 0;
 }
