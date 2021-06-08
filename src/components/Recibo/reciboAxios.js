@@ -3,8 +3,9 @@ import qs from 'qs';
 
 import { TOKEN, URL, NOW } from '../utils/const';
 
-export const recibo = async (tr02100_id, impApagar) => {
-    const list = impApagar.map((obj) => Number(obj['value'])).toString();
+export const recibo = async (tr02100_id, impApagar, id) => {
+    /* Si id es undefined es cualquier tributo que no se plan de pago */
+    const list = id === undefined ? impApagar.map((obj) => Number(obj['value'])).toString() : id;
     try {
         const responseOne = await axios({
             method: 'post',
