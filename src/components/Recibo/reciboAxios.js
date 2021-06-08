@@ -5,7 +5,6 @@ import { TOKEN, URL, NOW } from '../utils/const';
 
 export const recibo = async (tr02100_id, impApagar) => {
     const list = impApagar.map((obj) => Number(obj['value'])).toString();
-
     try {
         const responseOne = await axios({
             method: 'post',

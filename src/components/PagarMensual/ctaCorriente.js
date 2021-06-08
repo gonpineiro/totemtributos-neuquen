@@ -2,7 +2,7 @@ import axios from 'axios';
 import qs from 'qs';
 import { URL, NOW, TOKEN } from '../utils/const';
 
-export const ctaCorriente = async (imponibleId) => {
+export const ctaCorriente = async (imponibleId, tipo) => {
     try {
         const ctaCorriente = await axios({
             method: 'post',
@@ -21,11 +21,15 @@ export const ctaCorriente = async (imponibleId) => {
 
         return ctaCorriente.data.items.filter((el) => {
             const YEAR = 2017;
+            if (tipo !== 'PPG') {
+                const fecha = parseInt(el.reg_id.substring(0, 4));
+                return el.es_deuda === 'S' && el.es_transac === 'S' && fecha >= YEAR;
+            }
             if (el.reg_id.includes(':')) {
                 const fecha = parseInt(el.reg_id.split(':', 4)[1]);
                 return el.es_deuda === 'S' && el.es_transac === 'S' && fecha >= YEAR;
             }
-            const fecha = parseInt(el.reg_id.substring(0, 4));
+            const fecha = parseInt(el.fecha.substring(0, 4));
             return el.es_deuda === 'S' && el.es_transac === 'S' && fecha >= YEAR;
         });
     } catch (error) {
