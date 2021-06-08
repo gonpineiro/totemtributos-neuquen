@@ -6,7 +6,7 @@ import TipoImp from "../Main/TipoImp.jsx";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import { I, LinkBtn } from "../shared";
-import { IconoCuotasPagar } from "../Main/iconos/iconos.js";
+import { IconoCuotasPagar, IconoRodado, IconoInmueble, IconoCementerio, IconoComercio} from "../Main/iconos/iconos.js";
 
 
 import "./styles.scss";
@@ -47,14 +47,14 @@ export const Form = ({
         <div className="row mt-1">
           <div className="col col-md-8 offset-md-2">
             <div className="card">
-              <div className="card-header">
+              <div className="card-header bg-header-card ">
                 <span className="card-title font-weight-bold">
                   Selector de {name}
                 </span>
               </div>
               <div className="card-body">
                 <div className="form-container">
-                  <span className="label-title">{label}</span>
+                  <span className="label-title text-center">{label}</span>
                   <input
                     type="text"
                     onChange={handleInputChange}
@@ -67,7 +67,7 @@ export const Form = ({
                       pathname: "/apps/totems/opciones-pago/",
                       state: { tipo, data: datos[inputName], titles },
                     }}
-                    className="btn btn-form active"
+                    className="btn btn-form active text-uppercase"
                   >
                     Siguiente
                   </Link>
@@ -76,7 +76,7 @@ export const Form = ({
               </div>
               <div className="text-center pb-3">
                 <LinkBtn
-                  btnClass="btn btn-form active"
+                  btnClass="btn btn-form active text-uppercase"
                   url="/apps/totems"
                   desc="Volver"
                 />

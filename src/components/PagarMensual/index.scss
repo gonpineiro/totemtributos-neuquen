@@ -85,7 +85,7 @@ thead tr th {
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: #f0f9fc!important;
+  background-color: #f0f9fc !important;
 }
 
 .table-responsive {
@@ -93,35 +93,53 @@ thead tr th {
   overflow: scroll;
 }
 
-
 /* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
 
 .table-responsive::-webkit-scrollbar {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
 .table-responsive::-webkit-scrollbar:vertical {
-    width:10px;
+  width: 10px;
 }
 
-.table-responsive::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
-    display: none;
-} 
+.table-responsive::-webkit-scrollbar-button:increment,
+.contenedor::-webkit-scrollbar-button {
+  display: none;
+}
 
 .table-responsive::-webkit-scrollbar:horizontal {
-    height: 10px;
+  height: 10px;
 }
 
 .table-responsive::-webkit-scrollbar-thumb {
-    background-color: #066ab1;
-    border-radius: 20px;
-    border: 2px solid #f1f2f3;
+  background-color: #066ab1;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
 }
 
 .table-responsive::-webkit-scrollbar-track {
-    border-radius: 10px;  
+  border-radius: 10px;
 }
 
-.form-check-input[type=checkbox]{
-  border: 1px solid #1299d6!important;
+.form-check-input[type="checkbox"] {
+  border: 1px solid #1299d6 !important;
+}
+
+.card-header {
+  background-color: #1299d6 !important;
+}
+.card {
+  background-color: #f2f9fc !important;
+}
+.card-header .bg-blue {
+  background-color: #42b2df !important;
+}
+.btn-oap {
+  color: #fbfdfe !important;
+  background-color: #5fb0db;
+  border: none !important;
+  font-weight:normal;
+  font-size: 1.1rem;
+  min-width: 150px;
 }

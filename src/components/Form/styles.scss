@@ -1,66 +1,69 @@
 .background-main-div {
-    background: #f0f9fc;
+  background: #f0f9fc;
 }
 .float-left {
-    float: left;
+  float: left;
 }
 .input {
-    border-color: #1299d6;
-    background: white;
-    color: #1299d6;
+  border-color: #1299d6;
+  background: white;
+  color: #1299d6;
 }
 .form-control::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #1299d6;
-    opacity: 0.5; /* Firefox */
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #1299d6;
+  opacity: 0.5; /* Firefox */
 }
 
 .form-control:-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
-    color: #1299d6;
+  /* Internet Explorer 10-11 */
+  color: #1299d6;
 }
 
 .form-control::-ms-input-placeholder {
-    /* Microsoft Edge */
-    color: #1299d6;
+  /* Microsoft Edge */
+  color: #1299d6;
 }
 .ui-keyboard {
-    top: auto;
-    bottom: 20px;
-    left: 50%; /* position the left edge of the element at the middle of the parent */
-    transform: translate(-50%, 0);
+  top: auto;
+  bottom: 20px;
+  left: 50%; /* position the left edge of the element at the middle of the parent */
+  transform: translate(-50%, 0);
 }
 
 .card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 3px solid rgba(88, 171, 238, 0.125);
-    border-radius: 0.50rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 3px solid rgba(88, 171, 238, 0.125);
+  border-radius: 0.5rem;
 }
-.card-header{
-    background-color: white!important;
-    border-bottom: 3px solid rgba(88, 171, 238, 0.125)!important;
+.card-header {
+  background-color: white;
+  border-bottom: 3px solid rgba(88, 171, 238, 0.125) !important;
 }
-.card-title{
-    font-weight:bold!important;
+.bg-header-card {
+  background-color: white !important;
 }
-.btn-titulo{
-    margin-top: -80px;
+.card-title {
+  font-weight: bold !important;
 }
-.form-container{
-    display: flex;
-    align-items: center;
-    align-content:center;
-    justify-content: space-evenly;
+.btn-titulo {
+  margin-top: -80px;
 }
-.item{
-    margin-left: 2rem;
-    margin-right: 2rem;
+.form-container {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
+}
+.item {
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 .btn-form {
   color: #fbfdfe !important;
@@ -70,11 +73,11 @@
   font-size: 1.1rem;
   min-width: 150px;
 }
-.label{
-  padding-left: 155px;
+.label {
+  padding-left: 135px;
   padding-top: 10px;
 }
-.label-title{
-    font-weight: bolder!important;
-    min-width: 100px;
+.label-title {
+  font-weight: bolder !important;
+  min-width: 100px;
 }
