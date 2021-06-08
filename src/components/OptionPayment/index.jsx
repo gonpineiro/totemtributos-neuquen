@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Cargando, Error, I, LinkBtn } from "../shared";
+import { Cargando, Error, LinkBtn } from "../shared";
 
 import { getImponible } from "./ctaCtoAxios";
 

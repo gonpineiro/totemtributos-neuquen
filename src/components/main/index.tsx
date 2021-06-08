@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import TipoImp from './TipoImp'
 import './main.scss';
 import logo from '../shared/images/logo.png';

@@ -5,8 +5,8 @@ import TipoImp from "../Main/TipoImp.jsx";
 
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
-import { I, LinkBtn } from "../shared";
-import { IconoCuotasPagar, IconoRodado, IconoInmueble, IconoCementerio, IconoComercio} from "../Main/iconos/iconos.js";
+import { LinkBtn } from "../shared";
+import { IconoCuotasPagar } from "../Main/iconos/iconos.js";
 
 
 import "./styles.scss";
