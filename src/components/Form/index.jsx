@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../Layout/header.tsx";
-import TipoImp from "../Main/TipoImp.jsx";
+import TipoImp from "../shared/TipoImp.jsx";
 
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import { LinkBtn } from "../shared";
-import { IconoCuotasPagar } from "../Main/iconos/iconos.js";
+import { IconoCuotasPagar } from "../shared/iconos.js";
 
 
 import "./styles.scss";
@@ -20,6 +20,7 @@ export const Form = ({
   nodesHtml,
   keyboardLayout,
   titles,
+  btn
 }) => {
   const [datos, setDatos] = useState({});
 
@@ -41,7 +42,7 @@ export const Form = ({
     <div>
       <Header />
       <div className="text-center btn-titulo">
-        <TipoImp name={name} url={name} icono={[<IconoCuotasPagar />]} />
+        {nodesHtml[0]}
       </div>
       <div className="container">
         <div className="row mt-1">
@@ -72,7 +73,7 @@ export const Form = ({
                     Siguiente
                   </Link>
                 </div>
-                <div className="label">{nodesHtml[0]}</div>
+                <div className="label">{nodesHtml[1]}</div>
               </div>
               <div className="text-center pb-3">
                 <LinkBtn

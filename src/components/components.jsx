@@ -1,4 +1,6 @@
 import Form from './Form';
+import { IconoCementerio, IconoComercio, IconoCuotasPagar, IconoInmueble, IconoRodado } from './shared/iconos';
+import TipoImp from './shared/TipoImp';
 
 /* Rodados */
 export const Rodado = () => (
@@ -22,6 +24,7 @@ export const Rodado = () => (
 );
 
 const RodadoNodeHtml = [
+    <TipoImp name={'Rodados'} url={'/apps/totems/rodado'} icono={[<IconoRodado />]}/>,
     <p>
         Autos: XXX999 / XX999XX
         <br />
@@ -36,7 +39,7 @@ export const Cementerio = () => (
         h2="Ingrese su número de contrato"
         label="Contrato"
         inputName="cementerio"
-        nodesHtml={[<p>99999999-9</p>]}
+        nodesHtml={CementerioNodeHtml}
         tipo="CEC"
         titles={{ titulo: 'Ubicación :', subtitulo: 'Contrato :' }}
         keyboardLayout={{
@@ -50,6 +53,11 @@ export const Cementerio = () => (
     />
 );
 
+const CementerioNodeHtml = [
+    <TipoImp name={'Cementerio'} url={'/apps/totems/cementerio'} icono={[<IconoCementerio />]} />,
+    <p>9999999</p>
+];
+
 /* Inmuebles */
 export const Inmuebles = () => (
     <Form
@@ -57,7 +65,7 @@ export const Inmuebles = () => (
         h2="Ingrese su partida"
         label="Partida"
         inputName="inmueble"
-        nodesHtml={[<p>9999999</p>]}
+        nodesHtml={InmueblesNodeHtml}
         tipo="INM"
         titles={{ titulo: 'Partida :', subtitulo: 'Nomenclatura :' }}
         keyboardLayout={{
@@ -71,6 +79,11 @@ export const Inmuebles = () => (
     />
 );
 
+const InmueblesNodeHtml = [
+    <TipoImp name={'Inmuebles'} url={'/apps/totems/inmuebles'} icono={[<IconoInmueble />]}/>,
+    <p>9999999</p>
+];
+
 /* Natatorio */
 export const Natatorio = () => (
     <Form
@@ -78,10 +91,15 @@ export const Natatorio = () => (
         h2="Ingrese su número"
         label="Número"
         inputName="natatorio"
-        nodesHtml={[<p>9999999 / 99XX99999999999</p>]}
+        nodesHtml={NatatorioNodeHtml}
         tipo="ROD"
     />
 );
+
+const NatatorioNodeHtml = [
+    <TipoImp name={'Inmuebles'} url={'/apps/totems/inmuebles'} icono={[<IconoInmueble />]} />,
+    <p>9999999 / 99XX99999999999</p>,
+];
 
 /* Residuo Patógenos */
 export const ResiduosPatogenos = () => (
@@ -90,10 +108,15 @@ export const ResiduosPatogenos = () => (
         h2="Ingrese su número"
         label="Número"
         inputName="residuos"
-        nodesHtml={[<p>9999999 / 99XX99999999999</p>]}
+        nodesHtml={ResiduosPatogenosNodeHtml}
         tipo="ROD"
     />
 );
+
+const ResiduosPatogenosNodeHtml = [
+    <TipoImp name={'Inmuebles'} url={'/apps/totems/inmuebles'} icono={[<IconoInmueble />]} />,
+    <p>9999999 / 99XX99999999999</p>,
+];
 
 /* Recupero Plan Federal */
 export const RecuperoPlanFederal = () => (
@@ -102,10 +125,15 @@ export const RecuperoPlanFederal = () => (
         h2="Ingrese su número"
         label="Número"
         inputName="recuperoPlanFederal"
-        nodesHtml={[<p>999999999999</p>]}
+        nodesHtml={RecuperoPlanFederalNodeHtml}
         tipo="ROD"
     />
 );
+
+const RecuperoPlanFederalNodeHtml = [
+    <TipoImp name={'Inmuebles'} url={'/apps/totems/inmuebles'} icono={[<IconoInmueble />]} />,
+    <p>999999999999</p>,
+];
 
 /* Comercio */
 export const Comercio = () => (
@@ -114,7 +142,7 @@ export const Comercio = () => (
         h2="Ingrese su número de licencia comercial"
         label="Lic. comercial"
         inputName="comercio"
-        nodesHtml={[<p>999999</p>]}
+        nodesHtml={ComercioNodeHtml}
         tipo="COM"
         titles={{ titulo: 'Nombre :', subtitulo: 'Licencia Comercial :' }}
         keyboardLayout={{
@@ -128,6 +156,11 @@ export const Comercio = () => (
     />
 );
 
+const ComercioNodeHtml = [
+    <TipoImp name={'Comercio'} url={'/apps/totems/comercio'} icono={[<IconoComercio />]}/>,
+    <p>999999</p>,
+];
+
 /* Planes de pago */
 export const PlanPago = () => (
     <Form
@@ -135,7 +168,7 @@ export const PlanPago = () => (
         h2="Ingrese su número"
         label="Plan de pago"
         inputName="planPago"
-        nodesHtml={[<p>999999999</p>]}
+        nodesHtml={PlanPagoNodeHtml}
         tipo="PPG"
         titles={{ titulo: 'Identificación :', subtitulo: 'Plan de pago :' }}
         keyboardLayout={{
@@ -148,3 +181,8 @@ export const PlanPago = () => (
         }}
     />
 );
+
+const PlanPagoNodeHtml = [
+    <TipoImp name={'Planes de pago'} url={'/apps/totems/plan-de-pago'} icono={[<IconoCuotasPagar />]} />,
+    <p>999999999</p>,
+];

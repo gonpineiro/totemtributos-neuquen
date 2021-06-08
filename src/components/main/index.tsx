@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/alt-text */
-import TipoImp from './TipoImp'
+import TipoImp from '../shared/TipoImp'
 import './main.scss';
 import logo from '../shared/images/logo.png';
-import { IconoCuotasPagar, IconoRodado, IconoInmueble, IconoCementerio, IconoComercio} from './iconos/iconos.js';
+import { IconoCuotasPagar, IconoRodado, IconoInmueble, IconoCementerio, IconoComercio} from '../shared/iconos.js';
 const Main = () => {
     return (
         <div className="container">
