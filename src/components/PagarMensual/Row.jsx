@@ -1,10 +1,10 @@
-import $ from 'jquery';
-
 export const Row = ({ id, saldo, total, reg_id, fecha, handlerCheckboxChance }) => {
+
   const fireCheckboxOnTrClick = (id) => {
-    let checked = $(`#${id}`).prop("checked");
-    const fakeEvent = { target: { checked: checked, value: $(`#${id}`).value } };
-    handlerCheckboxChance(fakeEvent, total, id);
+    const checkbox = document.getElementById(id),
+          fakeEvent = { target: { checked: checkbox.checked, value: checkbox.value } };
+
+    handlerCheckboxChance(fakeEvent, total);
   };
   
   return (
