@@ -6,6 +6,7 @@ import { Cargando, Error } from '../shared';
 import { getImponible } from './ctaCtoAxios';
 
 import { YEAR_NOW } from '../utils/const';
+import "./optionpayment.scss";
 
 export const CuotasPagar = ({
     location: {
@@ -27,7 +28,8 @@ export const CuotasPagar = ({
     return (
         <div className="container">
             <div className="row mt-5">
-                <div className="col col-md-12 text-center pt-5">
+                <h2 className="text-center pt-3">Seleccione una opción</h2>
+                <div className="col col-md-12 text-center">
                     <Link
                         to={{
                             pathname: '/apps/totems/pagar-mensual/',
