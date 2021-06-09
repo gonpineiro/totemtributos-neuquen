@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { IconoRodado, IconoInmueble, IconoComercio, IconoCementerio, IconoCuotasPagar } from '../shared/iconos';
+import { IconoRodado, IconoInmueble, IconoComercio, IconoCementerio, /* IconoCuotasPagar */ } from '../shared/iconos';
 import TipoImp from '../shared/TipoImp'
 import './main.scss';
 
@@ -12,7 +12,7 @@ const Main = () => {
                     <TipoImp name={'Inmuebles'} url={'/apps/totems/inmuebles'} icono={[<IconoInmueble />]} />
                     <TipoImp name={'Comercio'} url={'/apps/totems/comercio'} icono={[<IconoComercio />]} />
                     <TipoImp name={'Cementerio'} url={'/apps/totems/cementerio'} icono={[<IconoCementerio />]} />
-                    <TipoImp name={'Planes de pago'} url={'/apps/totems/plan-de-pago'} icono={[<IconoCuotasPagar />]} />
+                    {/* <TipoImp name={'Planes de pago'} url={'/apps/totems/plan-de-pago'} icono={[<IconoCuotasPagar />]} /> */}
                     {/* <TipoImp name={'Recupero Plan Federal'} url={'/apps/totems/recupero-plan-federal'} />
                     <TipoImp name={'Residuos Patógenos'} url={'/apps/totems/cementerio'} />
                     <TipoImp name={'Natatorios '} url={'/apps/totems/natatorio'} /> */}
