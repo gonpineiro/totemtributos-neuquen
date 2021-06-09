@@ -7,6 +7,7 @@ import { YEAR_NOW } from '../utils/const';
 
 import { ctaCorriente } from './ctaCorriente';
 import { Row } from './Row';
+import $ from 'jquery';
 
 export const PagarMensual = ({
     location: {
@@ -25,9 +26,16 @@ export const PagarMensual = ({
 
     const [impApagar, setImpApagar] = useState([]);
 
-    const handlerCheckboxChance = (event, total) => {
+    const handlerCheckboxChance = (event, total, id) => {
         const value = event.target.value;
         const isChecked = event.target.checked;
+
+        let checked = $(`#${id}`).prop("checked");
+        if (checked) {
+            $(`#${id}`).prop("checked", false);
+        } else {
+            $(`#${id}`).prop("checked", true);
+        }
 
         if (isChecked) setImpApagar([...impApagar, { value, total }]);
 

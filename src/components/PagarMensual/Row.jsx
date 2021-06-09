@@ -1,11 +1,20 @@
+import $ from 'jquery';
+
 export const Row = ({ id, saldo, total, reg_id, fecha, handlerCheckboxChance }) => {
+  const fireCheckboxOnTrClick = (id) => {
+    let checked = $(`#${id}`).prop("checked");
+    const fakeEvent = { target: { checked: checked, value: $(`#${id}`).value } };
+    handlerCheckboxChance(fakeEvent, total, id);
+  };
+  
   return (
-    <tr>
+    <tr onClick={(e) => fireCheckboxOnTrClick(id)}>
       <td className="text-center">
         <input
+          id={id}
           type="checkbox"
           className="form-check-input"
-          onChange={(e) => handlerCheckboxChance(e, total)}
+          onChange={(e) => handlerCheckboxChance(e, total, id)}
           value={id}
         />
       </td>
