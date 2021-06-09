@@ -8,4 +8,4 @@ const printIframe = (id) => {
     return false;
 };
 
-export default printIframe
+export default printIframe;
