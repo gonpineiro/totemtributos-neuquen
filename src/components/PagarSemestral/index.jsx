@@ -85,7 +85,6 @@ export const PagarSemestral = ({
                                 </Link>
                                 <LinkBtn
                                     btnClass="btn btn-primary active m-3"
-                                    iClass="fa fa-arrow-circle-o-left"
                                     url="/apps/totems/"
                                     desc="VOLVER"
                                 />

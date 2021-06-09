@@ -27,27 +27,20 @@ export const PagarMensual = ({
     const [impApagar, setImpApagar] = useState([]);
 
     const handlerCheckboxChance = (event, total) => {
-        console.log(event.target.parentNode.id);
-        const value = event.target.parentNode.id;
-        console.log(value);
-        /* const isChecked = event.target.checked; */
-        /* const row = document.getElementById(event.target.parentNode.id).checked = true; */
-        var elm = document.getElementsByClassName('ckeck-' + value);
-        console.log('ckeck-' + value);
-        elm.checked = true;
-        /* console.log(document.getElementById(event.target.parentNode.id).checked); */
-        /* console.log(value);
+        const value = event.target.value;
+        const isChecked = event.target.checked;
+        const row = document.getElementById(value)
         if (isChecked) {
             row.classList.add('selectedRow');
             setImpApagar([...impApagar, { value, total }]);
         }
-
+        
         if (!isChecked) {
             row.classList.remove('selectedRow');
             const array = [...impApagar];
             array.splice(array.indexOf(value));
             setImpApagar(array);
-        } */
+        }
     };
 
     const BtnPrint = () => {
