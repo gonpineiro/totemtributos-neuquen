@@ -25,11 +25,9 @@ export const PagarMensual = ({
 
     const [impApagar, setImpApagar] = useState([]);
 
-    // De ser llamada en Row.jsx -> fireCheckboxOnTrClick
-    //   'event' vendria forzado, no seria un evento real
-    const handlerCheckboxChance = (event, total) => {
-        const value = event.target.value;
-        const isChecked = event.target.checked;
+    const handlerCheckboxChance = (elem, total) => {
+        const value = elem.value;
+        const isChecked = elem.checked;
 
         let checkbox = document.getElementById(value);
         checkbox.checked = isChecked?false:true;
@@ -41,6 +39,7 @@ export const PagarMensual = ({
             array.splice(array.indexOf(value));
             setImpApagar(array);
         }
+        console.log(value, total);
     };
 
     const BtnPrint = () => {

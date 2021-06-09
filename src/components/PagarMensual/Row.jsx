@@ -1,20 +1,22 @@
 export const Row = ({ id, saldo, total, reg_id, fecha, handlerCheckboxChance }) => {
 
-  const fireCheckboxOnTrClick = (id) => {
+  const fireCheckboxOnTrClick = (e, id) => {
+    e.stopPropagation();
     const checkbox = document.getElementById(id),
-          fakeEvent = { target: { checked: checkbox.checked, value: checkbox.value } };
+          props = { checked: checkbox.checked, value: checkbox.value };
 
-    handlerCheckboxChance(fakeEvent, total);
+    console.log('what');
+    handlerCheckboxChance(props, total);
   };
   
   return (
-    <tr onClick={(e) => fireCheckboxOnTrClick(id)}>
+    <tr onClick={(e) => fireCheckboxOnTrClick(e, id)}>
       <td className="text-center">
         <input
           id={id}
           type="checkbox"
           className="form-check-input"
-          onChange={(e) => handlerCheckboxChance(e, total, id)}
+          onChange={(e) => e.stopPropagation()}
           value={id}
         />
       </td>
