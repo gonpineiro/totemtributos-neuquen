@@ -25,13 +25,7 @@ export const PagarMensual = ({
 
     const [impApagar, setImpApagar] = useState([]);
 
-    const handlerCheckboxChance = (elem, total) => {
-        const value = elem.value;
-        const isChecked = elem.checked;
-
-        let checkbox = document.getElementById(value);
-        checkbox.checked = isChecked?false:true;
-
+    const handlerCheckboxChance = ({ value, isChecked }, total) => {
         if (isChecked) setImpApagar([...impApagar, { value, total }]);
 
         if (!isChecked) {
@@ -39,7 +33,6 @@ export const PagarMensual = ({
             array.splice(array.indexOf(value));
             setImpApagar(array);
         }
-        console.log(value, total);
     };
 
     const BtnPrint = () => {

@@ -1,22 +1,27 @@
-export const Row = ({ id, saldo, total, reg_id, fecha, handlerCheckboxChance }) => {
+import { useState } from "react";
 
-  const fireCheckboxOnTrClick = (e, id) => {
-    e.stopPropagation();
-    const checkbox = document.getElementById(id),
-          props = { checked: checkbox.checked, value: checkbox.value };
+export const Row = ({ id, saldo, total, reg_id, fecha, handlerCheckboxChance, selected = false }) => {
+  const [rowSelected, setRowSelected] = useState(selected);
 
-    console.log('what');
+  const handleRowClick = () => {
+    let currentlySelected = !rowSelected;
+    
+    const props = {
+      value: id,
+      checked: currentlySelected,
+    };
+
     handlerCheckboxChance(props, total);
+    setRowSelected(currentlySelected);
   };
   
   return (
-    <tr onClick={(e) => fireCheckboxOnTrClick(e, id)}>
+    <tr onClick={handleRowClick}>
       <td className="text-center">
         <input
-          id={id}
           type="checkbox"
           className="form-check-input"
-          onChange={(e) => e.stopPropagation()}
+          checked={rowSelected}
           value={id}
         />
       </td>
