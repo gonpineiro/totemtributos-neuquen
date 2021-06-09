@@ -6,7 +6,7 @@ export const sendMailRecibo = async (mail, recibo) => {
     const weblogin = 1 === 1 ? 'http://200.85.183.194:90/' : 'https://weblogin.muninqn.gov.ar/';
 
     const token = '123';
-    const subject = `Pago de tributo para recibo nro. ${recibo}`;
+    const subject = `Recibo de tributo nro. ${recibo}`;
     const htmlBody = '<p>Municipalidad de Neuquén</p>';
 
     const url = `${weblogin}apps/Utils/public/sendMailRecibosTributarios.php`;
@@ -38,7 +38,7 @@ export const sendMailSemestral = async (mail, IMPONIBLE_ID, TR1E200_ID) => {
     const weblogin = 1 === 1 ? 'http://200.85.183.194:90/' : 'https://weblogin.muninqn.gov.ar/';
 
     const token = '123';
-    const subject = `Pago de tributo para recibo nro. ${'recibo'}`;
+    const subject = `Recibo Semestral `;
     const htmlBody = '<p>Municipalidad de Neuquén</p>';
     const url = `${weblogin}apps/Utils/public/sendMailSemestralTributarios.php`;
     try {

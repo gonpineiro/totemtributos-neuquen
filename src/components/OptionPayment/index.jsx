@@ -35,7 +35,7 @@ export const CuotasPagar = ({
                         }}
                         className="btn btn-form active text-uppercase m-4"
                     >
-                        Emisión/PAGO recibos año {YEAR_NOW} (mensual/ semestral)
+                        Emisión/ PAGO recibos año {YEAR_NOW} (mensual)
                     </Link>
                 </div>
                 <div className="col col-md-12 text-center">

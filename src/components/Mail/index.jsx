@@ -88,7 +88,7 @@ export const Mail = ({
             );
         } else if (datos === 'esperando') {
             return <Cargando />;
-        } else if (datos != null && datos.error == null) {
+        } else if (datos != null || datos.error == null) {
             return (
                 <>
                     <h3 className="font-weight-bold text-primary pb-3">¡Email enviado con éxito!</h3>
