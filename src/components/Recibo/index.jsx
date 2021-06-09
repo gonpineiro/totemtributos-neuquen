@@ -1,72 +1,49 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import { I, LinkBtn, Cargando, Error, Recycle } from "../shared";
-import printIframe from "../utils/printIframe";
+import { I, LinkBtn, Cargando, Error, Recycle } from '../shared';
+import printIframe from '../utils/printIframe';
 
 import { recibo } from './reciboAxios';
 import './recibo.scss';
 export const Recibo = ({
-  location: {
-    state: { impApagar, tr02100_id },
-  },
+    location: {
+        state: { impApagar, tr02100_id },
+    },
 }) => {
     const [pdf, setPdf] = useState(null);
     const [print, setPrint] = useState(false);
 
-  useEffect(() => {
-    recibo(tr02100_id, impApagar).then((response) => {
-      if (response !== -1) {
-        const reader = new FileReader();
-        reader.readAsDataURL(response.blob);
-        reader.onload = () => {
-          setPdf({
-            pdf: reader.result,
-            recibo: response.recibo,
-          });
-        };
-      } else {
-        setPdf(response);
-      }
-    });
-  }, [impApagar, tr02100_id]);
+    useEffect(() => {
+        recibo(tr02100_id, impApagar).then((response) => {
+            if (response !== -1) {
+                const reader = new FileReader();
+                reader.readAsDataURL(response.blob);
+                reader.onload = () => {
+                    setPdf({
+                        pdf: reader.result,
+                        recibo: response.recibo,
+                    });
+                };
+            } else {
+                setPdf(response);
+            }
+        });
+    }, [impApagar, tr02100_id]);
 
     const printModal = () => {
         setPrint(true);
-        setTimeout(() => {
-            setPrint(false);
-        }, 3000);
-        setTimeout(() => {
-            printIframe('pdf');
-        }, 4000);
+
+        setTimeout(() => setPrint(false), 3000);
+
+        setTimeout(() => printIframe('pdf'), 4000);
     };
 
-    const ModalPrint = () => (
-        <div className="container">
-            <div>
-                <h3 className="font-weight-bold text-primary">Su email es</h3>
-            </div>
-            <div>
-                <h4 className="font-weight-bold text-primary" id="sumail"></h4>
-            </div>
-            <div>
-                <button type="button" className="btn btn-info btn-si">
-                    SI
-                </button>
-
-                <button onClick={''} type="button" className="btn btn-primary btn-no">
-                    NO
-                </button>
-            </div>
-        </div>
-    );
-
-    if (print) return <ModalPrint />;
+    if (print) return <Cargando str={'Aguarde mientra se imprime su recibo'} />;
 
     if (pdf === null || undefined) return <Cargando />;
 
-  if (pdf === -1)
-    return <Error msg={"Espere unos minutos e intente nuevamente por favor"} />;
+    if (pdf === -1) return <Error msg={'Espere unos minutos e intente nuevamente por favor'} />;
 
     return (
         <div className="container">

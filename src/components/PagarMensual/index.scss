@@ -1,53 +1,53 @@
 .background-main-div {
-  background: #f0f9fc;
+    background: #f0f9fc;
 }
 .float-left {
-  float: left;
+    float: left;
 }
 .linea {
-  border-bottom: 1px solid #42b2df;
-  margin: 0px;
-  padding: 0px;
+    border-bottom: 1px solid #42b2df;
+    margin: 0px;
+    padding: 0px;
 }
 .form-control::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #1299d6;
-  opacity: 0.5; /* Firefox */
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #1299d6;
+    opacity: 0.5; /* Firefox */
 }
 
 .form-control:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #1299d6;
+    /* Internet Explorer 10-11 */
+    color: #1299d6;
 }
 
 .form-control::-ms-input-placeholder {
-  /* Microsoft Edge */
-  color: #1299d6;
+    /* Microsoft Edge */
+    color: #1299d6;
 }
 .ui-keyboard {
-  top: auto;
-  bottom: 20px;
-  left: 50%; /* position the left edge of the element at the middle of the parent */
-  transform: translate(-50%, 0);
+    top: auto;
+    bottom: 20px;
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+    transform: translate(-50%, 0);
 }
 
 .btn-label {
-  float: left;
-  position: relative;
-  left: -12px;
-  display: inline-block;
-  padding: 0 20px;
-  background: rgba(0, 0, 0, 0.15);
-  border-radius: 3px 0 0 3px;
+    float: left;
+    position: relative;
+    left: -12px;
+    display: inline-block;
+    padding: 0 20px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 3px 0 0 3px;
 }
 
 .btn-labeled {
-  padding-top: 0;
-  padding-bottom: 0;
-  height: 40px;
-  line-height: 40px;
-  vertical-align: middle;
-  text-align: left;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    text-align: left;
 }
 
 /* .btn {
@@ -55,18 +55,18 @@
         } */
 
 label {
-  color: #066ab1;
-  font-size: 24px;
-  margin-left: 20px;
-  float: left;
+    color: #066ab1;
+    font-size: 24px;
+    margin-left: 20px;
+    float: left;
 }
 p.titulo {
-  color: #42b2df;
-  font-weight: 700;
-  margin-bottom: 0px;
-  margin-top: 10px;
-  margin-left: 20px;
-  float: left;
+    color: #42b2df;
+    font-weight: 700;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    margin-left: 20px;
+    float: left;
 }
 
 p.subtitulo {
@@ -78,67 +78,67 @@ p.subtitulo {
 }
 
 .btn-salir {
-  background: #c449b2;
-  color: white;
-  width: 140px;
+    background: #c449b2;
+    color: white;
+    width: 140px;
 }
 
 thead tr th {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background-color: #f0f9fc !important;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #f0f9fc !important;
 }
 
 .table-responsive {
-  max-height: 300px;
-  overflow: scroll;
+    max-height: 300px;
+    overflow: scroll;
 }
 
 /* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
 
 .table-responsive::-webkit-scrollbar {
-  -webkit-appearance: none;
+    -webkit-appearance: none;
 }
 
 .table-responsive::-webkit-scrollbar:vertical {
-  width: 10px;
+    width: 10px;
 }
 
 .table-responsive::-webkit-scrollbar-button:increment,
 .contenedor::-webkit-scrollbar-button {
-  display: none;
+    display: none;
 }
 
 .table-responsive::-webkit-scrollbar:horizontal {
-  height: 10px;
+    height: 10px;
 }
 
 .table-responsive::-webkit-scrollbar-thumb {
-  background-color: #066ab1;
-  border-radius: 20px;
-  border: 2px solid #f1f2f3;
+    background-color: #066ab1;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
 }
 
 .table-responsive::-webkit-scrollbar-track {
-  border-radius: 10px;
+    border-radius: 10px;
 }
 
-.form-check-input[type="checkbox"] {
-  border: 1px solid #1299d6 !important;
+.form-check-input[type='checkbox'] {
+    border: 1px solid #1299d6 !important;
 }
 
 .card-header {
-  background-color: #1299d6 !important;
+    background-color: #1299d6 !important;
 }
 .card {
-  background-color: #f2f9fc !important;
+    background-color: #f2f9fc !important;
 }
 .card-header .bg-blue {
-  background-color: #42b2df !important;
+    background-color: #42b2df !important;
 }
-.btn-oap{
-    color: #fbfdfe!important;
+.btn-oap {
+    color: #fbfdfe !important;
     font-weight: 400;
     font-size: 1.1rem;
     min-width: 150px;
@@ -147,6 +147,11 @@ thead tr th {
     -webkit-border-radius: 10px 10px 10px 10px;
     -moz-border-radius: 10px 10px 10px 10px;
     -webkit-border-radius: 10px 10px 10px 10px;
-    border: 3px solid #D9EFFD!important;
-    background: #1299D6;
+    border: 3px solid #d9effd !important;
+    background: #1299d6;
+}
+
+.selectedRow {
+    background-color: #1299d6;
+    color: white;
 }

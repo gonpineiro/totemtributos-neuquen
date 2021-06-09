@@ -27,16 +27,27 @@ export const PagarMensual = ({
     const [impApagar, setImpApagar] = useState([]);
 
     const handlerCheckboxChance = (event, total) => {
-        const value = event.target.value;
-        const isChecked = event.target.checked;
-
-        if (isChecked) setImpApagar([...impApagar, { value, total }]);
+        console.log(event.target.parentNode.id);
+        const value = event.target.parentNode.id;
+        console.log(value);
+        /* const isChecked = event.target.checked; */
+        /* const row = document.getElementById(event.target.parentNode.id).checked = true; */
+        var elm = document.getElementsByClassName('ckeck-' + value);
+        console.log('ckeck-' + value);
+        elm.checked = true;
+        /* console.log(document.getElementById(event.target.parentNode.id).checked); */
+        /* console.log(value);
+        if (isChecked) {
+            row.classList.add('selectedRow');
+            setImpApagar([...impApagar, { value, total }]);
+        }
 
         if (!isChecked) {
+            row.classList.remove('selectedRow');
             const array = [...impApagar];
             array.splice(array.indexOf(value));
             setImpApagar(array);
-        }
+        } */
     };
 
     const BtnPrint = () => {
@@ -62,13 +73,14 @@ export const PagarMensual = ({
         }
     };
     if (impuestos === null) return <Cargando />;
-    if (impuestos === -1) return (
-      <Error
-        msg={
-          "En estos momentos no pudimos procesar su consulta, intendente nuevamente. Espere unos minutos e intente nuevamente por favor."
-        }
-      />
-    );
+    if (impuestos === -1)
+        return (
+            <Error
+                msg={
+                    'En estos momentos no pudimos procesar su consulta, intendente nuevamente. Espere unos minutos e intente nuevamente por favor.'
+                }
+            />
+        );
 
     if (impuestos.error) return <Error msg={impuestos.error} />;
 
