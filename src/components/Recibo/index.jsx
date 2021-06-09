@@ -1,35 +1,35 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-import { I, LinkBtn, Cargando, Error, Recycle } from '../shared';
-import printIframe from '../utils/printIframe';
+import { I, LinkBtn, Cargando, Error, Recycle } from "../shared";
+import printIframe from "../utils/printIframe";
 
 import { recibo } from './reciboAxios';
 import './recibo.scss';
 export const Recibo = ({
-    location: {
-        state: { impApagar, tr02100_id },
-    },
+  location: {
+    state: { impApagar, tr02100_id },
+  },
 }) => {
     const [pdf, setPdf] = useState(null);
     const [print, setPrint] = useState(false);
 
-    useEffect(() => {
-        recibo(tr02100_id, impApagar).then((response) => {
-            if (response !== -1) {
-                const reader = new FileReader();
-                reader.readAsDataURL(response.blob);
-                reader.onload = () => {
-                    setPdf({
-                        pdf: reader.result,
-                        recibo: response.recibo,
-                    });
-                };
-            } else {
-                setPdf(response);
-            }
-        });
-    }, [impApagar, tr02100_id]);
+  useEffect(() => {
+    recibo(tr02100_id, impApagar).then((response) => {
+      if (response !== -1) {
+        const reader = new FileReader();
+        reader.readAsDataURL(response.blob);
+        reader.onload = () => {
+          setPdf({
+            pdf: reader.result,
+            recibo: response.recibo,
+          });
+        };
+      } else {
+        setPdf(response);
+      }
+    });
+  }, [impApagar, tr02100_id]);
 
     const printModal = () => {
         setPrint(true);
@@ -65,7 +65,8 @@ export const Recibo = ({
 
     if (pdf === null || undefined) return <Cargando />;
 
-    if (pdf === -1) return <Error msg={'Espere unos minutos e intente nuevamente por favor'} />;
+  if (pdf === -1)
+    return <Error msg={"Espere unos minutos e intente nuevamente por favor"} />;
 
     return (
         <div className="container">
@@ -81,7 +82,7 @@ export const Recibo = ({
                         <div className="card-body text-center">
                             Se generó el recibo Nro {pdf.recibo}, ¿Desea enviarlo por email o imprimirlo?
                         </div>
-                        <div className="card-body text-center">
+                        <div className="card-body text-center recycle">
                             <div className="d-inline-flex">
                                 <Recycle /> <span>Para pagar online escanea el código QR</span>
                             </div>
