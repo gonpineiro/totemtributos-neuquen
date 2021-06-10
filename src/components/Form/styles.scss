@@ -89,3 +89,9 @@
 .hg-theme-default .hg-button{
   height: 55px!important;
 }
+.hg-button-bksp span {
+  display: none;
+}
+.hg-button-bksp:after {
+  content: 'BORRAR';
+}
