@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { I, LinkBtn, Cargando, Error, Recycle } from '../shared';
+import { I, LinkBtn, Cargando, Error, Recycle, Confirm } from '../shared';
 import printIframe from '../utils/printIframe';
 
 import { recibo } from './reciboAxios';
@@ -12,8 +12,7 @@ export const Recibo = ({
     },
 }) => {
     const [pdf, setPdf] = useState(null);
-    const [print, setPrint] = useState(false);
-
+    const [print, setPrint] = useState(null)
     useEffect(() => {
         recibo(tr02100_id, impApagar).then((response) => {
             if (response !== -1) {
@@ -34,12 +33,14 @@ export const Recibo = ({
     const printModal = () => {
         printIframe('pdf');
 
-        setTimeout(() => setPrint(true), 1000);
+        setTimeout(() => setPrint('imprimiendo'), 2000);
 
-        setTimeout(() => setPrint(false), 7000);
+        setTimeout(() => setPrint('confirmacion'), 7000);
     };
 
-    if (print) return <Cargando str={'Aguarde mientra se imprime su recibo'} />;
+    if (print === 'imprimiendo') return <Cargando str={'Aguarde mientra se imprime su recibo'} />;
+
+    if (print === 'confirmacion') return <Confirm msg={'Aguarde mientra se imprime su recibo'} setPrint={setPrint}/>;
 
     if (pdf === null || undefined) return <Cargando />;
 

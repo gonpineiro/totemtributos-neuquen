@@ -93,3 +93,26 @@ export const Recycle = () => {
         </div>
     );
 };
+
+export const Confirm = ({ msg, setPrint }) => {
+    return (
+        <div className="container">
+            <div className="d-flex justify-content-center mt-5">
+                <div className="row mt-5">
+                    <div className="p-3 text-center background-main-div">
+                        <h2 className="titulo-mensaje  mb-3 text-center">Información</h2>
+                        <p className="mensaje text-center">{msg}</p>
+                    </div>
+                    <div className="pt-3 text-center">
+                        <a href="/apps/totems" className="btn btn-primary active mb-1  text-center">
+                            SI
+                        </a>
+                        <button to="/apps/totems" className="btn btn-primary active mb-1  text-center" onClick={() => setPrint(null)}>
+                            NO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
