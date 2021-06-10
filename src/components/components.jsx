@@ -7,6 +7,7 @@ export const Rodado = () => (
     <Form
         name="Rodados"
         h2="INGRESE SU PATENTE"
+        maxinput="7"
         label="Patente"
         inputName="patente"
         nodesHtml={RodadoNodeHtml}
@@ -37,6 +38,7 @@ export const Cementerio = () => (
   <Form
     name="Cementerio"
     h2="Ingrese su número de contrato"
+    maxinput="7"
     label="Contrato"
     inputName="cementerio"
     nodesHtml={CementerioNodeHtml}
@@ -66,6 +68,7 @@ export const Inmuebles = () => (
   <Form
     name="Inmuebles"
     h2="Ingrese su partida"
+    maxinput="7"
     label="Partida"
     inputName="inmueble"
     nodesHtml={InmueblesNodeHtml}
@@ -146,6 +149,7 @@ export const Comercio = () => (
   <Form
     name="Comercio"
     h2="Ingrese su número de licencia comercial"
+    maxinput="6"
     label="Lic. comercial"
     inputName="comercio"
     nodesHtml={ComercioNodeHtml}

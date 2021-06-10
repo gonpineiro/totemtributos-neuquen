@@ -17,7 +17,7 @@ export const Recibo = ({
     const [print, setPrint] = useState(null);
 
     useEffect(() => {
-        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), 15000);
+        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), 100000);
         recibo(tr02100_id, impApagar).then((response) => {
             if (response !== -1) {
                 const reader = new FileReader();
