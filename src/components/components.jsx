@@ -29,7 +29,7 @@ const RodadoNodeHtml = [
     <p>
         Ejemplo patente de Autos: XXX999 / XX999XX
         <br />
-        Ejemplo patente de Motos: 999XXX /X999XXX
+        Ejemplo patente de Motos: 999XXX / X999XXX
     </p>,
 ];
 
