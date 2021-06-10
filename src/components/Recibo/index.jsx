@@ -32,11 +32,11 @@ export const Recibo = ({
     }, [impApagar, tr02100_id]);
 
     const printModal = () => {
-        setPrint(true);
+        printIframe('pdf');
 
-        setTimeout(() => setPrint(false), 3000);
+        setTimeout(() => setPrint(true), 1000);
 
-        setTimeout(() => printIframe('pdf'), 4000);
+        setTimeout(() => setPrint(false), 7000);
     };
 
     if (print) return <Cargando str={'Aguarde mientra se imprime su recibo'} />;
