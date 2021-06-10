@@ -6,40 +6,36 @@ import printIframe from '../utils/printIframe';
 
 import { recibo } from './reciboAxios';
 import './recibo.scss';
+
 export const Recibo = ({
     location: {
         state: { impApagar, tr02100_id },
     },
 }) => {
+    const history = useHistory();
     const [pdf, setPdf] = useState(null);
     const [print, setPrint] = useState(null);
 
     useEffect(() => {
+        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), 100000);
         recibo(tr02100_id, impApagar).then((response) => {
             if (response !== -1) {
                 const reader = new FileReader();
                 reader.readAsDataURL(response.blob);
                 reader.onload = () => {
-                    
                     setPdf({
                         pdf: reader.result,
                         recibo: response.recibo,
                     });
                 };
-                
             } else {
                 setPdf(response);
             }
         });
-    }, [impApagar, tr02100_id]);
-
-
-    const ReturnRoot = () => {
-        const history = useHistory();
-        setTimeout(() => history.push('/apps/totems'), 90000);
-    };
-    ReturnRoot();
-    
+        return () => {
+            clearTimeout(timeOutReturn);
+        };
+    }, [history, impApagar, tr02100_id]);
 
     const printModal = () => {
         printIframe('pdf');

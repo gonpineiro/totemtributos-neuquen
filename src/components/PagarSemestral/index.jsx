@@ -14,10 +14,12 @@ export const PagarSemestral = ({
         },
     },
 }) => {
+    const history = useHistory();
     const [emision, setEmision] = useState(null);
     const [print, setPrint] = useState(null);
 
     useEffect(() => {
+        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), 100000);
         ctaCorriente(tr02100_id).then((response) => {
             if (response !== -1) {
                 const reader = new FileReader();
@@ -32,14 +34,10 @@ export const PagarSemestral = ({
                 setEmision(response);
             }
         });
-    }, [tr02100_id]);
-
-    const ReturnRoot = () => {
-        const history = useHistory();
-        setTimeout(() => history.push('/apps/totems'), 90000);
-    };
-
-    ReturnRoot();
+        return () => {
+            clearTimeout(timeOutReturn);
+        };
+    }, [history, tr02100_id]);
 
     const printModal = () => {
         printIframe('pdf');

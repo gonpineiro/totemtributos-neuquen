@@ -53,6 +53,7 @@ export const Form = ({
                     name={inputName}
                     className="form-control font-weight-bold input text-uppercase item"
                     value={datos[inputName] ? datos[inputName] : ""}
+                    autoComplete={'off'}
                   />
                   <Link
                     to={{
