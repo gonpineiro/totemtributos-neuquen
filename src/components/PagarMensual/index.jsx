@@ -86,7 +86,7 @@ export const PagarMensual = ({
                 <div className="col col-md-12">
                     <div className="card background-main-div">
                         <div className="card-header text-center bg-blue">
-                            <span className="card-title  text-white text-uppercase">Seleccionar las cuotas que desea pagar</span>
+                            <span className="card-title  text-white text-uppercase">Seleccione las cuotas que desea pagar</span>
                         </div>
                         <p className="titulo">
                             {titulo} {imp_identificacion}

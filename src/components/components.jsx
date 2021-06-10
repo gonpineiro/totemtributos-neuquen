@@ -11,7 +11,7 @@ export const Rodado = () => (
         inputName="patente"
         nodesHtml={RodadoNodeHtml}
         tipo="ROD"
-        titles={{ titulo: 'Dominio :', subtitulo: 'Marca-Modelo-Año :' }}
+        titles={{ titulo: 'Dominio :', subtitulo: 'Marca-Modelo-Año :', ayuda: 'Ingrese la patente de rodado' }}
         keyboardLayout={{
             'default': [
                 '1 2 3 4 5 6 7 8 9 0',
@@ -26,62 +26,68 @@ export const Rodado = () => (
 const RodadoNodeHtml = [
     <TipoImp name={'Rodados'} url={'/apps/totems/rodado'} icono={[<IconoRodado />]}/>,
     <p>
-        Autos: XXX999 / XX999XX
+        Ejemplo patente de Autos: XXX999 / XX999XX
         <br />
-        Motos: 999XXX /X999XXX
+        Ejemplo patente de Motos: 999XXX /X999XXX
     </p>,
 ];
 
 /* Cementerio */
 export const Cementerio = () => (
-    <Form
-        name="Cementerio"
-        h2="Ingrese su número de contrato"
-        label="Contrato"
-        inputName="cementerio"
-        nodesHtml={CementerioNodeHtml}
-        tipo="CEC"
-        titles={{ titulo: 'Ubicación :', subtitulo: 'Contrato :' }}
-        keyboardLayout={{
-            'default': [
-                '1 2 3',
-                '4 5 6',
-                '7 8 9',
-                '0 - {bksp}',
-            ],
-        }}
-    />
+  <Form
+    name="Cementerio"
+    h2="Ingrese su número de contrato"
+    label="Contrato"
+    inputName="cementerio"
+    nodesHtml={CementerioNodeHtml}
+    tipo="CEC"
+    titles={{
+      titulo: "Ubicación :",
+      subtitulo: "Contrato :",
+      ayuda: "Ingrese el número de su contrato de cementerio",
+    }}
+    keyboardLayout={{
+      default: ["1 2 3", "4 5 6", "7 8 9", "0 - {bksp}"],
+    }}
+  />
 );
 
 const CementerioNodeHtml = [
-    <TipoImp name={'Cementerio'} url={'/apps/totems/cementerio'} icono={[<IconoCementerio />]} />,
-    <p>9999999</p>
+  <TipoImp
+    name={"Cementerio"}
+    url={"/apps/totems/cementerio"}
+    icono={[<IconoCementerio />]}
+  />,
+  <p>Ejemplo de contrato: 9999999</p>,
 ];
 
 /* Inmuebles */
 export const Inmuebles = () => (
-    <Form
-        name="Inmuebles"
-        h2="Ingrese su partida"
-        label="Partida"
-        inputName="inmueble"
-        nodesHtml={InmueblesNodeHtml}
-        tipo="INM"
-        titles={{ titulo: 'Partida :', subtitulo: 'Nomenclatura :' }}
-        keyboardLayout={{
-            'default': [
-                '1 2 3',
-                '4 5 6',
-                '7 8 9',
-                '0 {bksp}',
-            ],
-        }}
-    />
+  <Form
+    name="Inmuebles"
+    h2="Ingrese su partida"
+    label="Partida"
+    inputName="inmueble"
+    nodesHtml={InmueblesNodeHtml}
+    tipo="INM"
+    titles={{
+      titulo: "Partida :",
+      subtitulo: "Nomenclatura :",
+      ayuda: "Ingrese la partida de su inmueble",
+    }}
+    keyboardLayout={{
+      default: ["1 2 3", "4 5 6", "7 8 9", "0 {bksp}"],
+    }}
+  />
 );
 
 const InmueblesNodeHtml = [
-    <TipoImp name={'Inmuebles'} url={'/apps/totems/inmuebles'} icono={[<IconoInmueble />]}/>,
-    <p>9999999</p>
+  <TipoImp
+    name={"Inmuebles"}
+    url={"/apps/totems/inmuebles"}
+    icono={[<IconoInmueble />]}
+  />,
+  <p>Ejemplo de partida: 9999999</p>,
 ];
 
 /* Natatorio */
@@ -137,28 +143,31 @@ const RecuperoPlanFederalNodeHtml = [
 
 /* Comercio */
 export const Comercio = () => (
-    <Form
-        name="Comercio"
-        h2="Ingrese su número de licencia comercial"
-        label="Lic. comercial"
-        inputName="comercio"
-        nodesHtml={ComercioNodeHtml}
-        tipo="COM"
-        titles={{ titulo: 'Nombre :', subtitulo: 'Licencia Comercial :' }}
-        keyboardLayout={{
-            default: [
-                '1 2 3', 
-                '4 5 6', 
-                '7 8 9', 
-                '0 {bksp}'
-            ],
-        }}
-    />
+  <Form
+    name="Comercio"
+    h2="Ingrese su número de licencia comercial"
+    label="Lic. comercial"
+    inputName="comercio"
+    nodesHtml={ComercioNodeHtml}
+    tipo="COM"
+    titles={{
+      titulo: "Nombre :",
+      subtitulo: "Licencia Comercial :",
+      ayuda: "Ingrese el número de su licencia comercial",
+    }}
+    keyboardLayout={{
+      default: ["1 2 3", "4 5 6", "7 8 9", "0 {bksp}"],
+    }}
+  />
 );
 
 const ComercioNodeHtml = [
-    <TipoImp name={'Comercio'} url={'/apps/totems/comercio'} icono={[<IconoComercio />]}/>,
-    <p>999999</p>,
+  <TipoImp
+    name={"Comercio"}
+    url={"/apps/totems/comercio"}
+    icono={[<IconoComercio />]}
+  />,
+  <p>Ejemplo de licencia comercial: 999999</p>,
 ];
 
 /* Planes de pago */
