@@ -55,7 +55,7 @@ export const CuotasPagar = ({
                 </div>
                 <div className="col-12 text-center mt-5">
                     <Link to="/apps/totems" className="btn btn-form active mb-1 text-center">
-                        VOLVER
+                        SALIR
                     </Link>
                 </div>
             </div>

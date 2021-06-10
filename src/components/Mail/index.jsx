@@ -96,7 +96,7 @@ export const Mail = ({
                         btnClass="btn btn-primary active"
                         iClass="fa fa-arrow-circle-o-left"
                         url="/apps/totems/"
-                        desc="Volver al inicio"
+                        desc="SALIR"
                     />
                 </>
             );
@@ -126,7 +126,7 @@ export const Mail = ({
                         </div>
                         <div className="card-footer">
                             <div className="btn-wrapper text-center d-flex justify-content-between">
-                                <LinkBtn btnClass="btn btn-primary" url="/apps/totems/" desc="VOLVER" />
+                                <LinkBtn btnClass="btn btn-primary" url="/apps/totems/" desc="SALIR" />
                                 <button type="button" id="enviar" onClick={checkMail} className="btn btn-success">
                                  ENVIAR
                                 </button>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { I, LinkBtn, Cargando, Error, Recycle, Confirm } from '../shared';
 import printIframe from '../utils/printIframe';
@@ -12,23 +12,34 @@ export const Recibo = ({
     },
 }) => {
     const [pdf, setPdf] = useState(null);
-    const [print, setPrint] = useState(null)
+    const [print, setPrint] = useState(null);
+
     useEffect(() => {
         recibo(tr02100_id, impApagar).then((response) => {
             if (response !== -1) {
                 const reader = new FileReader();
                 reader.readAsDataURL(response.blob);
                 reader.onload = () => {
+                    
                     setPdf({
                         pdf: reader.result,
                         recibo: response.recibo,
                     });
                 };
+                
             } else {
                 setPdf(response);
             }
         });
     }, [impApagar, tr02100_id]);
+
+
+    const ReturnRoot = () => {
+        const history = useHistory();
+        setTimeout(() => history.push('/apps/totems'), 90000);
+    };
+    ReturnRoot();
+    
 
     const printModal = () => {
         printIframe('pdf');
@@ -40,7 +51,7 @@ export const Recibo = ({
 
     if (print === 'imprimiendo') return <Cargando str={'Aguarde mientra se imprime su recibo'} />;
 
-    if (print === 'confirmacion') return <Confirm msg={'Aguarde mientra se imprime su recibo'} setPrint={setPrint}/>;
+    if (print === 'confirmacion') return <Confirm msg={'¿Se logro imprimir?'} setPrint={setPrint} />;
 
     if (pdf === null || undefined) return <Cargando />;
 
@@ -79,7 +90,7 @@ export const Recibo = ({
                                 >
                                     <I classname="fa fa-envelope-o" /> ENVIAR POR EMAIL
                                 </Link>
-                                <LinkBtn btnClass="btn btn-primary active m-3" url="/apps/totems/" desc="VOLVER" />
+                                <LinkBtn btnClass="btn btn-primary active m-3" url="/apps/totems/" desc="SALIR" />
                             </div>
                         </div>
                     </div>

@@ -14,7 +14,7 @@ export const Error = ({ msg }) => {
                     </div>
                     <div className="pt-3 text-center">
                         <Link to="/apps/totems" className="btn btn-primary active mb-1  text-center">
-                            VOLVER
+                            SALIR
                         </Link>
                     </div>
                 </div>

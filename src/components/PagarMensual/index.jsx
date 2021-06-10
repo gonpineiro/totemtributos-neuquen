@@ -134,7 +134,7 @@ export const PagarMensual = ({
                         </div>
                         <div className="card-footer">
                             <div className="btn-wrapper text-center d-flex justify-content-between">
-                                <LinkBtn btnClass="btn btn-oap active text-uppercase" url="/apps/totems/" desc="VOLVER" />
+                                <LinkBtn btnClass="btn btn-oap active text-uppercase" url="/apps/totems/" desc="SALIR" />
                                 {BtnPrint()}
                             </div>
                         </div>
