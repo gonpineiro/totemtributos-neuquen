@@ -122,13 +122,14 @@ export const Mail = ({
                                 value={mail['mail'] ? mail['mail'] : ''}
                                 className="form-control font-weight-bold"
                                 onChange={handleInputChange}
+                                autoComplete={'off'}
                             />
                         </div>
                         <div className="card-footer">
                             <div className="btn-wrapper text-center d-flex justify-content-between">
                                 <LinkBtn btnClass="btn btn-primary" url="/apps/totems/" desc="SALIR" />
                                 <button type="button" id="enviar" onClick={checkMail} className="btn btn-success">
-                                 ENVIAR
+                                    ENVIAR
                                 </button>
                             </div>
                         </div>
