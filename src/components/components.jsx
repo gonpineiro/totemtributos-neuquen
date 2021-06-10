@@ -60,7 +60,7 @@ const CementerioNodeHtml = [
     url={"/apps/totems/cementerio"}
     icono={[<IconoCementerio />]}
   />,
-  <p>Ejemplo de contrato: 9999999</p>,
+  <p>Ejemplo de contrato: 99999999-9</p>,
 ];
 
 /* Inmuebles */
