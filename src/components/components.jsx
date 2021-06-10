@@ -38,7 +38,7 @@ export const Cementerio = () => (
   <Form
     name="Cementerio"
     h2="Ingrese su número de contrato"
-    maxinput="7"
+    maxinput="10"
     label="Contrato"
     inputName="cementerio"
     nodesHtml={CementerioNodeHtml}
