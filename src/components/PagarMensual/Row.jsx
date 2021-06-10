@@ -23,6 +23,7 @@ export const Row = ({ id, saldo, total, reg_id, fecha, handlerCheckboxChance, se
           className="form-check-input"
           checked={rowSelected}
           value={id}
+          onChange={(e) => {e.stopPropagation()}}
         />
       </td>
       <td className="text-center">{reg_id}</td>

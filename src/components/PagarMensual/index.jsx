@@ -25,10 +25,10 @@ export const PagarMensual = ({
 
     const [impApagar, setImpApagar] = useState([]);
 
-    const handlerCheckboxChance = ({ value, isChecked }, total) => {
-        if (isChecked) setImpApagar([...impApagar, { value, total }]);
+    const handlerCheckboxChance = ({ value, checked }, total) => {
+        if (checked) setImpApagar([...impApagar, { value, total }]);
 
-        if (!isChecked) {
+        if (!checked) {
             const array = [...impApagar];
             array.splice(array.indexOf(value));
             setImpApagar(array);
