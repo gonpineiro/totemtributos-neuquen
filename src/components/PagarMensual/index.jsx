@@ -26,16 +26,14 @@ export const PagarMensual = ({
 
     const [impApagar, setImpApagar] = useState([]);
 
-    const handlerCheckboxChance = (event, total) => {
-        const value = event.target.value;
-        const isChecked = event.target.checked;
-        const row = document.getElementById(value)
-        if (isChecked) {
+    const handlerCheckboxChance = ({ value, checked }, total) => {
+        const row = document.getElementById(value);
+        if (checked) {
             row.classList.add('selectedRow');
             setImpApagar([...impApagar, { value, total }]);
         }
-        
-        if (!isChecked) {
+
+        if (!checked) {
             row.classList.remove('selectedRow');
             const array = [...impApagar];
             array.splice(array.indexOf(value));
