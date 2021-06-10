@@ -28,13 +28,16 @@ export const PagarMensual = ({
 
     const handlerCheckboxChance = ({ value, checked }, total) => {
         const row = document.getElementById(value);
+        const totalV = document.getElementById("total" + value); 
         if (checked) {
             row.classList.add('selectedRow');
+            totalV.classList.add("bg-total");
             setImpApagar([...impApagar, { value, total }]);
         }
 
         if (!checked) {
             row.classList.remove('selectedRow');
+            totalV.classList.remove("bg-total");
             const array = [...impApagar];
             array.splice(array.indexOf(value));
             setImpApagar(array);

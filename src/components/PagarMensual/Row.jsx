@@ -23,14 +23,18 @@ export const Row = ({ id, saldo, total, reg_id, fecha, handlerCheckboxChance, se
           className="form-check-input"
           checked={rowSelected}
           value={id}
-          onChange={(e) => {e.stopPropagation()}}
+          onChange={(e) => {
+            e.stopPropagation();
+          }}
         />
       </td>
       <td className="text-center">{reg_id}</td>
       <td className="text-center">{fecha.substring(0, 10)}</td>
       <td className="text-center">$ {saldo.toFixed(2)}</td>
       <td className="text-center">$ {(total - saldo).toFixed(2)}</td>
-      <td className="text-center">$ {total.toFixed(2)}</td>
+      <td id={"total" + id} className="text-center font-total">
+        $ {total.toFixed(2)}
+      </td>
     </tr>
   );
 };
