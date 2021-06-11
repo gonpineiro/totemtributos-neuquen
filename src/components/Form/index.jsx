@@ -26,11 +26,15 @@ export const Form = ({
   };
 
   const onChange = (input) => {
-    setDatos({
-      ...datos,
-      [inputName]: input,
-    });
-  };
+   // eslint-disable-next-line no-new-wrappers
+    const str = new String(input);
+    if (str.length <= maxinput) {
+        setDatos({
+            ...datos,
+            [inputName]: input,
+        });
+    };
+  }
   return (
     <>
       <div className="container">
@@ -79,7 +83,7 @@ export const Form = ({
         </div>
         <div className="row">
           <div className="col-8 pt-3 mx-auto">
-            <Keyboard onChange={onChange} layout={keyboardLayout} />
+            <Keyboard onChange={onChange} layout={keyboardLayout}  maxLength={maxinput} />
           </div>
         </div>
       </div>
