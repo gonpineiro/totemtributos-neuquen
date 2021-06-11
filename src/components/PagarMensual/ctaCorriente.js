@@ -1,6 +1,6 @@
 import axios from 'axios';
 import qs from 'qs';
-import { URL, NOW, TOKEN } from '../utils/const';
+import { URL, NOW, TOKEN, YEAR_NOW } from '../utils/const';
 
 export const ctaCorriente = async (imponibleId, tipo) => {
     try {
@@ -20,17 +20,16 @@ export const ctaCorriente = async (imponibleId, tipo) => {
         if (ctaCorriente.data.error) return ctaCorriente.data;
 
         return ctaCorriente.data.items.filter((el) => {
-            const YEAR = 2017;
             if (tipo !== 'PPG') {
                 const fecha = parseInt(el.reg_id.substring(0, 4));
-                return el.es_deuda === 'S' && el.es_transac === 'S' && fecha >= YEAR;
+                return el.es_deuda === 'S' && el.es_transac === 'S' && fecha >= YEAR_NOW;
             }
             if (el.reg_id.includes(':')) {
                 const fecha = parseInt(el.reg_id.split(':', 4)[1]);
-                return el.es_deuda === 'S' && el.es_transac === 'S' && fecha >= YEAR;
+                return el.es_deuda === 'S' && el.es_transac === 'S' && fecha >= YEAR_NOW;
             }
             const fecha = parseInt(el.fecha.substring(0, 4));
-            return el.es_deuda === 'S' && el.actualizado !== el.saldo && fecha >= YEAR;
+            return el.es_deuda === 'S' && el.actualizado !== el.saldo && fecha >= YEAR_NOW;
         });
     } catch (error) {
         return error;
