@@ -19,7 +19,7 @@ export const PagarSemestral = ({
     const [print, setPrint] = useState(null);
 
     useEffect(() => {
-        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), 100000);
+        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), 110000);
         ctaCorriente(tr02100_id).then((response) => {
             if (response !== -1) {
                 const reader = new FileReader();
