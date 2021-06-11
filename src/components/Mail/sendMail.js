@@ -35,7 +35,7 @@ export const sendMailRecibo = async (mail, recibo) => {
 
 export const sendMailSemestral = async (mail, IMPONIBLE_ID, TR1E200_ID) => {
     // eslint-disable-next-line no-self-compare
-    const weblogin = 1 === 1 ? 'http://200.85.183.194:90/' : 'https://weblogin.muninqn.gov.ar/';
+    const weblogin = 'https://weblogin.muninqn.gov.ar/';
 
     const token = '123';
     const subject = `Recibo Semestral `;
