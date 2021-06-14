@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Keyboard from 'react-simple-keyboard';
 import 'react-simple-keyboard/build/css/index.css';
 
@@ -12,8 +12,18 @@ export const Mail = ({
         state: { recibo, tipo, data },
     },
 }) => {
+    const history = useHistory();
     const [datos, setDatos] = useState(null);
     const [mail, setMail] = useState({});
+
+    useEffect(() => {
+        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), 110000);
+        return () => {
+            clearTimeout(timeOutReturn);
+        };
+    }, [history]);
+
+
     const checkMail = () => {
         const modalPrint = document.getElementById('modal-print');
         const isEmail = () => {
@@ -66,33 +76,33 @@ export const Mail = ({
     const divCheckMail = (mail) => {
         if (datos == null) {
             return (
-              <>
-                <div>
-                  <h3 className="font-weight-bold text-primary">Su email es</h3>
-                </div>
-                <div>
-                  <h4 className="font-weight-bold text-primary" id="sumail">
-                    {mail.mail}
-                  </h4>
-                </div>
-                <div>
-                  <button
-                    onClick={() => callSendMail(tipo)}
-                    type="button"
-                    className="btn btn-success m-3"
-                  >
-                    SI
-                  </button>
+                <>
+                    <div>
+                        <h3 className="font-weight-bold text-primary">Su email es</h3>
+                    </div>
+                    <div>
+                        <h4 className="font-weight-bold text-primary" id="sumail">
+                            {mail.mail}
+                        </h4>
+                    </div>
+                    <div>
+                        <button
+                            onClick={() => callSendMail(tipo)}
+                            type="button"
+                            className="btn btn-success m-3"
+                        >
+                            SI
+                        </button>
 
-                  <button
-                    onClick={mailEquivocado}
-                    type="button"
-                    className="btn btn-primary m-3"
-                  >
-                    NO
-                  </button>
-                </div>
-              </>
+                        <button
+                            onClick={mailEquivocado}
+                            type="button"
+                            className="btn btn-primary m-3"
+                        >
+                            NO
+                        </button>
+                    </div>
+                </>
             );
         } else if (datos === 'esperando') {
             return <Cargando />;

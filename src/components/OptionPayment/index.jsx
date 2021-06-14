@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { Cargando, Error } from '../shared';
 
@@ -13,12 +13,18 @@ export const CuotasPagar = ({
         state: { tipo, data, titles },
     },
 }) => {
+  const history = useHistory();
     const [imponible, setImponible] = useState(null);
+
     useEffect(() => {
+      const timeOutReturn = setTimeout(() => history.push('/apps/totems'), 110000);
         getImponible(tipo, data).then((response) => {
             setImponible(response);
         });
-    }, [data, tipo]);
+        return () => {
+            clearTimeout(timeOutReturn);
+        };
+    }, [data, history, tipo]);
 
     if (imponible === null) return <Cargando />;
 

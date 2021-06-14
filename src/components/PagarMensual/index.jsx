@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './index.scss';
 
 import { LinkBtn, Cargando, Error } from '../shared';
@@ -17,18 +17,24 @@ export const PagarMensual = ({
         },
     },
 }) => {
+    const history = useHistory();
     const [impuestos, setImpuestos] = useState(null);
+
     useEffect(() => {
+        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), 110000);
         ctaCorriente(tr02100_id, tipo).then((response) => {
             setImpuestos(response);
         });
-    }, [tipo, tr02100_id]);
+        return () => {
+            clearTimeout(timeOutReturn);
+        };
+    }, [history, tipo, tr02100_id]);
 
     const [impApagar, setImpApagar] = useState([]);
 
     const handlerCheckboxChance = ({ value, checked }, total) => {
         const row = document.getElementById(value);
-        const totalV = document.getElementById("total" + value); 
+        const totalV = document.getElementById("total" + value);
         if (checked) {
             row.classList.add('selectedRow');
             totalV.classList.add("bg-total");
