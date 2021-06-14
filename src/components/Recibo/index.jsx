@@ -6,6 +6,7 @@ import printIframe from '../utils/printIframe';
 
 import { recibo } from './reciboAxios';
 import './recibo.scss';
+import { TIME_PRINT, TIME_PRINT_CONFIRM, TIME_RETURN } from '../utils/const';
 
 export const Recibo = ({
     location: {
@@ -17,7 +18,7 @@ export const Recibo = ({
     const [print, setPrint] = useState(null);
 
     useEffect(() => {
-        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), 120000);
+        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), TIME_RETURN);
         recibo(tr02100_id, impApagar).then((response) => {
             if (response !== -1) {
                 const reader = new FileReader();
@@ -40,9 +41,9 @@ export const Recibo = ({
     const printModal = () => {
         printIframe('pdf');
 
-        setTimeout(() => setPrint('imprimiendo'), 5500);
+        setTimeout(() => setPrint('imprimiendo'), TIME_PRINT);
 
-        setTimeout(() => setPrint('confirmacion'), 10000);
+        setTimeout(() => setPrint('confirmacion'), TIME_PRINT_CONFIRM);
     };
 
     if (print === 'imprimiendo') return <Cargando str={'Aguarde mientra se imprime su recibo'} />;
