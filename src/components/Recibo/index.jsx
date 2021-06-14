@@ -17,7 +17,7 @@ export const Recibo = ({
     const [print, setPrint] = useState(null);
 
     useEffect(() => {
-        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), 100000);
+        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), 120000);
         recibo(tr02100_id, impApagar).then((response) => {
             if (response !== -1) {
                 const reader = new FileReader();
@@ -40,9 +40,9 @@ export const Recibo = ({
     const printModal = () => {
         printIframe('pdf');
 
-        setTimeout(() => setPrint('imprimiendo'), 2000);
+        setTimeout(() => setPrint('imprimiendo'), 5500);
 
-        setTimeout(() => setPrint('confirmacion'), 7000);
+        setTimeout(() => setPrint('confirmacion'), 10000);
     };
 
     if (print === 'imprimiendo') return <Cargando str={'Aguarde mientra se imprime su recibo'} />;

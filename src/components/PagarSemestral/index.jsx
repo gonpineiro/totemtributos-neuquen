@@ -42,9 +42,9 @@ export const PagarSemestral = ({
     const printModal = () => {
         printIframe('pdf');
 
-        setTimeout(() => setPrint('imprimiendo'), 2000);
+        setTimeout(() => setPrint('imprimiendo'), 5500);
 
-        setTimeout(() => setPrint('confirmacion'), 7000);
+        setTimeout(() => setPrint('confirmacion'), 10000);
     };
 
     if (print === 'imprimiendo') return <Cargando str={'Aguarde mientra se imprime su recibo'} />;

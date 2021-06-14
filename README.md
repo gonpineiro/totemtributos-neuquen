@@ -27,6 +27,8 @@ const printIframe = (id) => {
     return false;
   };
 ```
+Hay que tener en cuenta cuanto tarda en cargar el documento en la ventana de impresion del navegador para configurar correctamente los timeout que se encuentran en: `src/components/Recibo/index.jsx` y `src/components/PagarSemestral/index.jsx` dentro de la función `printModal()`
+
 
 #### Configuracion del navegador 
 Se debe generar un acceso directo del navegador de la siguente manera:
