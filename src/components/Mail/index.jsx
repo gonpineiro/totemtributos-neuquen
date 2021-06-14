@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Keyboard from 'react-simple-keyboard';
 import 'react-simple-keyboard/build/css/index.css';
 
@@ -6,6 +7,7 @@ import { sendMailRecibo, sendMailSemestral } from './sendMail';
 import { LinkBtn, Cargando } from '../shared';
 
 import './mail.scss';
+import { TIME_RETURN } from '../utils/const';
 
 export const Mail = ({
     location: {
@@ -17,7 +19,7 @@ export const Mail = ({
     const [mail, setMail] = useState({});
 
     useEffect(() => {
-        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), 110000);
+        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), TIME_RETURN);
         return () => {
             clearTimeout(timeOutReturn);
         };

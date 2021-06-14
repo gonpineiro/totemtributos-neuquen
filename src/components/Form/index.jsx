@@ -1,14 +1,23 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 import Keyboard from 'react-simple-keyboard';
 import 'react-simple-keyboard/build/css/index.css';
 import { LinkBtn } from '../shared';
+import { TIME_RETURN } from '../utils/const';
 
 import './styles.scss';
 
 export const Form = ({ label, inputName, tipo, nodesHtml, keyboardLayout, titles, maxinput }) => {
+    const history = useHistory();
     const [datos, setDatos] = useState({});
+
+    useEffect(() => {
+        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), TIME_RETURN);
+        return () => {
+            clearTimeout(timeOutReturn);
+        };
+    }, [history]);
 
     const handleInputChange = (e) => {
         setDatos({

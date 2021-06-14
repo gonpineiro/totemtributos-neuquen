@@ -5,7 +5,7 @@ import { Cargando, Error } from '../shared';
 
 import { getImponible } from './ctaCtoAxios';
 
-import { YEAR_NOW } from '../utils/const';
+import { TIME_RETURN, YEAR_NOW } from '../utils/const';
 import "./optionpayment.scss";
 
 export const CuotasPagar = ({
@@ -17,7 +17,7 @@ export const CuotasPagar = ({
     const [imponible, setImponible] = useState(null);
 
     useEffect(() => {
-      const timeOutReturn = setTimeout(() => history.push('/apps/totems'), 110000);
+      const timeOutReturn = setTimeout(() => history.push('/apps/totems'), TIME_RETURN);
         getImponible(tipo, data).then((response) => {
             setImponible(response);
         });

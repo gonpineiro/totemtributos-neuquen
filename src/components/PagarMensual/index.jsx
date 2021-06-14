@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import './index.scss';
 
 import { LinkBtn, Cargando, Error } from '../shared';
-import { YEAR_NOW } from '../utils/const';
+import { TIME_RETURN, YEAR_NOW } from '../utils/const';
 
 import { ctaCorriente } from './ctaCorriente';
 import { Row } from './Row';
@@ -21,7 +21,7 @@ export const PagarMensual = ({
     const [impuestos, setImpuestos] = useState(null);
 
     useEffect(() => {
-        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), 110000);
+        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), TIME_RETURN * 2);
         ctaCorriente(tr02100_id, tipo).then((response) => {
             setImpuestos(response);
         });
