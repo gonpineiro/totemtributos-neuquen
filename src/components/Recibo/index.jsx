@@ -42,7 +42,7 @@ export const Recibo = ({
 
         setTimeout(() => setPrint('imprimiendo'), 5500);
 
-        setTimeout(() => setPrint('confirmacion'), 10000);
+        setTimeout(() => setPrint('confirmacion'), 20000);
     };
 
     if (print === 'imprimiendo') return <Cargando str={'Aguarde mientra se imprime su recibo'} />;
