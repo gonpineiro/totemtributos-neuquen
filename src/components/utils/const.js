@@ -4,5 +4,5 @@ export const NOW = new Date().toISOString().slice(0, 10);
 export const YEAR_NOW = new Date().toISOString().slice(0, 4);
 export const TIME_RETURN = 120000;
 export const TIME_PRINT = 5500;
-export const TIME_PRINT_CONFIRM = 10000;
+export const TIME_PRINT_CONFIRM = 20000;
 

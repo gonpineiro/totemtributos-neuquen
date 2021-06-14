@@ -24,7 +24,8 @@ export const CuotasPagar = ({
 
     if (imponible.error) return <Error msg={'Por favor, verifique los datos ingresados.'} />;
 
-    if (imponible.estado_complementario === 'Caducado') return <Error msg={'Caducado'} />;
+    if (tipo === 'PPG' && (imponible.estado_complementario === 'Caducado' || imponible.estado_complementario === 'Cancelado')) return <Error msg={'Caducado'} />;
+
     return (
       <div className="container">
         <div className="row mt-5">
@@ -41,7 +42,6 @@ export const CuotasPagar = ({
             </Link>
           </div>
           <div className="col col-md-12 text-center">
-            {tipo !== "PPG" && (
               <Link
                 to={{
                   pathname: "/apps/totems/pagar-semestral/",
@@ -51,7 +51,6 @@ export const CuotasPagar = ({
               >
                 Generar recibo semestral
               </Link>
-            )}
           </div>
           <div className="col-12 text-center mt-5">
             <Link

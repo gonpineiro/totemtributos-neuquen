@@ -12,7 +12,7 @@ export const Rodado = () => (
         inputName="patente"
         nodesHtml={RodadoNodeHtml}
         tipo="ROD"
-        titles={{ titulo: 'Dominio :', subtitulo: 'Marca-Modelo-Año :', ayuda: 'Ingrese la patente de rodado' }}
+        titles={{ titulo: 'Dominio :', subtitulo: 'Marca-Modelo-Año :', ayuda: 'Ingrese la patente del rodado' }}
         keyboardLayout={{
             'default': [
                 '1 2 3 4 5 6 7 8 9 0',
@@ -46,7 +46,7 @@ export const Cementerio = () => (
     titles={{
       titulo: "Ubicación :",
       subtitulo: "Contrato :",
-      ayuda: "Ingrese el número de su contrato de cementerio",
+      ayuda: "Ingrese el número del contrato de cementerio",
     }}
     keyboardLayout={{
       default: ["1 2 3", "4 5 6", "7 8 9", "0 - {bksp}"],
@@ -76,7 +76,7 @@ export const Inmuebles = () => (
     titles={{
       titulo: "Partida :",
       subtitulo: "Nomenclatura :",
-      ayuda: "Ingrese la partida de su inmueble",
+      ayuda: "Ingrese la partida del inmueble",
     }}
     keyboardLayout={{
       default: ["1 2 3", "4 5 6", "7 8 9", "0 {bksp}"],
@@ -157,7 +157,7 @@ export const Comercio = () => (
     titles={{
       titulo: "Nombre :",
       subtitulo: "Licencia Comercial :",
-      ayuda: "Ingrese el número de su licencia comercial",
+      ayuda: "Ingrese el número de la licencia comercial",
     }}
     keyboardLayout={{
       default: ["1 2 3", "4 5 6", "7 8 9", "0 {bksp}"],
@@ -179,11 +179,12 @@ export const PlanPago = () => (
     <Form
         name="Planes de pago"
         h2="Ingrese su número"
+        maxinput="10"
         label="Plan de pago"
         inputName="planPago"
         nodesHtml={PlanPagoNodeHtml}
         tipo="PPG"
-        titles={{ titulo: 'Identificación :', subtitulo: 'Plan de pago :' }}
+        titles={{ titulo: 'Identificación :', subtitulo: 'Plan de pago :', ayuda: "Ingrese el número del plan de pago", }}
         keyboardLayout={{
             'default': [
                 '1 2 3',
@@ -197,5 +198,5 @@ export const PlanPago = () => (
 
 const PlanPagoNodeHtml = [
     <TipoImp name={'Planes de pago'} url={'/apps/totems/plan-de-pago'} icono={[<IconoCuotasPagar />]} />,
-    <p>999999999</p>,
+    <p>99-9999999</p>,
 ];
