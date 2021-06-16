@@ -77,5 +77,25 @@
     history.forward();
     window.onpopstate = function () {
         history.go(1);
-    };
+    };    
+
+    g_timer = null;
+
+    (function() {
+        startTimer();     
+     })();
+
+    function startTimer() {
+        g_timer = window.setTimeout(function () {
+            window.location.assign('/apps/totems/');
+        }, 90000);
+    }
+
+    function onClick() {
+        console.log('Hola, gracias por tocar la pantalla :)')
+        clearTimeout(g_timer);
+        startTimer();
+    }
+
+    document.getElementById('root').addEventListener('click', onClick);
 </script>
