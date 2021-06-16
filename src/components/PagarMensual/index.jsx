@@ -35,6 +35,7 @@ export const PagarMensual = ({
     const handlerCheckboxChance = ({ value, checked }, total) => {
         const row = document.getElementById(value);
         const totalV = document.getElementById("total" + value);
+       // const nodes = document.getElementsByName(reg_id);
         if (checked) {
             row.classList.add('selectedRow');
             totalV.classList.add("bg-total");

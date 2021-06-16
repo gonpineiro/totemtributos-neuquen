@@ -5,7 +5,12 @@ export const Row = ({ id, saldo, total, reg_id, fecha, handlerCheckboxChance, se
 
   const handleRowClick = () => {
     let currentlySelected = !rowSelected;
-    
+    const nodes = document.getElementsByName(reg_id);
+
+    nodes.forEach(el => {
+      el.click()
+      console.log(el.id)
+    })
     const props = {
       value: id,
       checked: currentlySelected,
@@ -14,9 +19,9 @@ export const Row = ({ id, saldo, total, reg_id, fecha, handlerCheckboxChance, se
     handlerCheckboxChance(props, total);
     setRowSelected(currentlySelected);
   };
-  
+  // 0936561
   return (
-    <tr onClick={handleRowClick} id={id}>
+    <tr onClick={handleRowClick} id={id} name={reg_id}>
       <td className="text-center">
         <input
           type="checkbox"
@@ -28,7 +33,7 @@ export const Row = ({ id, saldo, total, reg_id, fecha, handlerCheckboxChance, se
           }}
         />
       </td>
-      <td className="text-center">{reg_id}</td>
+      <td className="text-center" >{reg_id}</td>
       <td className="text-center">{fecha.substring(0, 10)}</td>
       <td className="text-center">$ {saldo.toFixed(2)}</td>
       <td className="text-center">$ {(total - saldo).toFixed(2)}</td>
