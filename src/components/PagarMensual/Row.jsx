@@ -5,12 +5,12 @@ export const Row = ({ id, saldo, total, reg_id, fecha, handlerCheckboxChance, se
 
   const handleRowClick = () => {
     let currentlySelected = !rowSelected;
-    const nodes = document.getElementsByName(reg_id);
+    /* const nodes = document.getElementsByName(reg_id);
 
     nodes.forEach(el => {
       el.click()
       console.log(el.id)
-    })
+    }) */
     const props = {
       value: id,
       checked: currentlySelected,
