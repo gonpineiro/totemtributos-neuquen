@@ -6,7 +6,11 @@ import printIframe from '../utils/printIframe';
 
 import { recibo } from './reciboAxios';
 import './recibo.scss';
+<<<<<<< HEAD
 import { TIME_PRINT, TIME_PRINT_CONFIRM, TIME_RETURN } from '../utils/const';
+=======
+import { TIME_PRINT, TIME_PRINT_CONFIRM, TIME_RETURN_PRINT } from '../utils/const';
+>>>>>>> timeout
 
 export const Recibo = ({
     location: {
@@ -18,7 +22,7 @@ export const Recibo = ({
     const [print, setPrint] = useState(null);
 
     useEffect(() => {
-        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), TIME_RETURN);
+        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), TIME_RETURN_PRINT);
         recibo(tr02100_id, impApagar).then((response) => {
             if (response !== -1) {
                 const reader = new FileReader();

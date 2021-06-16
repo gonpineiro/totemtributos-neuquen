@@ -198,5 +198,5 @@ export const PlanPago = () => (
 
 const PlanPagoNodeHtml = [
     <TipoImp name={'Planes de pago'} url={'/apps/totems/plan-de-pago'} icono={[<IconoCuotasPagar />]} />,
-    <p>99-9999999</p>,
+    <p>Ejemplo de plan de pago: 99-9999999</p>,
 ];

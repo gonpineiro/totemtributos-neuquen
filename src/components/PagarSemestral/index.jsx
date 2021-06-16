@@ -6,7 +6,11 @@ import { I, LinkBtn, Cargando, Error, Recycle, Confirm } from '../shared';
 import printIframe from '../utils/printIframe';
 
 import { ctaCorriente } from './ctaCorriente';
+<<<<<<< HEAD
 import { TIME_PRINT, TIME_PRINT_CONFIRM, TIME_RETURN } from '../utils/const';
+=======
+import { TIME_PRINT, TIME_PRINT_CONFIRM, TIME_RETURN_PRINT } from '../utils/const';
+>>>>>>> timeout
 
 export const PagarSemestral = ({
     location: {
@@ -20,7 +24,7 @@ export const PagarSemestral = ({
     const [print, setPrint] = useState(null);
 
     useEffect(() => {
-        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), TIME_RETURN);
+        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), TIME_RETURN_PRINT);
         ctaCorriente(tr02100_id).then((response) => {
             if (response !== -1) {
                 const reader = new FileReader();
