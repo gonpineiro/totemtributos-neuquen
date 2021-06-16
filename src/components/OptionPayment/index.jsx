@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Cargando, Error } from '../shared';
 
 import { getImponible } from './ctaCtoAxios';
 
-import { TIME_RETURN, YEAR_NOW } from '../utils/const';
+import { YEAR_NOW } from '../utils/const';
 import "./optionpayment.scss";
 
 export const CuotasPagar = ({
@@ -13,18 +13,12 @@ export const CuotasPagar = ({
         state: { tipo, data, titles },
     },
 }) => {
-  const history = useHistory();
     const [imponible, setImponible] = useState(null);
-  console.log(data);
     useEffect(() => {
-      const timeOutReturn = setTimeout(() => history.push('/apps/totems'), TIME_RETURN);
         getImponible(tipo, data).then((response) => {
             setImponible(response);
         });
-        return () => {
-            clearTimeout(timeOutReturn);
-        };
-    }, [data, history, tipo]);
+    }, [data, tipo]);
 
     if (imponible === null) return <Cargando />;
 

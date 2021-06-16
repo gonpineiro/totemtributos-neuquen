@@ -1,28 +1,22 @@
 import { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { I, LinkBtn, Cargando, Error, Recycle, Confirm } from '../shared';
 import printIframe from '../utils/printIframe';
 
 import { recibo } from './reciboAxios';
 import './recibo.scss';
-<<<<<<< HEAD
-import { TIME_PRINT, TIME_PRINT_CONFIRM, TIME_RETURN } from '../utils/const';
-=======
-import { TIME_PRINT, TIME_PRINT_CONFIRM, TIME_RETURN_PRINT } from '../utils/const';
->>>>>>> timeout
+import { TIME_PRINT, TIME_PRINT_CONFIRM } from '../utils/const';
 
 export const Recibo = ({
     location: {
         state: { impApagar, tr02100_id },
     },
 }) => {
-    const history = useHistory();
     const [pdf, setPdf] = useState(null);
     const [print, setPrint] = useState(null);
 
     useEffect(() => {
-        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), TIME_RETURN_PRINT);
         recibo(tr02100_id, impApagar).then((response) => {
             if (response !== -1) {
                 const reader = new FileReader();
@@ -37,10 +31,7 @@ export const Recibo = ({
                 setPdf(response);
             }
         });
-        return () => {
-            clearTimeout(timeOutReturn);
-        };
-    }, [history, impApagar, tr02100_id]);
+    }, [impApagar, tr02100_id]);
 
     const printModal = () => {
         printIframe('pdf');

@@ -1,16 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './index.scss';
 
 import { I, LinkBtn, Cargando, Error, Recycle, Confirm } from '../shared';
 import printIframe from '../utils/printIframe';
 
 import { ctaCorriente } from './ctaCorriente';
-<<<<<<< HEAD
-import { TIME_PRINT, TIME_PRINT_CONFIRM, TIME_RETURN } from '../utils/const';
-=======
-import { TIME_PRINT, TIME_PRINT_CONFIRM, TIME_RETURN_PRINT } from '../utils/const';
->>>>>>> timeout
+import { TIME_PRINT, TIME_PRINT_CONFIRM } from '../utils/const';
 
 export const PagarSemestral = ({
     location: {
@@ -19,12 +15,10 @@ export const PagarSemestral = ({
         },
     },
 }) => {
-    const history = useHistory();
     const [emision, setEmision] = useState(null);
     const [print, setPrint] = useState(null);
 
     useEffect(() => {
-        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), TIME_RETURN_PRINT);
         ctaCorriente(tr02100_id).then((response) => {
             if (response !== -1) {
                 const reader = new FileReader();
@@ -39,10 +33,7 @@ export const PagarSemestral = ({
                 setEmision(response);
             }
         });
-        return () => {
-            clearTimeout(timeOutReturn);
-        };
-    }, [history, tr02100_id]);
+    }, [tr02100_id]);
 
     const printModal = () => {
         printIframe('pdf');
