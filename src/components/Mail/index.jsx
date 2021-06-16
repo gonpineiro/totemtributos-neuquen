@@ -19,7 +19,7 @@ export const Mail = ({
     const [mail, setMail] = useState({});
 
     useEffect(() => {
-        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), TIME_RETURN);
+        const timeOutReturn = setTimeout(() => history.push('/apps/totems'), TIME_RETURN + TIME_RETURN);
         return () => {
             clearTimeout(timeOutReturn);
         };

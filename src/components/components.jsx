@@ -179,11 +179,12 @@ export const PlanPago = () => (
     <Form
         name="Planes de pago"
         h2="Ingrese su número"
+        maxinput="10"
         label="Plan de pago"
         inputName="planPago"
         nodesHtml={PlanPagoNodeHtml}
         tipo="PPG"
-        titles={{ titulo: 'Identificación :', subtitulo: 'Plan de pago :' }}
+        titles={{ titulo: 'Identificación :', subtitulo: 'Plan de pago :', ayuda: "Ingrese el número del plan de pago", }}
         keyboardLayout={{
             'default': [
                 '1 2 3',
@@ -197,5 +198,5 @@ export const PlanPago = () => (
 
 const PlanPagoNodeHtml = [
     <TipoImp name={'Planes de pago'} url={'/apps/totems/plan-de-pago'} icono={[<IconoCuotasPagar />]} />,
-    <p>999999999</p>,
+    <p>Ejemplo de plan de pago: 99-9999999</p>,
 ];

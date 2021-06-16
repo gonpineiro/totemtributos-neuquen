@@ -15,7 +15,7 @@ export const CuotasPagar = ({
 }) => {
   const history = useHistory();
     const [imponible, setImponible] = useState(null);
-
+  console.log(data);
     useEffect(() => {
       const timeOutReturn = setTimeout(() => history.push('/apps/totems'), TIME_RETURN);
         getImponible(tipo, data).then((response) => {
@@ -30,7 +30,10 @@ export const CuotasPagar = ({
 
     if (imponible.error) return <Error msg={'Por favor, verifique los datos ingresados.'} />;
 
-    if (imponible.estado_complementario === 'Caducado') return <Error msg={'Caducado'} />;
+    if (imponible.estado_complementario === 'Caducado') return <Error msg={'El plan de pago Nro '+ data  +' se encuentra caducado por favor comunicarse al mail facilidades@muninqn.gov.ar'} />;
+
+    if (imponible.estado_complementario === 'Cancelado') return <Error msg={'El plan de pago Nro '+ data  +' se encuentra cancelado por favor comunicarse al mail facilidades@muninqn.gov.ar'} />;
+
     return (
       <div className="container">
         <div className="row mt-5">
@@ -47,7 +50,6 @@ export const CuotasPagar = ({
             </Link>
           </div>
           <div className="col col-md-12 text-center">
-            {tipo !== "PPG" && (
               <Link
                 to={{
                   pathname: "/apps/totems/pagar-semestral/",
@@ -57,7 +59,6 @@ export const CuotasPagar = ({
               >
                 Generar recibo semestral
               </Link>
-            )}
           </div>
           <div className="col-12 text-center mt-5">
             <Link
