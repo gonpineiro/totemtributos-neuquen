@@ -28,7 +28,7 @@ export const PagarMensual = ({
 
     const handlerCheckboxChance = ({ value, checked }, total) => {
         const row = document.getElementById(value);
-        const totalV = document.getElementById("total" + value); 
+        const totalV = document.getElementById("total" + value);
         if (checked) {
             row.classList.add('selectedRow');
             totalV.classList.add("bg-total");
@@ -39,7 +39,8 @@ export const PagarMensual = ({
             row.classList.remove('selectedRow');
             totalV.classList.remove("bg-total");
             const array = [...impApagar];
-            array.splice(array.indexOf(value));
+            const index = array.findIndex(v => JSON.stringify(v.value) === JSON.stringify(value))
+            array.splice(index, 1);
             setImpApagar(array);
         }
     };
@@ -99,6 +100,8 @@ export const PagarMensual = ({
                                 <table className="table">
                                     <thead>
                                         <tr>
+                                            <th className="col-2 text-center">#</th>
+                                            <th className="col-2 text-center">Pagar</th>
                                             <th className="col-2 text-center">Pagar</th>
                                             <th className="col-2 text-center">Cuota</th>
                                             <th className="col-2 text-center">Vencimiento</th>
