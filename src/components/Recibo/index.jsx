@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { I, LinkBtn, Cargando, Error, Recycle, Confirm } from '../shared';
 import printIframe from '../utils/printIframe';
 
-import { recibo } from './reciboAxios';
+import { getQr, recibo } from './reciboAxios';
 import './recibo.scss';
 import { TIME_PRINT, TIME_PRINT_CONFIRM } from '../utils/const';
 
@@ -15,8 +15,9 @@ export const Recibo = ({
 }) => {
     const [pdf, setPdf] = useState(null);
     const [print, setPrint] = useState(null);
+    const [qr, setQr] = useState(null);
 
-    useEffect(() => {        
+    useEffect(() => {
         recibo(tr02100_id, impApagar, tipo).then((response) => {
             if (response !== -1) {
                 const reader = new FileReader();
@@ -27,6 +28,9 @@ export const Recibo = ({
                         recibo: response.recibo,
                     });
                 };
+                getQr(response.recibo).then(qr => {
+                    setQr(qr)
+                })
             } else {
                 setPdf(response);
             }
@@ -40,6 +44,27 @@ export const Recibo = ({
 
         setTimeout(() => setPrint('confirmacion'), TIME_PRINT_CONFIRM);
     };
+
+    const printQr = () => {
+        if (qr === null) return (
+            <div className="d-inline-flex">
+                <Recycle /> <span style={{ margin: 'auto' }}>Cargando QR...</span>
+            </div>
+        )
+
+        if (qr === -1) return (
+            <div className="d-inline-flex">
+                <Recycle /> <span style={{ margin: 'auto' }}>No se logro cargar el QR</span>
+            </div>
+        )
+
+        return (
+            <div className="d-inline-flex">
+                <Recycle /> <span style={{ margin: 'auto' }}>Para pagar online escanea el código QR</span>
+            </div>
+        )
+
+    }
 
     if (print === 'imprimiendo') return <Cargando str={'Aguarde mientra se imprime su recibo'} />;
 
@@ -64,9 +89,7 @@ export const Recibo = ({
                             Se generó el recibo Nro {pdf.recibo}, ¿Desea enviarlo por email o imprimirlo?
                         </div>
                         <div className="card-body text-center recycle">
-                            <div className="d-inline-flex">
-                                <Recycle /> <span>Para pagar online escanea el código QR</span>
-                            </div>
+                            {printQr()}
                         </div>
                         <div className="card-footer">
                             <div className="btn-wrapper">

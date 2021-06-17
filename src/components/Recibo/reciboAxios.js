@@ -4,7 +4,6 @@ import qs from 'qs';
 import { TOKEN, URL, NOW } from '../utils/const';
 
 export const recibo = async (tr02100_id, impApagar, tipo) => {
-    
     const list = impApagar.map((obj) => {
         if (tipo === 'INM') return obj['value'].join(',')
         return Number(obj['value'])
@@ -48,3 +47,21 @@ export const recibo = async (tr02100_id, impApagar, tipo) => {
         return -1;
     }
 };
+
+export const getQr = async (recibo) => {
+    try {
+        const response = await axios({
+            method: 'get',
+            url: 'https://weblogin.muninqn.gov.ar/api2/ReciboTasas/' + recibo,
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+            },
+        });
+
+        if (response.data.value.error) return -1;
+
+        return response.data.value.qrImage;
+    } catch (error) {
+        return -1
+    }
+}
