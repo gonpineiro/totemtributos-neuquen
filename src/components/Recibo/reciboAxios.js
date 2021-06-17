@@ -6,7 +6,7 @@ import { TOKEN, URL, NOW } from '../utils/const';
 export const recibo = async (tr02100_id, impApagar, tipo) => {
     
     const list = impApagar.map((obj) => {
-        if (tipo === 'INM' || tipo === 'COM') return obj['value'].join(',')
+        if (tipo === 'INM') return obj['value'].join(',')
         return Number(obj['value'])
     }).toString();
 

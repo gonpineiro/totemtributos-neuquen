@@ -33,7 +33,7 @@ export const ctaCorriente = async (imponibleId, tipo) => {
             return el.es_deuda === 'S' && el.actualizado !== el.saldo && fecha >= YEAR_NOW;
         });
 
-        if (tipo === 'COM' || tipo === 'INM') {            
+        if (tipo === 'INM') {            
             return groupByRegId(impFilter)
         }else{
             return impFilter
