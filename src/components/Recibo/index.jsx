@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
+import { Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import { I, LinkBtn, Cargando, Error, Recycle, Confirm } from '../shared';
 import printIframe from '../utils/printIframe';
+
+import { QrModal } from './QrModal'
 
 import { getQr, recibo } from './reciboAxios';
 import './recibo.scss';
@@ -16,6 +19,7 @@ export const Recibo = ({
     const [pdf, setPdf] = useState(null);
     const [print, setPrint] = useState(null);
     const [qr, setQr] = useState(null);
+    const [modalShow, setModalShow] = useState(false);
 
     useEffect(() => {
         recibo(tr02100_id, impApagar, tipo).then((response) => {
@@ -66,6 +70,10 @@ export const Recibo = ({
 
     }
 
+    const showQrModal = () => {
+        if (qr !== -1 && qr !== null) setModalShow(true)
+    }   
+
     if (print === 'imprimiendo') return <Cargando str={'Aguarde mientra se imprime su recibo'} />;
 
     if (print === 'confirmacion') return <Confirm msg={'¿Se logro imprimir?'} setPrint={setPrint} />;
@@ -88,7 +96,7 @@ export const Recibo = ({
                         <div className="card-body text-center">
                             Se generó el recibo Nro {pdf.recibo}, ¿Desea enviarlo por email o imprimirlo?
                         </div>
-                        <div className="card-body text-center recycle">
+                        <div onClick={() => showQrModal()} className="card-body text-center recycle">
                             {printQr()}
                         </div>
                         <div className="card-footer">
@@ -111,6 +119,13 @@ export const Recibo = ({
                     </div>
                 </div>
             </div>
+            <QrModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                qr={qr}
+                recibo={pdf.recibo}
+                onClick={()=> setModalShow(false)}
+            />
         </div>
     );
 };

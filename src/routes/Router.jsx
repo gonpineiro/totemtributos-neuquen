@@ -38,7 +38,6 @@ const Router = () => {
                     <Route exact path="/apps/totems/pagar-semestral/" component={PagarSemestral} />
                     <Route exact path="/apps/totems/opciones-pago/" component={OptionPayment} />
                     <Route exact path="/apps/totems/recibo/" component={Recibo} />
-                    <Route exact path="/apps/totems/qr-recibo/" component={Recibo} />
                     <Route exact path="/apps/totems/mail/" component={Mail} />
                     <Route component={Main} />
                 </Switch>
