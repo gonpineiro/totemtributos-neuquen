@@ -1,6 +1,7 @@
 import axios from 'axios';
 import qs from 'qs';
 import { URL, NOW, TOKEN, YEAR_NOW } from '../utils/const';
+import { groupByRegId } from '../utils/groupBy';
 
 export const ctaCorriente = async (imponibleId, tipo) => {
     try {
@@ -19,7 +20,7 @@ export const ctaCorriente = async (imponibleId, tipo) => {
 
         if (ctaCorriente.data.error) return ctaCorriente.data;
 
-        return ctaCorriente.data.items.filter((el) => {
+        const impFilter = ctaCorriente.data.items.filter((el) => {
             if (tipo !== 'PPG') {
                 const fecha = parseInt(el.reg_id.substring(0, 4));
                 return el.es_deuda === 'S' && el.es_transac === 'S' && fecha >= YEAR_NOW;
@@ -31,6 +32,13 @@ export const ctaCorriente = async (imponibleId, tipo) => {
             const fecha = parseInt(el.fecha.substring(0, 4));
             return el.es_deuda === 'S' && el.actualizado !== el.saldo && fecha >= YEAR_NOW;
         });
+
+        if (tipo === 'COM' || tipo === 'INM') {            
+            return groupByRegId(impFilter)
+        }else{
+            return impFilter
+        }
+
     } catch (error) {
         return error;
     }

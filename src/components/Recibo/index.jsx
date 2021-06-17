@@ -10,14 +10,14 @@ import { TIME_PRINT, TIME_PRINT_CONFIRM } from '../utils/const';
 
 export const Recibo = ({
     location: {
-        state: { impApagar, tr02100_id },
+        state: { impApagar, tr02100_id, tipo },
     },
 }) => {
     const [pdf, setPdf] = useState(null);
     const [print, setPrint] = useState(null);
 
-    useEffect(() => {
-        recibo(tr02100_id, impApagar).then((response) => {
+    useEffect(() => {        
+        recibo(tr02100_id, impApagar, tipo).then((response) => {
             if (response !== -1) {
                 const reader = new FileReader();
                 reader.readAsDataURL(response.blob);
@@ -31,7 +31,7 @@ export const Recibo = ({
                 setPdf(response);
             }
         });
-    }, [impApagar, tr02100_id]);
+    }, [impApagar, tipo, tr02100_id]);
 
     const printModal = () => {
         printIframe('pdf');

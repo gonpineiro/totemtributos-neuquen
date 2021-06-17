@@ -95,3 +95,14 @@
 .hg-button-bksp:after {
   content: 'BORRAR';
 }
+
+.hg-button{
+  background-color: #0469b1 !important;
+  color: white;
+}
+
+.hg-button:active {
+  transform: scale(90%);
+  transition: all 0.1s;
+}
+

@@ -3,8 +3,13 @@ import qs from 'qs';
 
 import { TOKEN, URL, NOW } from '../utils/const';
 
-export const recibo = async (tr02100_id, impApagar) => {
-    const list = impApagar.map((obj) => Number(obj['value'])).toString();
+export const recibo = async (tr02100_id, impApagar, tipo) => {
+    
+    const list = impApagar.map((obj) => {
+        if (tipo === 'INM' || tipo === 'COM') return obj['value'].join(',')
+        return Number(obj['value'])
+    }).toString();
+
     try {
         const responseOne = await axios({
             method: 'post',

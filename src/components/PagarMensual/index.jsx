@@ -50,7 +50,7 @@ export const PagarMensual = ({
                 <Link
                     to={{
                         pathname: '/apps/totems/recibo/',
-                        state: { impApagar, tr02100_id },
+                        state: { impApagar, tr02100_id, tipo },
                     }}
                     type="button"
                     className="btn btn-oap active"
