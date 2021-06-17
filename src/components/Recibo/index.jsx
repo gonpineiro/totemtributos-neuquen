@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import { I, LinkBtn, Cargando, Error, Recycle, Confirm } from '../shared';

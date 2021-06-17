@@ -1,7 +1,7 @@
 import { Modal } from 'react-bootstrap';
 import { Recycle } from '../shared'
 
-export const QrModal = (props, { qr, recibo }) => {
+export const QrModal = (props) => {
     return (
         <Modal
             aria-labelledby="contained-modal-title-vcenter"
