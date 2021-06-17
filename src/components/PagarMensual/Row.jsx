@@ -17,7 +17,6 @@ export const Row = ({ id, saldo, total, reg_id, fecha, handlerCheckboxChance, se
   
   return (
     <tr onClick={handleRowClick} id={id}>
-      <td className="text-center">{id}</td>
       <td className="text-center">
         <input
           type="checkbox"

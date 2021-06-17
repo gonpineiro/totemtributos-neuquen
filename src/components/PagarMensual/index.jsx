@@ -100,8 +100,6 @@ export const PagarMensual = ({
                                 <table className="table">
                                     <thead>
                                         <tr>
-                                            <th className="col-2 text-center">#</th>
-                                            <th className="col-2 text-center">Pagar</th>
                                             <th className="col-2 text-center">Pagar</th>
                                             <th className="col-2 text-center">Cuota</th>
                                             <th className="col-2 text-center">Vencimiento</th>
