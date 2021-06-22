@@ -6,10 +6,11 @@ import { sendMailRecibo, sendMailSemestral } from './sendMail';
 import { LinkBtn, Cargando } from '../shared';
 
 import './mail.scss';
+import { saveStats } from '../utils/saveStats';
 
 export const Mail = ({
     location: {
-        state: { recibo, tipo, data },
+        state: { recibo, periodo, data, tipo, cant },
     },
 }) => {
     const [datos, setDatos] = useState(null);
@@ -33,17 +34,19 @@ export const Mail = ({
         modalPrint.style.display = 'none';
     };
 
-    const callSendMail = (tipo) => {
+    const callSendMail = (periodo) => {
         setDatos('esperando');
         /* let mail = document.getElementById('mail').value; */
-        if (tipo === 'recibo') {
+        if (periodo === 'Mensual') {
             sendMailRecibo(mail.mail, recibo).then((response) => {
                 setDatos(response);
+                saveStats(tipo, 'Email', periodo, cant)
             });
         }
-        if (tipo === 'semestral') {
+        if (periodo === 'Semestral') {
             sendMailSemestral(mail.mail, data.IMPONIBLE_ID, data.TR1E200_ID).then((response) => {
                 setDatos(response);
+                saveStats(tipo, 'Email', periodo, 1)
             });
         }
     };
@@ -66,33 +69,33 @@ export const Mail = ({
     const divCheckMail = (mail) => {
         if (datos == null) {
             return (
-              <>
-                <div>
-                  <h3 className="font-weight-bold text-primary">Su email es</h3>
-                </div>
-                <div>
-                  <h4 className="font-weight-bold text-primary" id="sumail">
-                    {mail.mail}
-                  </h4>
-                </div>
-                <div>
-                  <button
-                    onClick={() => callSendMail(tipo)}
-                    type="button"
-                    className="btn btn-success m-3"
-                  >
-                    SI
-                  </button>
+                <>
+                    <div>
+                        <h3 className="font-weight-bold text-primary">Su email es</h3>
+                    </div>
+                    <div>
+                        <h4 className="font-weight-bold text-primary" id="sumail">
+                            {mail.mail}
+                        </h4>
+                    </div>
+                    <div>
+                        <button
+                            onClick={() => callSendMail(periodo)}
+                            type="button"
+                            className="btn btn-success m-3"
+                        >
+                            SI
+                        </button>
 
-                  <button
-                    onClick={mailEquivocado}
-                    type="button"
-                    className="btn btn-primary m-3"
-                  >
-                    NO
-                  </button>
-                </div>
-              </>
+                        <button
+                            onClick={mailEquivocado}
+                            type="button"
+                            className="btn btn-primary m-3"
+                        >
+                            NO
+                        </button>
+                    </div>
+                </>
             );
         } else if (datos === 'esperando') {
             return <Cargando />;

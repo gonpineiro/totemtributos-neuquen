@@ -47,7 +47,7 @@ export const CuotasPagar = ({
               <Link
                 to={{
                   pathname: "/apps/totems/pagar-semestral/",
-                  state: { imponible },
+                  state: { imponible, tipo },
                 }}
                 className="btn btn-form active text-uppercase m-4"
               >

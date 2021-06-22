@@ -9,6 +9,7 @@ import { QrModal } from './QrModal'
 import { getQr, recibo } from './reciboAxios';
 import './recibo.scss';
 import { TIME_PRINT, TIME_PRINT_CONFIRM } from '../utils/const';
+import { saveStats } from '../utils/saveStats';
 
 export const Recibo = ({
     location: {
@@ -46,6 +47,7 @@ export const Recibo = ({
         setTimeout(() => setPrint('imprimiendo'), TIME_PRINT);
 
         setTimeout(() => setPrint('confirmacion'), TIME_PRINT_CONFIRM);
+        saveStats(tipo, 'Impresion', 'Mensual', impApagar.length)
     };
 
     const printQr = () => {
@@ -106,7 +108,7 @@ export const Recibo = ({
                                 <Link
                                     to={{
                                         pathname: '/apps/totems/mail/',
-                                        state: { recibo: pdf.recibo, tipo: 'recibo' },
+                                        state: { recibo: pdf.recibo, periodo: 'Mensual', tipo, cant: impApagar.length },
                                     }}
                                     className="btn btn-success mb-1 float-right"
                                 >

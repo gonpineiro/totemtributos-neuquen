@@ -7,11 +7,13 @@ import printIframe from '../utils/printIframe';
 
 import { ctaCorriente } from './ctaCorriente';
 import { TIME_PRINT, TIME_PRINT_CONFIRM } from '../utils/const';
+import { saveStats } from '../utils/saveStats';
 
 export const PagarSemestral = ({
     location: {
         state: {
             imponible: { tr02100_id },
+            tipo
         },
     },
 }) => {
@@ -41,6 +43,7 @@ export const PagarSemestral = ({
         setTimeout(() => setPrint('imprimiendo'), TIME_PRINT);
 
         setTimeout(() => setPrint('confirmacion'), TIME_PRINT_CONFIRM);
+        saveStats(tipo, 'Impresion', 'Semestral', 1)
     };
 
     if (print === 'imprimiendo') return <Cargando str={'Aguarde mientra se imprime su recibo'} />;
@@ -76,7 +79,7 @@ export const PagarSemestral = ({
                                 <Link
                                     to={{
                                         pathname: '/apps/totems/mail/',
-                                        state: { data: emision.data, tipo: 'semestral' },
+                                        state: { data: emision.data, periodo: 'Semestral', tipo },
                                     }}
                                     className="btn btn-success mb-1 float-right"
                                 >
