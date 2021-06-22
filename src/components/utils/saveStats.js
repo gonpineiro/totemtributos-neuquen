@@ -3,7 +3,7 @@ import qs from 'qs';
 
 export const saveStats = async (tributo, send_type, periodo, cant_imponible) => {
     // eslint-disable-next-line no-self-compare
-    const url = 'http://localhost/utils/public/postStats.php';
+    const url = 'https://weblogin.muninqn.gov.ar/apps/utils/public/postStats.php';
 
     const token = '2e556c639977413aa8f983e212ce17357664d150';
 
