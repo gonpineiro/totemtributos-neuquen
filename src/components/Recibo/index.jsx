@@ -9,7 +9,6 @@ import { QrModal } from './QrModal'
 import { getQr, recibo } from './reciboAxios';
 import './recibo.scss';
 import { TIME_PRINT, TIME_PRINT_CONFIRM } from '../utils/const';
-import { saveStats } from '../utils/saveStats';
 
 export const Recibo = ({
     location: {
@@ -47,7 +46,6 @@ export const Recibo = ({
         setTimeout(() => setPrint('imprimiendo'), TIME_PRINT);
 
         setTimeout(() => setPrint('confirmacion'), TIME_PRINT_CONFIRM);
-        saveStats(tipo, 'Impresion', 'Mensual', impApagar.length)
     };
 
     const printQr = () => {
@@ -77,7 +75,7 @@ export const Recibo = ({
 
     if (print === 'imprimiendo') return <Cargando str={'Aguarde mientra se imprime su recibo'} />;
 
-    if (print === 'confirmacion') return <Confirm msg={'¿Se logro imprimir?'} setPrint={setPrint} />;
+    if (print === 'confirmacion') return <Confirm msg={'¿Se logro imprimir?'} setPrint={setPrint} statsData={[tipo, 'Impresion', 'Mensual', impApagar.length]}/>;
 
     if (pdf === null || undefined) return <Cargando />;
 

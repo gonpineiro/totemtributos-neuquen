@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { saveStats } from '../utils/saveStats';
 import './index.scss';
 
 export const I = ({ classname }) => <i className={classname} aria-hidden="true"></i>;
@@ -94,7 +95,12 @@ export const Recycle = () => {
     );
 };
 
-export const Confirm = ({ msg, setPrint }) => {
+export const Confirm = ({ msg, setPrint, statsData }) => {
+    const returnRoot = () => {
+        saveStats(...statsData)
+        window.location.href = "/apps/totems";
+    }
+
     return (
         <div className="container">
             <div className="d-flex justify-content-center mt-5">
@@ -104,10 +110,10 @@ export const Confirm = ({ msg, setPrint }) => {
                         <p className="mensaje text-center">{msg}</p>
                     </div>
                     <div className="pt-3 text-center">
-                        <a href="/apps/totems" className="btn btn-primary active mb-1  text-center">
+                        <button className="btn btn-primary active mb-1  text-center" onClick={() => returnRoot()}>
                             SI
-                        </a>
-                        <button to="/apps/totems" className="btn btn-primary active mb-1  text-center" onClick={() => setPrint(null)}>
+                        </button>
+                        <button className="btn btn-primary active mb-1  text-center" onClick={() => setPrint(null)}>
                             NO
                         </button>
                     </div>
