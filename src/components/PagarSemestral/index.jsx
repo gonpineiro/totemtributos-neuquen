@@ -7,7 +7,6 @@ import printIframe from '../utils/printIframe';
 
 import { ctaCorriente } from './ctaCorriente';
 import { TIME_PRINT, TIME_PRINT_CONFIRM } from '../utils/const';
-import { saveStats } from '../utils/saveStats';
 
 export const PagarSemestral = ({
     location: {
@@ -43,12 +42,11 @@ export const PagarSemestral = ({
         setTimeout(() => setPrint('imprimiendo'), TIME_PRINT);
 
         setTimeout(() => setPrint('confirmacion'), TIME_PRINT_CONFIRM);
-        saveStats(tipo, 'Impresion', 'Semestral', 1)
     };
 
     if (print === 'imprimiendo') return <Cargando str={'Aguarde mientra se imprime su recibo'} />;
 
-    if (print === 'confirmacion') return <Confirm msg={'¿Se logro imprimir?'} setPrint={setPrint} />;
+    if (print === 'confirmacion') return <Confirm msg={'¿Se logro imprimir?'} setPrint={setPrint} statsData={[tipo, 'Impresion', 'Semestral', 1]}/>;
 
     if (emision === null || undefined) return <Cargando />;
 
